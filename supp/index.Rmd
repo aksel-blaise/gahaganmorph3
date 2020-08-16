@@ -1,0 +1,34 @@
+--- 
+title: "Supplementary materials for paper: Shape difference or shape change? Temporal and spatial dynamics of Gahagan biface morphology"
+author: "Robert Z. Selden, Jr."
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Gahagan biface shape change."
+---
+
+# Preliminaries {-}
+
+This volume is written in _Markdown_, and all files needed to reproduce it are included in the [GitHub repository](https://github.com/aksel-blaise/gahaganmorph3), which is digitally curated on the Open Science Framework. The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
+
+This investigation follows two recent morphological studies of the largest samples of Gahagan bifaces, and seeks to further characterize local morphological variation using intact or reconstructed Gahagan bifaces from Caddo and central Texas contexts. Gahagan bifaces are thought to have been imported from central Texas hunter-gatherers. While differences in Gahagan biface morphology have been demonstrated between the southern Caddo area and central Texas, this study posits that these differences represent potential shape changes through time. Results provide a preview of the dynamic temporal and morphological relationships associated with Gahagan bifaces recovered from Caddo and central Texas sites. Two models of Gahagan biface shape change are postulated, which warrant additional testing.
+
+```{r gahagan, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the southern Caddo area (SCA) and central Texas."}
+# embed image
+knitr::include_graphics('images/figure01.jpg')
+```
+
+Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN21001], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have—explicitly or implicitly—a major impact on scientific progress [@RN21008].
+
+Components of the undertaking presented in this volume are novel, and this basic research endeavour is rooted in archaeological epistemology. Sharing data is not enough, and if investigators share only data absent their analysis code, that places a substantive burden on those who may seek to build upon or replicate our work in the future. In this instance, the choice to pursue a replicable work flow occurs based upon the simple fact that this work is foundational, and meant to begin a discussion of the potential Gahagan biface shape trajectories.
+
+## Acknowledgments
+
+I extend my gratitude to the Caddo Tribe of Oklahoma, the Williamson Museum at Northwestern State University, the Louisiana State Exhibit Museum, the Texas Archeological Research Laboratory at The University of Texas at Austin, the Brazos Valley Museum of Natural History, the Texas Parks and Wildlife Department, and the Sam Noble Oklahoma Museum of Natural Science for the requisite permissions and access needed to generate the scans of the Hickory Engraved and Smithport Plain bottles, and the Gahagan bifaces. Thanks to Harry J. Shafer, Jeffrey S. Girard, Hiram F. (Pete) Gregory, Julian A. Sitters, Timothy K. Perttula, and David K. Thulman for their comments on a draft of this manuscript. Thanks also to Dean C. Adams, Michael L. Collyer, Emma Sherratt, Lauren Butaric, and Kersten Bergstrom for their constructive criticisms, comments, and suggestions throughout the development of this research programme, and to the editors and anonymous reviewers for their comments and constructive criticisms, which further improved the manuscript.
+
+## Funding
+
+Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to the author from the National Center for Preservation Technology and Training (NCPTT), and additional grants to the author from the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas (15-PA-11081300-033 and 20-PA-11081300-074). Funding to scan the Gahagan bifaces at the Williamson Museum at Northwestern State University, Louisiana State Exhibit Museum, Texas Archeological Research Laboratory at The University of Texas at Austin, and Sam Noble Oklahoma Museum of Natural Science was provided to the author by the Heritage Research Center at Stephen F. Austin State University.
