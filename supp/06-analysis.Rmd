@@ -21,7 +21,7 @@ source('readmulti.csv.R')
 # read .csv files
 setwd("./data")
 filelist <- list.files(pattern = ".csv")
-coords<-readmulti.csv(filelist)
+coords <- readmulti.csv(filelist)
 setwd("../")
 
 # read qualitative data
