@@ -24,7 +24,7 @@
 <meta name="author" content="Robert Z. Selden, Jr." />
 
 
-<meta name="date" content="2020-08-24" />
+<meta name="date" content="2020-08-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="modeling-geometry.html"/>
-<link rel="next" href="landmark-sampling-evaluation-curve.html"/>
+<link rel="next" href="landmark-sampling-evaluation-curve-lasec.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -168,7 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="landmarking-protocol.html"><a href="landmarking-protocol.html#landmark-and-semilandmark-placement"><i class="fa fa-check"></i><b>3.4</b> Landmark and semilandmark placement</a></li>
 <li class="chapter" data-level="3.5" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>3.5</b> Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="landmark-sampling-evaluation-curve.html"><a href="landmark-sampling-evaluation-curve.html"><i class="fa fa-check"></i><b>4</b> Landmark Sampling Evaluation Curve</a></li>
+<li class="chapter" data-level="4" data-path="landmark-sampling-evaluation-curve-lasec.html"><a href="landmark-sampling-evaluation-curve-lasec.html"><i class="fa fa-check"></i><b>4</b> Landmark Sampling Evaluation Curve (LaSEC)</a><ul>
+<li class="chapter" data-level="4.1" data-path="landmark-sampling-evaluation-curve-lasec.html"><a href="landmark-sampling-evaluation-curve-lasec.html#first-2d-iteration"><i class="fa fa-check"></i><b>4.1</b> First 2D iteration</a></li>
+<li class="chapter" data-level="4.2" data-path="landmark-sampling-evaluation-curve-lasec.html"><a href="landmark-sampling-evaluation-curve-lasec.html#first-3d-iteration"><i class="fa fa-check"></i><b>4.2</b> First 3D iteration</a></li>
+<li class="chapter" data-level="4.3" data-path="landmark-sampling-evaluation-curve-lasec.html"><a href="landmark-sampling-evaluation-curve-lasec.html#current-3d-iteration"><i class="fa fa-check"></i><b>4.3</b> Current 3D iteration</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html"><i class="fa fa-check"></i><b>5</b> Geometric morphometrics</a><ul>
 <li class="chapter" data-level="5.1" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#load-geomorph-and-data"><i class="fa fa-check"></i><b>5.1</b> Load geomorph and data</a></li>
 <li class="chapter" data-level="5.2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#generalised-procrustes-analysis"><i class="fa fa-check"></i><b>5.2</b> Generalised Procrustes Analysis</a></li>
@@ -205,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="landmarking-protocol" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Landmarking Protocol</h1>
 <p>The landmarking protocol developed for this project represents a substantial methodological advancement when contrasted with those protocols used in previous studies of Gahagan biface morphology <span class="citation">(Selden Jr., Dockall, and Shafer <a href="#ref-RN11783" role="doc-biblioref">2018</a>; Selden Jr., Dockall, and Dubied <a href="#ref-RN21001" role="doc-biblioref">2020</a>)</span>. This protocol represents the continued evolution of a research programme concerned with the development of a rigorous and replicable three-dimensional (3D) landmarking workflow, which simultaneously takes into account the complex design elements associated with individual bifaces. Landmark (LM) and semilandmark (sLM) placement was achieved through the construction of reference geometry in <em>Geomagic Design X (Build Version 2020.0.1 [Build Number: 30])</em>, used to expand the previous LM configuration, and capitalise upon additional design attributes. Reference geometry provides the foundation needed to apply the LM and sLM points at mathematically-defined locations. The result is a LM and sLM configuration that articulates with specific morphological features (plan views, profiles, and cross-sections), which have demonstrated utility in wide-ranging studies of biface and projectile point morphology.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="landmarking-protocol.html#cb54-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/figbev.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="landmarking-protocol.html#cb52-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/figbev.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:figbevx"></span>
 <img src="images/figbev.png" alt="Gahagan biface 545 from the Gahagan Mound site, illustrating axial twisting." width="1912" />
 <p class="caption">
@@ -216,7 +220,7 @@ Figure 3.1: Gahagan biface 545 from the Gahagan Mound site, illustrating axial t
 <div id="spline-1" class="section level2">
 <h2><span class="header-section-number">3.1</span> Spline 1</h2>
 <p>A spline was extracted using the surface geometry of the mesh with the <code>extract contour curves</code> command that allows for detection and extraction of 3D contour curves from high-curvature areas of the mesh. In reverse-engineering, <code>extract contour curves</code> is regularly employed as the first step in building a <code>patch network</code> used to construct a surface. The extracted feature curve is rendered as a spline, and follows the highest curvature contours around the periphery of the lateral and basal edges, following the highly variable sinuous edge morphology around the entirety of the biface <span class="citation">(Selden Jr., Dockall, and Dubied <a href="#ref-RN21001" role="doc-biblioref">2020</a>)</span>. The remainder of the landmarking protocol is based upon this spline, which was subsequently split at four mathematically-defined locations <span class="citation">(Selden Jr., Dockall, and Dubied <a href="#ref-RN21001" role="doc-biblioref">2020</a>)</span>.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="landmarking-protocol.html#cb55-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/extractspline.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="landmarking-protocol.html#cb53-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/extractspline.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:figspline"></span>
 <img src="images/extractspline.png" alt="Spline extracted along the highest contours of the projectile." width="100%" />
 <p class="caption">
@@ -230,7 +234,7 @@ Figure 3.2: Spline extracted along the highest contours of the projectile.
 <div id="split-spline-1-at-location-of-lm-01" class="section level4">
 <h4><span class="header-section-number">3.1.1.1</span> Split Spline 1 at location of LM 01</h4>
 <p>The <code>horizontal tangent</code> is calculated by drawing a horizontal line above the tip of each biface using the tangent as a <code>common constraint</code>, and the horizontal as the <code>independent constraint</code>. To split the 3D spline at the location of the horizontal tangent, a <code>reference point</code> was inserted at the location of the <code>tangent</code> in the 2D sketch (light blue point; below, left), followed by a <code>reference plane</code> (in white; below, left and right) using the <code>pick point and normal axis</code> function where the <code>reference point</code> (h-tangent) was used as the <code>pick point</code>, and the <code>Right plane</code> as the <code>normal axis</code> (below, left). The 3D spline was then cut at the location where the <code>reference plane</code> intersected with the spline (below image, right).</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="landmarking-protocol.html#cb56-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/lm1.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="landmarking-protocol.html#cb54-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/lm1.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:figlm1"></span>
 <img src="images/lm1.png" alt="Identify horizontal tangent, insert reference point and reference plane (left). Use reference plane to cut spline at the location of the horizontal tangent (right)." width="100%" />
 <p class="caption">
@@ -241,7 +245,7 @@ Figure 3.3: Identify horizontal tangent, insert reference point and reference pl
 <div id="split-spline-1-at-locations-of-lm-02-and-lm-03" class="section level4">
 <h4><span class="header-section-number">3.1.1.2</span> Split Spline 1 at locations of LM 02 and LM 03</h4>
 <p>The point of highest curvature on either side of the basal edge was calculated using the <code>curvature</code> function in the Accuracy Analyser. This function displays the curvature flow as a continuous colour plot across the area of the curve. In this instance, <em>curvature</em> is defined as the amount by which a geometric shape deviates from being flat or straight in the case of a line. The curvature is displayed in different colours according to the local radius, and is calculated in only one direction (U or V) along the curve. Using this tool, the two points of highest curvature were located between the basal and lateral edges on either side of each biface where the local radius measure was largest. The alignment and orientation of each biface was dictated by the <em>auto3dgm</em> output, and the landmarking protocol follows the mesh orientation, where LM 02 was always placed on the right side of the basal edge, and LM03 on the left.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="landmarking-protocol.html#cb57-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/splinesplit1.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="landmarking-protocol.html#cb55-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/splinesplit1.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:figcurve"></span>
 <img src="images/splinesplit1.png" alt="Identify points of hightest curvature (light blue) at left/right intersection of lateral and basal edges." width="100%" />
 <p class="caption">
@@ -252,7 +256,7 @@ Figure 3.4: Identify points of hightest curvature (light blue) at left/right int
 <div id="split-spline-1-at-location-of-lm-04" class="section level4">
 <h4><span class="header-section-number">3.1.1.3</span> Split Spline 1 at location of LM 04</h4>
 <p>One additional landmark (LM 04) was placed at the centre of the base. The location of this LM was identified by calculating the linear distance between LM2 and LM3, and projecting a <code>reference point</code> (ctrl-div; below) equidistant between the two. A <code>reference plane</code> was added using the ctrl-div as the pick point, and the <code>Right plane</code> as the <code>normal axis</code>. The spline was then split at the intersection of the <code>reference plane</code> and the basal spline.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="landmarking-protocol.html#cb58-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/lm4.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="landmarking-protocol.html#cb56-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/lm4.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:figlm4"></span>
 <img src="images/lm4.png" alt="Calculate linear distance between LM2 and LM3, insert reference plane coplanar to Right plane equidistant between LM2 and LM3, and use the reference plane to cut the spline." width="100%" />
 <p class="caption">
@@ -268,7 +272,7 @@ Figure 3.5: Calculate linear distance between LM2 and LM3, insert reference plan
 <div id="vector-1-point-2-and-plane-2" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Vector 1, Point 2, and Plane 2</h3>
 <p>A linear <code>reference vector</code> (vector1) was inserted between LM 01 and LM 04, and a <code>reference point</code> (ref.pt.2) placed equidistant between the two landmarks along vector1. The Z-coordinates of ref.pt.2 were altered to relocate it 15mm from vector1 in the direction of the Z-axis, while otherwise maintaining its’ alignment with vector 1. The <code>pick point and coplanar</code> function was used to place a <code>reference plane</code> (Plane 2) along vector1 in the direction of ref.pt.2, bisecting the biface along the Z-axis—perpendicular to the lateral edges—between LM 01 and LM 04.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="landmarking-protocol.html#cb59-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/vecptplane.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="landmarking-protocol.html#cb57-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/vecptplane.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:vecptplane"></span>
 <img src="images/vecptplane.png" alt="Vector placed between LM 01 and 04, ref.pt.2 equidistant between the landmarks along the vector, then the Z-coordinates were altered to offset the point 15mm from the vector (left two images). The vector and ref.pt.2 were subsequently used to place a plane coplanar to the vector in the direction of ref.pt.2 using the `pick point and coplanar axis` function (right two images)." width="100%" />
 <p class="caption">
@@ -279,7 +283,7 @@ Figure 3.6: Vector placed between LM 01 and 04, ref.pt.2 equidistant between the
 <div id="planes-3-and-4" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Planes 3 and 4</h3>
 <p>Using the same method, a <code>reference vector</code> (vector2) was inserted between LM 02 and LM 03, and a <code>reference point</code> (ref.pt.3) was placed equidistant between the two LMs along vector 2. The Z-coordinates of ref.pt.3 were similarly altered to relocate it 15 mm from vector2 in the direction of the Z-axis. The <code>pick point and coplanar axis</code> function was used to place a <code>reference plane</code> (Plane 3) along vector 2 in the direction of ref.pt.3, bisecting the biface along the X-axis—parallel to the base—between LM 02 and LM 03. A fourth <code>reference plane</code> (Plane 4) was subsequently inserted using the <code>pick point and normal axis</code> function that yielded a plane at the intersection of LM 01 and vector1. These two planes serve as the basis for the equidistant cross-sections.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="landmarking-protocol.html#cb60-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/plane3-4.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="landmarking-protocol.html#cb58-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/plane3-4.png&#39;</span>)</span></code></pre></div>
 <div class="figure">
 <img src="images/plane3-4.png" alt="Vector placed between LM 01 and 04, ref.pt.2 equidistant between the landmarks along the vector, then the Z-coordinates were altered to offset the point 15mm from the vector (left two images). The vector and ref.pt.3 were subsequently used to place a plane coplanar to the vector in the direction of ref.pt.3 using the `pick point and coplanar axis` function. Plane 4 was inserted using the `pick point and normal axis` function with vector1 as the normal axis, and LM 01 as the pick point." width="100%" />
 <p class="caption">
@@ -291,7 +295,7 @@ Figure 3.6: Vector placed between LM 01 and 04, ref.pt.2 equidistant between the
 <div id="cross-sections" class="section level2">
 <h2><span class="header-section-number">3.3</span> Cross-sections</h2>
 <p>Ten equidistant cross-sections were inserted between the <code>reference planes</code> (Planes 3 and 4) using the <code>section</code> function. The resulting cross-sections are split at the points of highest curvature on the lateral edges, and along the mid-line of the point where they intersect with Plane 2.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="landmarking-protocol.html#cb61-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/cross.10.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="landmarking-protocol.html#cb59-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/cross.10.png&#39;</span>)</span></code></pre></div>
 <div class="figure">
 <img src="images/cross.10.png" alt="Ten equidistant cross-sections were inserted between Plane 3 and Plane 4." width="100%" />
 <p class="caption">
@@ -301,7 +305,7 @@ Figure 3.6: Vector placed between LM 01 and 04, ref.pt.2 equidistant between the
 <div id="splitting-cross-sections-step-1" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Splitting cross-sections (Step 1)</h3>
 <p>Cross-sections were split at the intersection of the horizontal splines and Plane 2. The resulting reference geometry provides a means of analyzing the contribution of the morphology associated with the projectile’s profile, and divides the landmarking configuration into two discrete components (L/R) that can be used in subsequent analyses of bilateral asymmetry.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="landmarking-protocol.html#cb62-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/cut.cross.plane2.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="landmarking-protocol.html#cb60-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/cut.cross.plane2.png&#39;</span>)</span></code></pre></div>
 <div class="figure">
 <img src="images/cut.cross.plane2.png" alt="Cross-sections were cut where they intersect with Plane 2, along the mid-line of the projectile between LM 01 and LM 04." width="100%" />
 <p class="caption">
@@ -312,7 +316,7 @@ Figure 3.6: Vector placed between LM 01 and 04, ref.pt.2 equidistant between the
 <div id="splitting-cross-sections-step-2" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Splitting cross-sections (Step 2)</h3>
 <p>Cross sections were split at points of highest curvature along the lateral edges of the projectile. These sLMs contribute to the analysis of the projectile in plan view, but also follow the dynamic 3D contours associated with the sinuous edge.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="landmarking-protocol.html#cb63-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/pt.high.curv.split.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="landmarking-protocol.html#cb61-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/pt.high.curv.split.png&#39;</span>)</span></code></pre></div>
 <div class="figure">
 <img src="images/pt.high.curv.split.png" alt="Spline splits (blue dots) along the lateral edges occur at the point of highest curvature. These splits occur at known coordinates used to add the semilandmarks." width="100%" />
 <p class="caption">
@@ -324,7 +328,7 @@ Figure 3.6: Vector placed between LM 01 and 04, ref.pt.2 equidistant between the
 <div id="landmark-and-semilandmark-placement" class="section level2">
 <h2><span class="header-section-number">3.4</span> Landmark and semilandmark placement</h2>
 <p>LMs 01-04 were placed at the locations of spline splits following the same protocol enlisted by the previous study (blue points, below) <span class="citation">(Selden Jr., Dockall, and Dubied <a href="#ref-RN21001" role="doc-biblioref">2020</a>)</span>. Five equidistant sLMs were added between LM 02 and LM 04, and between LM 04 and LM 03. Along the mid-line, sLMs were numbered from top to bottom along front and back, then from top to bottom along the right and left lateral edges, using the output alignment dictated by <em>auto3dgm</em>. Four additional semilandmarks were placed equidistant between the lateral edge and mid-line on each of the 10 horizontal splines.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="landmarking-protocol.html#cb64-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/lmslm-allplanes.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="landmarking-protocol.html#cb62-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/lmslm-allplanes.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:figlmslm-all"></span>
 <img src="images/lmslm-allplanes.png" alt="Reference geometry and 3D splines with landmarks (blue) and semilandmarks (white) applied." width="100%" />
 <p class="caption">
@@ -357,7 +361,7 @@ Figure 3.7: Reference geometry and 3D splines with landmarks (blue) and semiland
         </div>
       </div>
 <a href="modeling-geometry.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="landmark-sampling-evaluation-curve.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="landmark-sampling-evaluation-curve-lasec.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
