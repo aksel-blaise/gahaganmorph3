@@ -204,28 +204,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="landmark-sampling-evaluation-curve" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Landmark Sampling Evaluation Curve</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="landmark-sampling-evaluation-curve.html#cb1-1"></a><span class="co"># load package</span></span>
-<span id="cb1-2"><a href="landmark-sampling-evaluation-curve.html#cb1-2"></a><span class="co">#devtools::install_github(&quot;akiopteryx/lambda&quot;)</span></span>
-<span id="cb1-3"><a href="landmark-sampling-evaluation-curve.html#cb1-3"></a><span class="co">#library(LaMBDA)</span></span>
-<span id="cb1-4"><a href="landmark-sampling-evaluation-curve.html#cb1-4"></a></span>
-<span id="cb1-5"><a href="landmark-sampling-evaluation-curve.html#cb1-5"></a><span class="co"># set working directory</span></span>
-<span id="cb1-6"><a href="landmark-sampling-evaluation-curve.html#cb1-6"></a><span class="co">#setwd(getwd())</span></span>
-<span id="cb1-7"><a href="landmark-sampling-evaluation-curve.html#cb1-7"></a><span class="co">#source(&#39;readmulti.csv.R&#39;)</span></span>
-<span id="cb1-8"><a href="landmark-sampling-evaluation-curve.html#cb1-8"></a></span>
-<span id="cb1-9"><a href="landmark-sampling-evaluation-curve.html#cb1-9"></a><span class="co"># read .csv files</span></span>
-<span id="cb1-10"><a href="landmark-sampling-evaluation-curve.html#cb1-10"></a><span class="co">#setwd(&quot;./data&quot;)</span></span>
-<span id="cb1-11"><a href="landmark-sampling-evaluation-curve.html#cb1-11"></a><span class="co">#filelist &lt;- list.files(pattern = &quot;.csv&quot;)</span></span>
-<span id="cb1-12"><a href="landmark-sampling-evaluation-curve.html#cb1-12"></a><span class="co">#lmdata &lt;- readmulti.csv(filelist)</span></span>
-<span id="cb1-13"><a href="landmark-sampling-evaluation-curve.html#cb1-13"></a><span class="co">#lmdata &lt;- two.d.array(lmdata)</span></span>
-<span id="cb1-14"><a href="landmark-sampling-evaluation-curve.html#cb1-14"></a><span class="co">#setwd(&quot;../&quot;)</span></span>
-<span id="cb1-15"><a href="landmark-sampling-evaluation-curve.html#cb1-15"></a></span>
-<span id="cb1-16"><a href="landmark-sampling-evaluation-curve.html#cb1-16"></a><span class="co"># analysis</span></span>
-<span id="cb1-17"><a href="landmark-sampling-evaluation-curve.html#cb1-17"></a><span class="co">#lasec(coord.data = lmdata, n.dim = 3, iter = 10000)</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="landmark-sampling-evaluation-curve.html#cb2-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/3d1.lasec.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="landmark-sampling-evaluation-curve.html#cb65-1"></a><span class="co"># load package</span></span>
+<span id="cb65-2"><a href="landmark-sampling-evaluation-curve.html#cb65-2"></a><span class="co">#devtools::install_github(&quot;akiopteryx/lambda&quot;)</span></span>
+<span id="cb65-3"><a href="landmark-sampling-evaluation-curve.html#cb65-3"></a><span class="co">#library(LaMBDA)</span></span>
+<span id="cb65-4"><a href="landmark-sampling-evaluation-curve.html#cb65-4"></a></span>
+<span id="cb65-5"><a href="landmark-sampling-evaluation-curve.html#cb65-5"></a><span class="co"># set working directory</span></span>
+<span id="cb65-6"><a href="landmark-sampling-evaluation-curve.html#cb65-6"></a><span class="co">#setwd(getwd())</span></span>
+<span id="cb65-7"><a href="landmark-sampling-evaluation-curve.html#cb65-7"></a><span class="co">#source(&#39;readmulti.csv.R&#39;)</span></span>
+<span id="cb65-8"><a href="landmark-sampling-evaluation-curve.html#cb65-8"></a></span>
+<span id="cb65-9"><a href="landmark-sampling-evaluation-curve.html#cb65-9"></a><span class="co"># read .csv files</span></span>
+<span id="cb65-10"><a href="landmark-sampling-evaluation-curve.html#cb65-10"></a><span class="co">#setwd(&quot;./data&quot;)</span></span>
+<span id="cb65-11"><a href="landmark-sampling-evaluation-curve.html#cb65-11"></a><span class="co">#filelist &lt;- list.files(pattern = &quot;.csv&quot;)</span></span>
+<span id="cb65-12"><a href="landmark-sampling-evaluation-curve.html#cb65-12"></a><span class="co">#lmdata &lt;- readmulti.csv(filelist)</span></span>
+<span id="cb65-13"><a href="landmark-sampling-evaluation-curve.html#cb65-13"></a><span class="co">#lmdata &lt;- two.d.array(lmdata)</span></span>
+<span id="cb65-14"><a href="landmark-sampling-evaluation-curve.html#cb65-14"></a><span class="co">#setwd(&quot;../&quot;)</span></span>
+<span id="cb65-15"><a href="landmark-sampling-evaluation-curve.html#cb65-15"></a></span>
+<span id="cb65-16"><a href="landmark-sampling-evaluation-curve.html#cb65-16"></a><span class="co"># analysis</span></span>
+<span id="cb65-17"><a href="landmark-sampling-evaluation-curve.html#cb65-17"></a><span class="co">#lasec(coord.data = lmdata, n.dim = 3, iter = 10000)</span></span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="landmark-sampling-evaluation-curve.html#cb66-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/3d1.lasec.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:figbev"></span>
-<img src="images/3d1.lasec.png" alt="LaSEC Sampling Curve (CS) for 3D1 (left), and LaSEC Sampling Curve_Shape for 3D1 (right). These results were produced using the code above for this 3D dataset, using 10,000 iterations." width="2166" />
+<img src="images/3d1.lasec.png" alt="LaSEC Sampling Curve (CS) for 3D1 (left), and LaSEC Sampling Curve_Shape for 3D1 (right). Results produced using the code above for this 3D dataset, using 10,000 iterations. Images converted to PNG following export." width="2166" />
 <p class="caption">
-Figure 4.1: LaSEC Sampling Curve (CS) for 3D1 (left), and LaSEC Sampling Curve_Shape for 3D1 (right). These results were produced using the code above for this 3D dataset, using 10,000 iterations.
+Figure 4.1: LaSEC Sampling Curve (CS) for 3D1 (left), and LaSEC Sampling Curve_Shape for 3D1 (right). Results produced using the code above for this 3D dataset, using 10,000 iterations. Images converted to PNG following export.
 </p>
 </div>
 

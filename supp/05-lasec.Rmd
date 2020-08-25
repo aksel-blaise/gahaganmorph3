@@ -1,6 +1,6 @@
 # Landmark Sampling Evaluation Curve
 
-```{r, load.package, echo=TRUE}
+```{r, load.lasec.package, echo=TRUE}
 # load package
 #devtools::install_github("akiopteryx/lambda")
 #library(LaMBDA)

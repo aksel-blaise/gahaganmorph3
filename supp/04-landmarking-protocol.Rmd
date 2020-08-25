@@ -2,7 +2,7 @@
 
 The landmarking protocol developed for this project represents a substantial methodological advancement when contrasted with those protocols used in previous studies of Gahagan biface morphology [@RN11783;@RN21001]. This protocol represents the continued evolution of a research programme concerned with the development of a rigorous and replicable three-dimensional (3D) landmarking workflow, which simultaneously takes into account the complex design elements associated with individual bifaces. Landmark (LM) and semilandmark (sLM) placement was achieved through the construction of reference geometry in _Geomagic Design X (Build Version 2020.0.1 [Build Number: 30])_, used to expand the previous LM configuration, and capitalise upon additional design attributes. Reference geometry provides the foundation needed to apply the LM and sLM points at mathematically-defined locations. The result is a LM and sLM configuration that articulates with specific morphological features (plan views, profiles, and cross-sections), which have demonstrated utility in wide-ranging studies of biface and projectile point morphology.
 
-```{r figbev, fig.cap="Gahagan biface 545 from the Gahagan Mound site, illustrating axial twisting."}
+```{r figbevx, fig.cap="Gahagan biface 545 from the Gahagan Mound site, illustrating axial twisting."}
 knitr::include_graphics('images/figbev.png')
 ```
 
