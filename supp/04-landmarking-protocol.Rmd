@@ -88,7 +88,7 @@ knitr::include_graphics('images/cross.10.png')
 
 ### Splitting cross-sections (Step 1)
 
-Cross-sections were split at the intersection of the horizontal splines and Plane 2. The resulting reference geometry provides a means of analyzing the contribution of the morphology associated with the projectile's profile, and divides the landmarking configuration into two discrete components (L/R) that can be used in subsequent analyses of bilateral asymmetry.
+Cross-sections were split at the intersection of each horizontal curve and `reference plane` 2 (ref.pl.2). The resulting `reference geometry` provides a means of analysing the contribution of the morphology associated with the projectile's profile, and divides the landmarking configuration into two discrete components (plan and profile view) that can be used in the subsequent analysis.
 
 ```{r cut.cross.plane2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Cross-sections were cut where they intersect with Plane 2, along the mid-line of the projectile between LM 01 and LM 04."}
 knitr::include_graphics('images/cut.cross.plane2.png')
@@ -96,7 +96,7 @@ knitr::include_graphics('images/cut.cross.plane2.png')
 
 ### Splitting cross-sections (Step 2)
 
-Cross sections were split at points of highest curvature along the lateral edges of the projectile. These sLMs contribute to the analysis of the projectile in plan view, but also follow the dynamic 3D contours associated with the sinuous edge.
+Cross sections were then split at points of highest curvature along the lateral edges of the projectile. These sLMs contribute to the analysis of the projectile in plan view, and follow the dynamic---and unique---3D contours associated with the sinuous edge of each biface.
 
 ```{r pt.high.curv.split, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Spline splits (blue dots) along the lateral edges occur at the point of highest curvature. These splits occur at known coordinates used to add the semilandmarks."}
 knitr::include_graphics('images/pt.high.curv.split.png')
@@ -104,14 +104,14 @@ knitr::include_graphics('images/pt.high.curv.split.png')
 
 ## Landmark and semilandmark placement
 
-LMs 01-04 were placed at the locations of spline splits following the same protocol enlisted by the previous study (blue points, below) [@RN21001]. Five equidistant sLMs were added between LM 02 and LM 04, and between LM 04 and LM 03. Along the mid-line, sLMs were numbered from top to bottom along front and back, then from top to bottom along the right and left lateral edges, using the output alignment dictated by _auto3dgm_. Four additional semilandmarks were placed equidistant between the lateral edge and mid-line on each of the 10 horizontal splines.
+LMs 01-04 were placed at the locations of spline splits following the same protocol enlisted by the previous study (blue points, below) [@RN21001]. Two equidistant sLMs were added between LM 02 and LM 04, and between LM 04 and LM 03. Along the mid-line, sLMs were numbered from top to bottom along the right and left lateral edges, then from top to bottom along mid-line of the biface, using the principal alignment output dictated by _auto3dgm_.
 
-```{r figlmslm-all, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Reference geometry and 3D splines with landmarks (blue) and semilandmarks (white) applied."}
+```{r figlmslm-all, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Reference geometry and 3D curves with landmarks (blue) and semilandmarks (white) applied."}
 knitr::include_graphics('images/lmslm-allplanes.png')
 ```
 
-The resulting constellation of LMs and sLMs can be parsed and divided to answer wide-ranging morphological questions related to Gahagan bifaces, marking a substantive advancement in the analysis of Gahagan biface morphology.
+The resulting constellation of LMs and sLMs can be parsed and divided to answer wide-ranging morphological questions related to Gahagan bifaces, marking a substantive advancement in the analysis of Gahagan biface morphology. The design of the `reference geometry` used in LM3d2 can also be expanded to include additional configurations of semilandmarks depending upon the research question. 
 
 ## Acknowledgments
 
-I extend my gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of this landmarking protocol. The current iteration of the landmarking protocol was developed using the `digit3DLand` package in R (code available in this repository); however, the capacity to populate a replicable suite of reference geometry across the sample in _Geomagic Design X_ made it a better option for the dynamic design process.
+I extend my gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of this landmarking protocol. The current iteration of the landmarking protocol was developed using the `digit3DLand` package in R (code available in this repository); however, the capacity to populate a replicable suite of `reference geometry` across the sample in _Geomagic Design X_ provides a means of making this design process extensible.
