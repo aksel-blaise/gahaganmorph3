@@ -10,7 +10,7 @@ knitr::include_graphics('images/figure02.jpg')
 
 ```{r load geomorph, setwd, and load data, echo=TRUE}
 # load geomorph
-devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
+#devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
 library(geomorph)
 library(wesanderson)
 

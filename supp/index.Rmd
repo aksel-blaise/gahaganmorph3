@@ -1,5 +1,5 @@
 --- 
-title: "Supplementary materials for paper: Shape difference or shape change? Temporal and spatial dynamics of Gahagan biface morphology"
+title: "Supplementary materials for paper: Temporal and spatial dynamics of Gahagan biface morphology"
 author: "Robert Z. Selden, Jr."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -14,7 +14,7 @@ description: "Gahagan biface shape change."
 
 This volume is written in _Markdown_, and all files needed to reproduce it are included in the [GitHub repository](https://github.com/aksel-blaise/gahaganmorph3), which is digitally curated on the Open Science Framework. The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
 
-This investigation follows two recent morphological studies of the largest samples of Gahagan bifaces, and seeks to further characterize local morphological variation using intact or reconstructed Gahagan bifaces from Caddo and central Texas contexts. Gahagan bifaces are thought to have been imported from central Texas hunter-gatherers. While differences in Gahagan biface morphology have been demonstrated between the southern Caddo area and central Texas, this study posits that these differences represent potential shape changes through time. Results provide a preview of the dynamic temporal and morphological relationships associated with Gahagan bifaces recovered from Caddo and central Texas sites. Two models of Gahagan biface shape change are postulated, which warrant additional testing.
+This investigation follows two recent morphological studies of the largest samples of Gahagan bifaces [@RN11783;@RN21001], and seeks to further characterize spatial variation. Gahagan bifaces are thought to have been imported by the Caddo from central Texas hunter-gatherers. While differences in Gahagan biface morphology have been demonstrated between the southern Caddo area and central Texas, this study explores whether these differences represent potential shape changes through time. Results provide a preview of the dynamic temporal, spatial, and morphological relationships associated with Gahagan bifaces recovered from Caddo and central Texas sites. Two models of Gahagan biface shape change are postulated, which warrant further scrutiny.
 
 ```{r gahagan, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the southern Caddo area (SCA) and central Texas."}
 # embed image
@@ -27,7 +27,7 @@ Components of the undertaking presented in this volume are novel, and this basic
 
 ## Acknowledgments
 
-I extend my gratitude to the Caddo Tribe of Oklahoma, the Williamson Museum at Northwestern State University, the Louisiana State Exhibit Museum, the Texas Archeological Research Laboratory at The University of Texas at Austin, the Brazos Valley Museum of Natural History, the Texas Parks and Wildlife Department, and the Sam Noble Oklahoma Museum of Natural Science for the requisite permissions and access needed to generate the scans of the Hickory Engraved and Smithport Plain bottles, and the Gahagan bifaces. Thanks to Harry J. Shafer, Jeffrey S. Girard, Hiram F. (Pete) Gregory, Julian A. Sitters, Timothy K. Perttula, and David K. Thulman for their comments on a draft of this manuscript. Thanks also to Dean C. Adams, Michael L. Collyer, Emma Sherratt, Lauren Butaric, and Kersten Bergstrom for their constructive criticisms, comments, and suggestions throughout the development of this research programme, and to the editors and anonymous reviewers for their comments and constructive criticisms, which further improved the manuscript.
+I extend my gratitude to the Caddo Tribe of Oklahoma, the Williamson Museum at Northwestern State University, the Louisiana State Exhibit Museum, the Texas Archeological Research Laboratory at The University of Texas at Austin, the Brazos Valley Museum of Natural History, the Texas Parks and Wildlife Department, and the Sam Noble Oklahoma Museum of Natural Science for the requisite permissions and access needed to generate the 3D scans of the Gahagan bifaces. Thanks to Harry J. Shafer, Jeffrey S. Girard, Hiram F. (Pete) Gregory, Julian A. Sitters, Timothy K. Perttula, and David K. Thulman for their comments on manuscripts associated with Gahagan biface shape. Thanks also to Dean C. Adams, Michael L. Collyer, Emma Sherratt, Lauren Butaric, and Kersten Bergstrom for their constructive criticisms, comments, and suggestions throughout the development of this research programme, and to the editors and anonymous reviewers for their comments and constructive criticisms, which further improved the manuscript.
 
 ## Funding
 
