@@ -15,7 +15,11 @@ What follows is a critical retrospective regarding the 2D and 3D landmark config
 
 ## First 2D iteration
 
-In the initial 2D configuration [@RN11783, Figure 3], the silhouette of each biface was projected onto a reference plane. The locations of the three landmarks and 43 equidistant semilandmarks were defined using a suite of reference geometry. Although the analysis itself is of a 2D shape, that configuration was generated in 3D space, where each landmark and semilandmark articulates with an x, y, and z coordinate, so the analysis of this landmark configuration uses three dimensions.
+In the initial 2D configuration [@RN11783, Figure 3], the silhouette of each biface was projected onto a `reference plane`. The locations of the three landmarks and 43 equidistant semilandmarks were defined using a suite of `reference geometry`. Although the analysis itself is of a 2D shape, that configuration was generated in 3D space, where each landmark and semilandmark articulates with an x, y, and z coordinate, so the analysis of this landmark configuration uses three dimensions.
+
+```{r fig.gahaganmorph.xr1, fig.cap="The landmarking protocol used in the 2D analysis of Gahagan bifaces, where all landmarks and semilandmarks were projected onto a plane."}
+knitr::include_graphics('images/gahaganmorph.jpg')
+```
 
 ```{r, load.lasec.package.2d1, echo=TRUE}
 # load package
@@ -43,11 +47,15 @@ Results demonstrate that eight landmarks are necessary to achieve a median fit v
 knitr::include_graphics('images/2d1.lasec.png')
 ```
 
-Results demonstrate saltation, illustrating that some landmarks are critical for capturing shape information [@RN28913]. Dynamic as the Gahagan bifaces may be in shape, the variation in shape might have been captured with a landmarking protocol that employed fewer equidistant semilandmarks along the edges and base. 
+Results demonstrate saltation, illustrating that some landmarks are critical for capturing shape information [@RN28913]. Dynamic as Gahagan bifaces may be in shape, the variation in shape might have been captured with a landmarking protocol that employed fewer equidistant semilandmarks along the edges and base. 
 
 ## First 3D iteration
 
-In the initial 3D configuration [@RN21001, Figure 8] was applied following alignment in `auto3dgm`, was originally designed using the R package `digit3DLand`, prior to migrating the protocol to _Geomagic Design X_. During the previous analysis, it was noted that some of the Gahagan bifaces evidenced axial twisting, which was more apparent in the sample from central Texas. In order to capitalise on this dynamic edge morphology, a new 3D [landmarking protocol](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md) was developed that enlisted four landmarks, and 50 semilandmarks. Like the 2D landmarking protocol that preceded it, this 3D landmarking protocol was based upon the placement of specific elements of reference geometry.
+In the initial 3D configuration [@RN21001] was applied following alignment in `auto3dgm`, was originally designed using the R package `digit3DLand`, prior to migrating the protocol to _Geomagic Design X_. During the previous analysis, it was noted that some of the Gahagan bifaces evidenced axial twisting, which was more apparent in the sample from central Texas. In order to capitalise on this dynamic edge morphology, a new 3D [landmarking protocol](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md) was developed that enlisted four landmarks, and 50 semilandmarks. Like the 2D landmarking protocol that preceded it, this 3D landmarking protocol was based upon the placement of specific elements of reference geometry.
+
+```{r fig.gahaganmorph2.xr2, fig.cap="The first [3D landmarking protocol](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md) (LM3d1) used to analyse Gahagan bifaces, which captured those attributes associated with axial twisting."}
+knitr::include_graphics('images/gahaganmorph2.png')
+```
 
 ```{r, load.lasec.package.3d1, echo=TRUE}
 # read .csv files
@@ -71,18 +79,8 @@ Results demonstrate saltation, illustrating that some landmarks are critical for
 
 ## Current 3D iteration
 
-```{r, load.lasec.package.3d2, echo=TRUE}
-# read .csv files
-#setwd("./data.3d2")
-#filelist <- list.files(pattern = ".csv")
-#lmdata.3d2 <- readmulti.csv(filelist)
-#lmdata.3d2 <- two.d.array(lmdata.3d2)
-#setwd("../")
-
-# analysis
-#lasec(coord.data = lmdata.3d2, n.dim = 3, iter = 1000)
-```
+Based upon the results of running `LaSEC` on the 2D landmarks as well as LM3d1, the current iteration adopted a configuration with the same landmarks used in LM3d1, but with fewer semilandmarks along the same curves (lateral/basal edges) as a means of increasing the overall precision of the geometric morphometric analysis.
 
 ## Acknowledgments
 
-I extend my gratitude to David K. Thulman for bringing `LaSEC` to my attention, and to Akinobu Watanabe for guidance related to the evaluation of these three landmarking protocols.
+I extend my gratitude to David K. Thulman for bringing `LaSEC` to my attention, and to Akinobu Watanabe for guidance related to the evaluation of these landmarking protocols.
