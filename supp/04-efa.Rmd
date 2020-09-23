@@ -8,15 +8,14 @@ library(here)
 library(Momocs)
 
 # read images
-jpg.list <- list.files(here("/jpg"), full.names = TRUE)
+jpg.list <- list.files(here("/jpegs"), full.names = TRUE)
 
 # read attribute data
-att.data <- read.csv("qdata.csv", 
-                     header = TRUE, 
-                     as.is = TRUE)
+att.data <- read.csv("qdata.csv", header = TRUE, as.is = TRUE)
 
 # attributes to factors
-att.data$site <- as.factor(att.data$site)
+att.data$sitename <- as.factor(att.data$sitename)
+att.data$region2 <- as.factor(att.data$region2)
 ```
 
 ## Generate outlines
@@ -45,7 +44,7 @@ norm.outlines <- data.out %>%
 pile(norm.outlines)
 
 # mosaic of individual specimens from the different sites
-mosaic(norm.outlines, ~site)
+mosaic(norm.outlines, ~region2)
 ```
 
 ## Calibrate harmonic + EFA
