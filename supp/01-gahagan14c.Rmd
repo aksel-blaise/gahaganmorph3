@@ -3,7 +3,7 @@
 Further information regarding the radiocarbon dates discussed below can be found in the text of the previous article [@RN21001], and those references cited below.
 
 ```{r install, echo = TRUE}
-# devtools::install_github('ISAAKiel/oxcAAR')
+#devtools::install_github('ISAAKiel/oxcAAR')
 # load oxcAAR and OxCal
 library(oxcAAR)
 quickSetupOxcal()

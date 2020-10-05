@@ -2,7 +2,7 @@
 
 ## Load packages + data
 
-```{r load.packages, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+```{r load.packages.efa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # load packages
 library(here)
 library(Momocs)
@@ -27,7 +27,7 @@ outlines <- jpg.list %>%
 
 # add attributes
 data.out <- Out(outlines, 
-         fac = att.data)
+                fac = att.data)
 
 # scale, align, rotate, and center specimens
 norm.outlines <- data.out %>% 
@@ -43,7 +43,7 @@ norm.outlines <- data.out %>%
 # outline pile
 pile(norm.outlines)
 
-# mosaic of individual specimens from the different sites
+# mosaic of individual specimens from the different regions
 mosaic(norm.outlines, ~region2)
 ```
 
@@ -73,13 +73,13 @@ pca.outlines <- PCA(efa.outlines)
 # pca 
 scree_plot(pca.outlines)
 
-# plot pca by site
+# plot pca by region
 plot_PCA(pca.outlines, 
          morphospace_position = "range",
-         ~site, zoom = 1.25)
+         ~region2, zoom = 1.25)
 
 # contribution of each pc
-boxplot(pca.outlines, ~site, nax = 1:5)
+boxplot(pca.outlines, ~region2, nax = 1:5)
 
 # mean shape + 2sd for the first 10 pcs
 PCcontrib(pca.outlines, nax = 1:10)
@@ -89,17 +89,17 @@ PCcontrib(pca.outlines, nax = 1:10)
 
 ```{r manova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # manova + manova_pw
-# is there shape differences between sites?
-MANOVA(pca.outlines, 'site')
+# is there shape differences between regions?
+MANOVA(pca.outlines, 'region2')
 
 # which differ?
-MANOVA_PW(pca.outlines, 'site')
+MANOVA_PW(pca.outlines, 'region2')
 ```
 
 ## Mean shapes
 
-```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by site."}
-# mean shapes
-ms.1 <- MSHAPES(efa.outlines, ~site)
+```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by region."}
+# mean shapes for regions
+ms.1 <- MSHAPES(efa.outlines, ~region2)
 plot_MSHAPES(ms.1, size = 0.75)
 ```
