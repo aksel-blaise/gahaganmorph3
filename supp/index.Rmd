@@ -14,7 +14,7 @@ description: "Gahagan biface shape change."
 
 This volume is written in _Markdown_, and all files needed to reproduce it are included in the [GitHub repository](https://github.com/aksel-blaise/gahaganmorph3), which is digitally curated on the Open Science Framework. The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
 
-This investigation follows two recent morphological studies of the largest samples of Gahagan bifaces [@RN11783;@RN21001], and seeks to further characterize variation among mortuary contexts. Gahagan bifaces are thought to have been imported by the Caddo from central Texas hunter-gatherers. While differences in Gahagan biface morphology have been demonstrated between the southern Caddo area and central Texas, this study explores whether these differences represent shape change. Results provide a preview of the dynamic temporal, spatial, and morphological relationships associated with Gahagan bifaces recovered from Caddo and central Texas sites. Two models of Gahagan biface shape change are postulated, which warrant further scrutiny.
+This analysis follows two recent morphological studies of the largest samples of Gahagan bifaces [@RN11783;@RN21001], and seeks to further characterize morhpological variation among geographic (regional) and cultural (mortuary) contexts. Results provide a preview of the dynamic temporal, spatial, and morphological relationships associated with Gahagan bifaces recovered from Caddo and central Texas sites. Following the analyses of shape, form, and allometry is a novel analysis of object symmetry used to posit _design intent_, and an analysis of fluctuating asymmetry used to bolster the argument for _morphological standardization_ among Gahagan bifaces.
 
 ```{r gahagan, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the southern Caddo area (SCA) and central Texas."}
 # embed image
@@ -23,7 +23,7 @@ knitr::include_graphics('images/figure01.jpg')
 
 Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN21001], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have—explicitly or implicitly—a major impact on scientific progress [@RN21008].
 
-Components of the undertaking presented in this volume are novel, and this basic research endeavour is rooted in archaeological epistemology. Sharing data is not enough, and if investigators share only data absent their analysis code, that places a substantive burden on those who may seek to build upon or replicate our work in the future. In this instance, the choice to pursue a replicable work flow occurs based upon the simple fact that this work is foundational.
+Components of the undertaking presented in this volume are novel, and this basic research endeavour is rooted in archaeological epistemology. Sharing data is not enough, and if investigators share only data absent their analysis code, that places a substantive burden on those who may seek to build upon or replicate our work in the future.
 
 ## Acknowledgments
 
@@ -32,3 +32,7 @@ I extend my gratitude to the Caddo Tribe of Oklahoma, the Williamson Museum at N
 ## Funding
 
 Components of this analytical work flow were developed and funded by a Preservation Technology and Training grant (P14AP00138) to the author from the National Center for Preservation Technology and Training (NCPTT), and additional grants to the author from the Caddo Tribe of Oklahoma and the National Forests and Grasslands in Texas (15-PA-11081300-033 and 20-PA-11081300-074). Funding to scan the Gahagan bifaces at the Williamson Museum at Northwestern State University, Louisiana State Exhibit Museum, Texas Archeological Research Laboratory at The University of Texas at Austin, and Sam Noble Oklahoma Museum of Natural Science was provided to the author by the Heritage Research Center at Stephen F. Austin State University.
+
+## Data management
+
+The analysis code associated with this project can be accessed through this document or the [GitHub](https://github.com/aksel-blaise/gahaganmorph3) repository, which is digitally curated on the Open Science Framework [DOI: 10.17605/OSF.IO/JV3X8](https://osf.io/jv3x8/).

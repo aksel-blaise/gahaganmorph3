@@ -38,7 +38,7 @@ ind <- rep(1:length(filelist))
 
 ## Generalized Procrustes Analysis
 
-Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.0.2 [@R] using the `geomorph` library v. 3.3.1 [@RN11530;@RN1774]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
+Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.0.2 [@R] using the `geomorph` library v. 3.3.1 [@RN11530;@RN1774]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563].
 
 ```{r asymm.gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # gpa - bilateral asymmetry
@@ -183,6 +183,11 @@ symm.reg <- pairwise(reg.symm,
 summary(symm.reg, 
         confidence = 0.95, 
         test.type = "dist")
+
+# pairwise distance between variances = standardization?
+summary(symm.reg, 
+        confidence = 0.95, 
+        test.type = "var")
 ```
 
 ### Mean Symmetric Shapes (H1)
@@ -207,16 +212,16 @@ plot(mean$`SCA-south`)
 # comparison plots
 plotRefToTarget(mean$`SCA-north`,
                 mean$`SCA-south`, 
-                method="vector",
-                mag=2)
+                method = "vector",
+                mag = 2)
 plotRefToTarget(mean$`SCA-north`,
                 mean$CTX, 
-                method="vector",
-                mag=2)
+                method = "vector",
+                mag = 2)
 plotRefToTarget(mean$`SCA-south`,
                 mean$CTX, 
-                method="vector",
-                mag=2)
+                method = "vector",
+                mag = 2)
 
 knitr::include_graphics('images/mshape.symmetric.jpg')
 ```
@@ -268,15 +273,16 @@ anova(mort.symm)
 ```
 
 
-### Mean Symmetric Shapes (H2)
+### Mean Asymmetric Shapes (H2)
 
-Mean symmetric shapes were rendered and contrasted for each region, and illustrate those morphological differences that occur between each. These symmetric shapes may represent regional differences in _design intent_ related to the conceptual aesthetic of Gahagan bifaces, which differs significantly between mortuary contexts (see above). 
+Mean asymmetric shapes were rendered and contrasted for Gahagan bifaces recovered in/out of mortuary contexts, and illustrate those morphological differences that occur between each. These symmetric shapes may represent differences in _design intent_ related to the conceptual aesthetic of Gahagan bifaces, which differs significantly between mortuary contexts (see above). 
 
-```{r m.symm.shapes.mort, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="_**Figure 6. Comparison of mean symmetric shapes for Gahagan bifaces from the central Texas (CTX), southern Caddo area - South (SCA-South), and southern Caddo area - North (SCA-North) regions. The mean for each row is represented by gray spheres, which is compared with those shapes in each column using linear vectors.**_"}
+```{r m.symm.shapes.mort, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="_**Figure 6. Comparison of mean symmetric shapes for Gahagan bifaces recovered in/out of mortuary contexts. The mean for each row is represented by gray spheres, which is compared using linear vectors.**_"}
 # subset landmark coordinates to produce mean shapes for groups
 ## (design intent)
 new.coords2 <- coords.subset(A = res.bilat$symm.shape,
                              group = qdata$mortuary)
+
 names(new.coords2)
 
 # group shape means
@@ -289,16 +295,16 @@ plot(mean2$no)
 
 # comparison plots
 plotRefToTarget(mean2$yes,
-                mean2$no, 
-                method="vector",
-                mag=2)
+                mean2$no,
+                method = "vector",
+                mag = 2)
 
 #knitr::include_graphics('images/mshape.symmetric.jpg')
 ```
 
 ### Morphological disparity (H2)
 
-_Does fluctuating asymmetry vary more if found in/out of mortuary contexts?_
+_Does fluctuating asymmetry vary more when Gahagan bifaces are found in/out of mortuary contexts?_
 
 Morphological disparity is estimated as the Procrustes variance, for groups in this instance, using residuals of a linear model fit [@RN11530]. Procrustes variance is the same sum of the diagonal elements of the group covariance matrix divided by the number of observations in the group [@RN5703;@RN11530]. Absolute differences in Procrustes variances are test statistics that can be used to test differences in morphological disparity among groups [@RN11530]. These differences are statistically evaluated through permutation, where the vectors of residuals are randomized among groups [@RN11530].
 

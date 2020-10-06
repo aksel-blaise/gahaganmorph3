@@ -35,7 +35,9 @@ qdata<-qdata[match(dimnames(coords)[[3]],rownames(qdata)),]
 Landmark data were aligned to a global coordinate system [@RN11622;@RN11623;@RN11563], achieved through generalized Procrustes superimposition [@RN478] performed in R 4.0.2 [@R] using the `geomorph` library v. 3.3.1 [@RN11530;@RN1774]. Procrustes superimposition translates, scales, and rotates the coordinate data to allow for comparisons among objects [@RN11564;@RN478]. The `geomorph` package uses a partial Procrustes superimposition that projects the aligned specimens into tangent space subsequent to alignment in preparation for the use of multivariate methods that assume linear space [@RN1646;@RN11563]. 
 
 ```{r gpa, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Results of generalized Procrustes analysis."}
-Y.gpa<-gpagen(coords, PrinAxes = TRUE, print.progress = FALSE)
+Y.gpa<-gpagen(coords, 
+              PrinAxes = TRUE, 
+              print.progress = FALSE)
 # plot(Y.gpa)
 
 # 3D gpa plot
@@ -44,7 +46,11 @@ knitr::include_graphics('images/gpa3d.png')
 
 ```{r centsize.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Centroid size of Gahagan bifaces by Region 2."}
 # geomorph data frame
-gdf<-geomorph.data.frame(shape = Y.gpa$coords, size = Y.gpa$Csize, region = qdata$region, region2 = qdata$region2, mortuary = qdata$mortuary) 
+gdf<-geomorph.data.frame(shape = Y.gpa$coords, 
+                         size = Y.gpa$Csize, 
+                         region = qdata$region, 
+                         region2 = qdata$region2, 
+                         mortuary = qdata$mortuary) 
 
 # add centroid size to qdata
 qdata$csz <- Y.gpa$Csize
@@ -55,7 +61,9 @@ rgn2 <- qdata$region2
 mort <- qdata$mortuary
 
 # print qdata
-knitr::kable(qdata, align = "ccccc", caption = "Attributes included in qdata.")
+knitr::kable(qdata, 
+             align = "ccccc", 
+             caption = "Attributes included in qdata.")
 ```
 
 ```{r consensus.config, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Two-dimensional plot of consensus configuration illustrating morphological characteristics associated with axial twisting---middle and right---which were absent from the 2D analysis."}
@@ -116,17 +124,34 @@ pc.plot1 <- plot(pca, asp = 1,
 
 ```{r define-models}
 # allometry
-fit.size <- procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
+fit.size <- procD.lm(shape ~ size, 
+                     data = gdf, 
+                     print.progress = FALSE, 
+                     iter = 9999)
+
 # allometry - common allometry, different means -> reg2
-fit.sz.reg <- procD.lm(shape ~ size + rgn2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sz.reg <- procD.lm(shape ~ size + rgn2, 
+                       data = gdf, 
+                       print.progress = FALSE, 
+                       iter = 9999)
+
 # allometry - unique allometries -> reg2
-fit.sz.reg2 <- procD.lm(shape ~ size * rgn2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sz.reg2 <- procD.lm(shape ~ size * rgn2, 
+                        data = gdf, 
+                        print.progress = FALSE, 
+                        iter = 9999)
 
 # size as a function of group
-fit.sizereg2 <- procD.lm(size ~ rgn2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizereg2 <- procD.lm(size ~ rgn2, 
+                         data = gdf, 
+                         print.progress = FALSE, 
+                         iter = 9999)
 
 # shape as a function of group
-fit.shapereg2 <- procD.lm(shape ~ rgn2, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapereg2 <- procD.lm(shape ~ rgn2, 
+                          data = gdf, 
+                          print.progress = FALSE, 
+                          iter = 9999)
 ```
 
 ### Allometry (H1)
@@ -141,16 +166,24 @@ anova(fit.sz.reg2) # unique allometry (reg2)
 
 # allometry plots
 # regscore (Drake and Klingenberg 2008)
-plot(fit.size, type = "regression", reg.type = "RegScore", predictor = log(gdf$size), pch = pch.gps.reg2, col = col.gps.reg2)
+plot(fit.size, type = "regression", reg.type = "RegScore", 
+     predictor = log(gdf$size), pch = pch.gps.reg2, 
+     col = col.gps.reg2)
 
 # common allometric component (Mitteroecker 2004)
-plotAllometry(fit.sz.reg, size = gdf$size, logsz = TRUE, method = "CAC", pch = pch.gps.reg2, col = col.gps.reg2)
+plotAllometry(fit.sz.reg, size = gdf$size, logsz = TRUE, 
+              method = "CAC", pch = pch.gps.reg2, 
+              col = col.gps.reg2)
 
 # size-shape pca (Mitteroecker 2004)
-plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "size.shape", pch = pch.gps.reg2, col = col.gps.reg2)
+plotAllometry(fit.size, size = gdf$size, logsz = TRUE, 
+              method = "size.shape", pch = pch.gps.reg2, 
+              col = col.gps.reg2)
 
 # predline (Adams and Nistri 2010)
-plotAllometry(fit.sz.reg2, size = gdf$size, logsz = TRUE, method = "PredLine", pch = pch.gps.reg2, col = col.gps.reg2)
+plotAllometry(fit.sz.reg2, size = gdf$size, logsz = TRUE, 
+              method = "PredLine", pch = pch.gps.reg2, 
+              col = col.gps.reg2)
 ```
 
 ```{r allometry.plot, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Measures of Gahagan biface morphology as a function of size for bifaces from both regions, where small and large specimens from each region (black spheres) are contrasted with the consensus configuration (gray spheres)."}
@@ -166,19 +199,34 @@ A residual randomization permutation procedure (RRPP; n = 10,000 permutations) w
 ```{r region}
 # ANOVA: do gahagan biface shapes differ by region2?
 anova(fit.shapereg2)
+
 # pairwise comparison of LS means = which differ?
-sh.reg2 <- pairwise(fit.shapereg2, groups = qdata$region2)
-summary(sh.reg2, confidence = 0.95, test.type = "dist")
+sh.reg2 <- pairwise(fit.shapereg2, 
+                    groups = qdata$region2)
+summary(sh.reg2, 
+        confidence = 0.95, 
+        test.type = "dist")
+
 # pairwise distance between variances = standardization?
-summary(sh.reg2, confidence = 0.95, test.type = "var")
+summary(sh.reg2, 
+        confidence = 0.95, 
+        test.type = "var")
+
 
 # ANOVA: do gahagan biface sizes differ by region2?
 anova(fit.sizereg2)
+
 # pairwise comparison of LS means = which differ?
-sz.reg2 <- pairwise(fit.sizereg2, groups = qdata$region2)
-summary(sz.reg2, confidence = 0.95, test.type = "dist")
+sz.reg2 <- pairwise(fit.sizereg2, 
+                    groups = qdata$region2)
+
+summary(sz.reg2, 
+        confidence = 0.95, 
+        test.type = "dist")
 # pairwise distance between variances = standardization?
-summary(sz.reg2, confidence = 0.95, test.type = "var")
+summary(sz.reg2, 
+        confidence = 0.95, 
+        test.type = "var")
 ```
 
 ### Morphological disparity (H1)
@@ -186,24 +234,37 @@ summary(sz.reg2, confidence = 0.95, test.type = "var")
 Procrustes variance was used to discriminate between regions and compare the amount of shape variation (morphological disparity) [@RN5703], estimated as the Procrustes variance using residuals of linear model fit [@RN11530]. 
 
 ```{r m-disparity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# morphological disparity: do either of the groups display greater shape variation among individuals relative to the other group?
-morphol.disparity(fit.shapereg2, groups = qdata$region2, data = gdf, print.progress = FALSE, iter = 9999)
-# morphological disparity: do either of the groups display greater size variation among individuals relative to the other group?
-morphol.disparity(fit.sizereg2, groups = qdata$region2, data = gdf, print.progress = FALSE, iter = 9999)
+# morphological disparity: do either of the groups display greater 
+# shape variation among individuals relative to the other group?
+morphol.disparity(fit.shapereg2, 
+                  groups = qdata$region2,
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
+
+# morphological disparity: do either of the groups display greater 
+# size variation among individuals relative to the other group?
+morphol.disparity(fit.sizereg2, 
+                  groups = qdata$region2, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
 ```
 
 ### Mean shapes (H1)
 
 ```{r m-shapes, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 #subset landmark coordinates to produce mean shapes for groups
-new.coords<-coords.subset(A = Y.gpa$coords, group = qdata$region2)
+new.coords<-coords.subset(A = Y.gpa$coords, 
+                          group = qdata$region2)
+
 names(new.coords)
+
 #group shape means
 mean<-lapply(new.coords, mshape)
 # plot(mean$CTX)
 # plot(mean$SCA-north)
 # plotRefToTarget(mean$SCA-north,mean$CTX, method="vector",mag=2)
-
 ```
 
 ```{r m-shapes.2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces from the southern Caddo area (left) and central Texas region (center). In the comparison of the two (right), the southern Caddo area is represented by gray spheres, and the central Texas region by linear vectors."}
@@ -255,17 +316,34 @@ pc.plot2 <- plot(pca, asp = 1,
 
 ```{r define-models.h2}
 # allometry
-fit.size <- procD.lm(shape ~ size, data = gdf, print.progress = FALSE, iter = 9999)
+fit.size <- procD.lm(shape ~ size, 
+                     data = gdf, 
+                     print.progress = FALSE, 
+                     iter = 9999)
+
 # allometry - common allometry, different means -> mort
-fit.sz.mort <- procD.lm(shape ~ size + mort, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sz.mort <- procD.lm(shape ~ size + mort, 
+                        data = gdf, 
+                        print.progress = FALSE, 
+                        iter = 9999)
+
 # allometry - unique allometries -> mort
-fit.sz.mort2 <- procD.lm(shape ~ size * mort, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sz.mort2 <- procD.lm(shape ~ size * mort, 
+                         data = gdf, 
+                         print.progress = FALSE, 
+                         iter = 9999)
 
 # size as a function of group
-fit.sizemort <- procD.lm(size ~ mort, data = gdf, print.progress = FALSE, iter = 9999)
+fit.sizemort <- procD.lm(size ~ mort, 
+                         data = gdf, 
+                         print.progress = FALSE, 
+                         iter = 9999)
 
 # shape as a function of group
-fit.shapemort <- procD.lm(shape ~ mort, data = gdf, print.progress = FALSE, iter = 9999)
+fit.shapemort <- procD.lm(shape ~ mort, 
+                          data = gdf, 
+                          print.progress = FALSE, 
+                          iter = 9999)
 ```
 
 ### Allometry (H2)
@@ -280,16 +358,24 @@ anova(fit.sz.mort2) # unique allometry (mort)
 
 # allometry plots
 # regscore (Drake and Klingenberg 2008)
-plot(fit.size, type = "regression", reg.type = "RegScore", predictor = log(gdf$size), pch = pch.gps.mort, col = col.gps.mort)
+plot(fit.size, type = "regression", reg.type = "RegScore", 
+     predictor = log(gdf$size), pch = pch.gps.mort, 
+     col = col.gps.mort)
 
 # common allometric component (Mitteroecker 2004)
-plotAllometry(fit.sz.mort, size = gdf$size, logsz = TRUE, method = "CAC", pch = pch.gps.mort, col = col.gps.mort)
+plotAllometry(fit.sz.mort, size = gdf$size, logsz = TRUE, 
+              method = "CAC", pch = pch.gps.mort, 
+              col = col.gps.mort)
 
 # size-shape pca (Mitteroecker 2004)
-plotAllometry(fit.size, size = gdf$size, logsz = TRUE, method = "size.shape", pch = pch.gps.mort, col = col.gps.mort)
+plotAllometry(fit.size, size = gdf$size, logsz = TRUE, 
+              method = "size.shape", pch = pch.gps.mort, 
+              col = col.gps.mort)
 
 # predline (Adams and Nistri 2010)
-plotAllometry(fit.sz.mort2, size = gdf$size, logsz = TRUE, method = "PredLine", pch = pch.gps.mort, col = col.gps.mort)
+plotAllometry(fit.sz.mort2, size = gdf$size, logsz = TRUE, 
+              method = "PredLine", pch = pch.gps.mort, 
+              col = col.gps.mort)
 ```
 
 ```{r allometry.h2.plot, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Measures of Gahagan biface morphology as a function of size for bifaces from both regions, where small and large specimens from each region (black spheres) are contrasted with the consensus configuration (gray spheres)."}
@@ -305,6 +391,7 @@ A residual randomization permutation procedure (RRPP; n = 10,000 permutations) w
 ```{r region.h2}
 # ANOVA: do gahagan biface shapes differ by mortuary context?
 anova(fit.shapemort)
+
 # ANOVA: do gahagan biface sizes differ by mortuary context?
 anova(fit.sizereg2)
 ```
@@ -314,18 +401,31 @@ anova(fit.sizereg2)
 Procrustes variance was used to discriminate between regions and compare the amount of shape variation (morphological disparity) [@RN5703], estimated as the Procrustes variance using residuals of linear model fit [@RN11530]. 
 
 ```{r m-disparity.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# morphological disparity: do either of the groups display greater shape variation among individuals relative to the other group?
-morphol.disparity(fit.shapemort, groups = qdata$mortuary, data = gdf, print.progress = FALSE, iter = 9999)
+# morphological disparity: do either of the groups display greater 
+# shape variation among individuals relative to the other group?
+morphol.disparity(fit.shapemort, 
+                  groups = qdata$mortuary, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
+
 # morphological disparity: do either of the groups display greater size variation among individuals relative to the other group?
-morphol.disparity(fit.sizemort, groups = qdata$mortuary, data = gdf, print.progress = FALSE, iter = 9999)
+morphol.disparity(fit.sizemort, 
+                  groups = qdata$mortuary, 
+                  data = gdf, 
+                  print.progress = FALSE, 
+                  iter = 9999)
 ```
 
 ### Mean shapes (H2)
 
 ```{r m-shapes.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 #subset landmark coordinates to produce mean shapes for groups
-new.coords2<-coords.subset(A = Y.gpa$coords, group = qdata$mortuary)
+new.coords2<-coords.subset(A = Y.gpa$coords, 
+                           group = qdata$mortuary)
+
 names(new.coords2)
+
 #group shape means
 mean2<-lapply(new.coords2, mshape)
 # plot(mean2$yes)

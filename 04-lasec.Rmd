@@ -13,7 +13,7 @@ LaSEC conducts the following procedure [@RN28913, 4-5]:
 
 What follows is a critical retrospective regarding the 2D and 3D landmark configurations used in the previous two geometric morphometric studies [@RN11783;@RN21001]. This chapter concludes with the assessment of the landmark configuration for Gahagan bifaces that was outlined in the previous chapter.
 
-## First 2D iteration
+## Initial 2D iteration
 
 In the initial 2D configuration [@RN11783, Figure 3], the silhouette of each biface was projected onto a `reference plane`. The locations of the three landmarks and 43 equidistant semilandmarks were defined using a suite of `reference geometry`. Although the analysis itself is of a 2D shape, that configuration was generated in 3D space, where each landmark and semilandmark articulates with an x, y, and z coordinate, so the analysis of this landmark configuration uses three dimensions.
 
