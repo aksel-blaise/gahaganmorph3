@@ -20,6 +20,10 @@ The goal of this effort was to increase the precision and rigour of the study by
 
 The continued evolution of this landmarking protocol represents a concerted effort to better comprehend the vagaries of morphological similarities and differences among Gahagan bifaces. While true that some landmarking protocols can be---and often are---recycled as new specimens are added, this particular research programme endeavours to achieve ever-greater accuracy and precision in each subsequent iteration.
 
+### Learning from EFA
+
+Results of the elliptical Fourier analysis (EFA) indicate that differences in Gahagan biface shape occur primarily near the base for each of the regions. Unlike the regional analysis, results for the analysis of mortuary context were not significant; however, there exists a possibility that the bifaces recovered from mortuary contexts may differ in shape along the midline or in cross-section. This study also includes an analysis of object symmetry and fluctuating asymmetry, where plan, profile, and cross-sections will be assessed.
+
 ## Generating the peripheral (plan view) spline
 
 This effort begins with a spline extracted from the surface geometry of the mesh using the `extract contour curves` command. In reverse-engineering, `extract contour curves` is regularly employed as the first step in building a `patch network` to construct a surface. The extracted feature curve is rendered as a spline, and follows the highest curvature contours around the periphery of the lateral and basal edges, following the highly variable sinuous edge morphology around the entirety of each biface [@RN21001]. The remainder of the landmarking protocol is based upon this spline, which was subsequently split at four mathematically-defined locations [@RN21001].

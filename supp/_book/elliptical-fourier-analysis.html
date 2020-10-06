@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Elliptical Fourier Analysis | Toward an analysis of design intent and morphological standardization in Gahagan bifaces</title>
+  <meta name="description" content="Gahagan biface shape change." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Elliptical Fourier Analysis | Toward an analysis of design intent and morphological standardization in Gahagan bifaces" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Gahagan biface shape change." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Elliptical Fourier Analysis | Toward an analysis of design intent and morphological standardization in Gahagan bifaces" />
+  
+  <meta name="twitter:description" content="Gahagan biface shape change." />
+  
+
+<meta name="author" content="Robert Z. Selden, Jr." />
+
+
+<meta name="date" content="2020-10-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modeling-geometry.html"/>
+<link rel="next" href="landmarking-protocol-3d2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">gahaganmorph3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preliminaries</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.1</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#funding"><i class="fa fa-check"></i><b>0.2</b> Funding</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#data-management"><i class="fa fa-check"></i><b>0.3</b> Data management</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html"><i class="fa fa-check"></i><b>1</b> Temporal Dynamics</a><ul>
+<li class="chapter" data-level="1.1" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html#calibration-and-plots-for-dates-from-burial-pit-5-at-the-mounds-plantation-site"><i class="fa fa-check"></i><b>1.1</b> Calibration and plots for dates from Burial Pit 5 at the Mounds Plantation site</a></li>
+<li class="chapter" data-level="1.2" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html#calibration-and-plots-for-dates-from-burial-pit-2-at-the-gahagan-mound-site"><i class="fa fa-check"></i><b>1.2</b> Calibration and plots for dates from Burial Pit 2 at the Gahagan Mound site</a></li>
+<li class="chapter" data-level="1.3" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html#calibration-and-plots-for-the-dates-from-f119-and-f134-at-the-george-c.-davis-site"><i class="fa fa-check"></i><b>1.3</b> Calibration and plots for the dates from F119 and F134 at the George C. Davis site</a></li>
+<li class="chapter" data-level="1.4" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html#calibration-and-plots-for-dates-from-au2-at-the-j.-b.-white-site"><i class="fa fa-check"></i><b>1.4</b> Calibration and plots for dates from AU2 at the J. B. White site</a></li>
+<li class="chapter" data-level="1.5" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html#calibration-and-plots-for-the-dates-from-the-baker-site"><i class="fa fa-check"></i><b>1.5</b> Calibration and plots for the dates from the Baker site</a></li>
+<li class="chapter" data-level="1.6" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html#summed-probability-distributions-for-contexts-yielding-gahagan-bifaces"><i class="fa fa-check"></i><b>1.6</b> Summed probability distributions for contexts yielding Gahagan bifaces</a></li>
+<li class="chapter" data-level="1.7" data-path="temporal-dynamics.html"><a href="temporal-dynamics.html#chronological-model-for-sca-north-sca-south-and-central-texas-contexts-yielding-gahagan-bifaces-with-baker-site-dates"><i class="fa fa-check"></i><b>1.7</b> Chronological model for SCA-north, SCA-south, and central Texas contexts yielding Gahagan bifaces with Baker site dates</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>1.8</b> Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="modeling-geometry.html"><a href="modeling-geometry.html"><i class="fa fa-check"></i><b>2</b> Modeling Geometry</a><ul>
+<li class="chapter" data-level="2.1" data-path="modeling-geometry.html"><a href="modeling-geometry.html#section"><i class="fa fa-check"></i><b>2.1</b> 4078-8</a></li>
+<li class="chapter" data-level="2.2" data-path="modeling-geometry.html"><a href="modeling-geometry.html#section-1"><i class="fa fa-check"></i><b>2.2</b> 4078-72</a></li>
+<li class="chapter" data-level="2.3" data-path="modeling-geometry.html"><a href="modeling-geometry.html#references-cited"><i class="fa fa-check"></i><b>2.3</b> References cited</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html"><i class="fa fa-check"></i><b>3</b> Elliptical Fourier Analysis</a><ul>
+<li class="chapter" data-level="3.1" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html#load-packages-data"><i class="fa fa-check"></i><b>3.1</b> Load packages + data</a></li>
+<li class="chapter" data-level="3.2" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html#generate-outlines"><i class="fa fa-check"></i><b>3.2</b> Generate outlines</a></li>
+<li class="chapter" data-level="3.3" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html#pile-and-mosaics"><i class="fa fa-check"></i><b>3.3</b> Pile and mosaics</a></li>
+<li class="chapter" data-level="3.4" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html#calibrate-harmonic-efa"><i class="fa fa-check"></i><b>3.4</b> Calibrate harmonic + EFA</a></li>
+<li class="chapter" data-level="3.5" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html#pca"><i class="fa fa-check"></i><b>3.5</b> PCA</a></li>
+<li class="chapter" data-level="3.6" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html#manova-manova_pw"><i class="fa fa-check"></i><b>3.6</b> MANOVA + MANOVA_PW</a></li>
+<li class="chapter" data-level="3.7" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html#mean-shapes"><i class="fa fa-check"></i><b>3.7</b> Mean shapes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html"><i class="fa fa-check"></i><b>4</b> Landmarking Protocol 3d2</a><ul>
+<li class="chapter" data-level="4.1" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#foundations"><i class="fa fa-check"></i><b>4.1</b> Foundations</a></li>
+<li class="chapter" data-level="4.2" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#generating-the-peripheral-plan-view-spline"><i class="fa fa-check"></i><b>4.2</b> Generating the peripheral (plan view) spline</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#splitting-spline-1"><i class="fa fa-check"></i><b>4.2.1</b> Splitting Spline 1</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#reference-geometry-build-1"><i class="fa fa-check"></i><b>4.3</b> Reference geometry, Build 1</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#reference-vector-1-point-2-and-plane-2"><i class="fa fa-check"></i><b>4.3.1</b> Reference Vector 1, Point 2, and Plane 2</a></li>
+<li class="chapter" data-level="4.3.2" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#reference-planes-3-and-4"><i class="fa fa-check"></i><b>4.3.2</b> Reference Planes 3 and 4</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#cross-sections"><i class="fa fa-check"></i><b>4.4</b> Cross-sections</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#splitting-the-curves-step-1"><i class="fa fa-check"></i><b>4.4.1</b> Splitting the curves (Step 1)</a></li>
+<li class="chapter" data-level="4.4.2" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#splitting-the-curves-step-2"><i class="fa fa-check"></i><b>4.4.2</b> Splitting the curves (Step 2)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="landmarking-protocol-3d2.html"><a href="landmarking-protocol-3d2.html#landmark-and-semilandmark-placement"><i class="fa fa-check"></i><b>4.5</b> Landmark and semilandmark placement</a></li>
+<li class="chapter" data-level="4.6" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>4.6</b> Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="landmark-sampling-evaluation-curve-lasec.html"><a href="landmark-sampling-evaluation-curve-lasec.html"><i class="fa fa-check"></i><b>5</b> Landmark Sampling Evaluation Curve (LaSEC)</a><ul>
+<li class="chapter" data-level="5.1" data-path="landmark-sampling-evaluation-curve-lasec.html"><a href="landmark-sampling-evaluation-curve-lasec.html#initial-2d-iteration"><i class="fa fa-check"></i><b>5.1</b> Initial 2D iteration</a></li>
+<li class="chapter" data-level="5.2" data-path="landmark-sampling-evaluation-curve-lasec.html"><a href="landmark-sampling-evaluation-curve-lasec.html#first-3d-iteration"><i class="fa fa-check"></i><b>5.2</b> First 3D iteration</a></li>
+<li class="chapter" data-level="5.3" data-path="landmark-sampling-evaluation-curve-lasec.html"><a href="landmark-sampling-evaluation-curve-lasec.html#current-3d-iteration"><i class="fa fa-check"></i><b>5.3</b> Current 3D iteration</a></li>
+<li class="chapter" data-level="5.4" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>5.4</b> Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html"><i class="fa fa-check"></i><b>6</b> Geometric morphometrics</a><ul>
+<li class="chapter" data-level="6.1" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#load-geomorph-and-data"><i class="fa fa-check"></i><b>6.1</b> Load geomorph and data</a></li>
+<li class="chapter" data-level="6.2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#generalized-procrustes-analysis"><i class="fa fa-check"></i><b>6.2</b> Generalized Procrustes Analysis</a></li>
+<li class="chapter" data-level="6.3" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#hypothesis-1"><i class="fa fa-check"></i><b>6.3</b> Hypothesis 1</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#boxplot-h1"><i class="fa fa-check"></i><b>6.3.1</b> Boxplot (H1)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#principal-components-analysis-h1"><i class="fa fa-check"></i><b>6.3.2</b> Principal Components Analysis (H1)</a></li>
+<li class="chapter" data-level="6.3.3" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#define-models-h1"><i class="fa fa-check"></i><b>6.3.3</b> Define models (H1)</a></li>
+<li class="chapter" data-level="6.3.4" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#allometry-h1"><i class="fa fa-check"></i><b>6.3.4</b> Allometry (H1)</a></li>
+<li class="chapter" data-level="6.3.5" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#procrustes-anova-h1"><i class="fa fa-check"></i><b>6.3.5</b> Procrustes ANOVA (H1)</a></li>
+<li class="chapter" data-level="6.3.6" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#morphological-disparity-h1"><i class="fa fa-check"></i><b>6.3.6</b> Morphological disparity (H1)</a></li>
+<li class="chapter" data-level="6.3.7" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#mean-shapes-h1"><i class="fa fa-check"></i><b>6.3.7</b> Mean shapes (H1)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#hypothesis-2"><i class="fa fa-check"></i><b>6.4</b> Hypothesis 2</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#boxplot-h2"><i class="fa fa-check"></i><b>6.4.1</b> Boxplot (H2)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#principal-components-analysis-h2"><i class="fa fa-check"></i><b>6.4.2</b> Principal Components Analysis (H2)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#define-models-h2"><i class="fa fa-check"></i><b>6.4.3</b> Define models (H2)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#allometry-h2"><i class="fa fa-check"></i><b>6.4.4</b> Allometry (H2)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#procrustes-anova-h2"><i class="fa fa-check"></i><b>6.4.5</b> Procrustes ANOVA (H2)</a></li>
+<li class="chapter" data-level="6.4.6" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#morphological-disparity-h2"><i class="fa fa-check"></i><b>6.4.6</b> Morphological disparity (H2)</a></li>
+<li class="chapter" data-level="6.4.7" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#mean-shapes-h2"><i class="fa fa-check"></i><b>6.4.7</b> Mean shapes (H2)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html"><i class="fa fa-check"></i><b>7</b> Symmetry and Asymmetry</a><ul>
+<li class="chapter" data-level="7.1" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html#gahagan-bifaces"><i class="fa fa-check"></i><b>7.1</b> Gahagan bifaces</a></li>
+<li class="chapter" data-level="7.2" data-path="elliptical-fourier-analysis.html"><a href="elliptical-fourier-analysis.html#load-packages-data"><i class="fa fa-check"></i><b>7.2</b> Load packages + data</a></li>
+<li class="chapter" data-level="7.3" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#generalized-procrustes-analysis"><i class="fa fa-check"></i><b>7.3</b> Generalized Procrustes Analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html#principal-components-analysis"><i class="fa fa-check"></i><b>7.4</b> Principal Components Analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html#define-models"><i class="fa fa-check"></i><b>7.5</b> Define models</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#hypothesis-1"><i class="fa fa-check"></i><b>7.5.1</b> Hypothesis 1</a></li>
+<li class="chapter" data-level="7.5.2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#hypothesis-2"><i class="fa fa-check"></i><b>7.5.2</b> Hypothesis 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html#hypothesis-1-1"><i class="fa fa-check"></i><b>7.6</b> Hypothesis 1</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html#pca-h1"><i class="fa fa-check"></i><b>7.6.1</b> PCA (H1)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#procrustes-anova-h1"><i class="fa fa-check"></i><b>7.6.2</b> Procrustes ANOVA (H1)</a></li>
+<li class="chapter" data-level="7.6.3" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html#mean-symmetric-shapes-h1"><i class="fa fa-check"></i><b>7.6.3</b> Mean Symmetric Shapes (H1)</a></li>
+<li class="chapter" data-level="7.6.4" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#morphological-disparity-h1"><i class="fa fa-check"></i><b>7.6.4</b> Morphological disparity (H1)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html#hypothesis-2-1"><i class="fa fa-check"></i><b>7.7</b> Hypothesis 2</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#principal-components-analysis-h2"><i class="fa fa-check"></i><b>7.7.1</b> Principal Components Analysis (H2)</a></li>
+<li class="chapter" data-level="7.7.2" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#procrustes-anova-h2"><i class="fa fa-check"></i><b>7.7.2</b> Procrustes ANOVA (H2)</a></li>
+<li class="chapter" data-level="7.7.3" data-path="symmetry-and-asymmetry.html"><a href="symmetry-and-asymmetry.html#mean-asymmetric-shapes-h2"><i class="fa fa-check"></i><b>7.7.3</b> Mean Asymmetric Shapes (H2)</a></li>
+<li class="chapter" data-level="7.7.4" data-path="geometric-morphometrics.html"><a href="geometric-morphometrics.html#morphological-disparity-h2"><i class="fa fa-check"></i><b>7.7.4</b> Morphological disparity (H2)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Toward an analysis of <em>design intent</em> and <em>morphological standardization</em> in Gahagan bifaces</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="elliptical-fourier-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Elliptical Fourier Analysis</h1>
+<div id="load-packages-data" class="section level2">
+<h2><span class="header-section-number">3.1</span> Load packages + data</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="elliptical-fourier-analysis.html#cb1-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a href="elliptical-fourier-analysis.html#cb1-2"></a><span class="kw">library</span>(here)</span></code></pre></div>
+<pre><code>## here() starts at E:/github/gahaganmorph3</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="elliptical-fourier-analysis.html#cb3-1"></a><span class="kw">library</span>(Momocs)</span></code></pre></div>
+<pre><code>## 
+##   Momocs is now retired and will no longer be maintained.
+##   It is superseded by Momocs2 and more generally MomX ecosystem:
+## 
+##              &lt;   https://momx.github.io   &gt;</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Momocs&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="elliptical-fourier-analysis.html#cb7-1"></a><span class="co"># set working directory</span></span>
+<span id="cb7-2"><a href="elliptical-fourier-analysis.html#cb7-2"></a><span class="kw">setwd</span>(<span class="kw">getwd</span>())</span>
+<span id="cb7-3"><a href="elliptical-fourier-analysis.html#cb7-3"></a></span>
+<span id="cb7-4"><a href="elliptical-fourier-analysis.html#cb7-4"></a><span class="co"># read images</span></span>
+<span id="cb7-5"><a href="elliptical-fourier-analysis.html#cb7-5"></a>jpg.list &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;./jpg&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb7-6"><a href="elliptical-fourier-analysis.html#cb7-6"></a></span>
+<span id="cb7-7"><a href="elliptical-fourier-analysis.html#cb7-7"></a><span class="co"># read attribute data</span></span>
+<span id="cb7-8"><a href="elliptical-fourier-analysis.html#cb7-8"></a>att.data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;qdata.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb7-9"><a href="elliptical-fourier-analysis.html#cb7-9"></a></span>
+<span id="cb7-10"><a href="elliptical-fourier-analysis.html#cb7-10"></a><span class="co"># attributes to factors</span></span>
+<span id="cb7-11"><a href="elliptical-fourier-analysis.html#cb7-11"></a>att.data<span class="op">$</span>region2 &lt;-<span class="st"> </span><span class="kw">as.factor</span>(att.data<span class="op">$</span>region2)</span>
+<span id="cb7-12"><a href="elliptical-fourier-analysis.html#cb7-12"></a>att.data<span class="op">$</span>mortuary &lt;-<span class="st"> </span><span class="kw">as.factor</span>(att.data<span class="op">$</span>mortuary)</span></code></pre></div>
+</div>
+<div id="generate-outlines" class="section level2">
+<h2><span class="header-section-number">3.2</span> Generate outlines</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="elliptical-fourier-analysis.html#cb8-1"></a><span class="co"># generate outlines</span></span>
+<span id="cb8-2"><a href="elliptical-fourier-analysis.html#cb8-2"></a>outlines &lt;-<span class="st"> </span>jpg.list <span class="op">%&gt;%</span></span>
+<span id="cb8-3"><a href="elliptical-fourier-analysis.html#cb8-3"></a><span class="st">  </span><span class="kw">import_jpg</span>()</span></code></pre></div>
+<pre><code>## Extracting 102.jpg outlines...</code></pre>
+<pre><code>## [ 1 / 102 ]  2300.jpg
+## [ 2 / 102 ]  2302.jpg
+## [ 3 / 102 ]  2303.jpg
+## [ 4 / 102 ]  2304.jpg
+## [ 5 / 102 ]  2305.jpg
+## [ 6 / 102 ]  2317.jpg
+## [ 7 / 102 ]  2318.jpg
+## [ 8 / 102 ]  2319.jpg
+## [ 9 / 102 ]  2320.jpg
+## [ 10 / 102 ]  2321.jpg
+## [ 11 / 102 ]  2322.jpg
+## [ 12 / 102 ]  2323.jpg
+## [ 13 / 102 ]  2324.jpg
+## [ 14 / 102 ]  2325.jpg
+## [ 15 / 102 ]  2361.jpg
+## [ 16 / 102 ]  2362.jpg
+## [ 17 / 102 ]  2363.jpg
+## [ 18 / 102 ]  2364.jpg
+## [ 19 / 102 ]  2365.jpg
+## [ 20 / 102 ]  2366.jpg
+## [ 21 / 102 ]  2419.jpg
+## [ 22 / 102 ]  2426.jpg
+## [ 23 / 102 ]  3Ba90.jpg
+## [ 24 / 102 ]  3Bb1.jpg
+## [ 25 / 102 ]  3Bb3.jpg
+## [ 26 / 102 ]  3Bb4.jpg
+## [ 27 / 102 ]  3Bb5.jpg
+## [ 28 / 102 ]  3Bb6.jpg
+## [ 29 / 102 ]  3Bb7.jpg
+## [ 30 / 102 ]  3Bb8.jpg
+## [ 31 / 102 ]  4078-11.jpg
+## [ 32 / 102 ]  4078-12.jpg
+## [ 33 / 102 ]  4078-13.jpg
+## [ 34 / 102 ]  4078-14.jpg
+## [ 35 / 102 ]  4078-14B.jpg
+## [ 36 / 102 ]  4078-22.jpg
+## [ 37 / 102 ]  4078-30.jpg
+## [ 38 / 102 ]  4078-32.jpg
+## [ 39 / 102 ]  4078-45.jpg
+## [ 40 / 102 ]  4078-72.jpg
+## [ 41 / 102 ]  4078-8.jpg
+## [ 42 / 102 ]  4078-9.jpg
+## [ 43 / 102 ]  424-169.jpg
+## [ 44 / 102 ]  424-175.jpg
+## [ 45 / 102 ]  424-218.jpg
+## [ 46 / 102 ]  424-221.jpg
+## [ 47 / 102 ]  424-230.jpg
+## [ 48 / 102 ]  424-39.jpg
+## [ 49 / 102 ]  424-41.jpg
+## [ 50 / 102 ]  424-50.jpg
+## [ 51 / 102 ]  424-53.jpg
+## [ 52 / 102 ]  463-1.jpg
+## [ 53 / 102 ]  463-16.jpg
+## [ 54 / 102 ]  463-23.jpg
+## [ 55 / 102 ]  489.jpg
+## [ 56 / 102 ]  490.jpg
+## [ 57 / 102 ]  532.jpg
+## [ 58 / 102 ]  533.jpg
+## [ 59 / 102 ]  541.jpg
+## [ 60 / 102 ]  542.jpg
+## [ 61 / 102 ]  543.jpg
+## [ 62 / 102 ]  544.jpg
+## [ 63 / 102 ]  545.jpg
+## [ 64 / 102 ]  546.jpg
+## [ 65 / 102 ]  547.jpg
+## [ 66 / 102 ]  548.jpg
+## [ 67 / 102 ]  549.jpg
+## [ 68 / 102 ]  550.jpg
+## [ 69 / 102 ]  551.jpg
+## [ 70 / 102 ]  569.jpg
+## [ 71 / 102 ]  593.jpg
+## [ 72 / 102 ]  605.jpg
+## [ 73 / 102 ]  606.jpg
+## [ 74 / 102 ]  607.jpg
+## [ 75 / 102 ]  608.jpg
+## [ 76 / 102 ]  609.jpg
+## [ 77 / 102 ]  610.jpg
+## [ 78 / 102 ]  611.jpg
+## [ 79 / 102 ]  612.jpg
+## [ 80 / 102 ]  613.jpg
+## [ 81 / 102 ]  614.jpg
+## [ 82 / 102 ]  622.jpg
+## [ 83 / 102 ]  666.jpg
+## [ 84 / 102 ]  BlkThn.jpg
+## [ 85 / 102 ]  bsp.jpg
+## [ 86 / 102 ]  Case2LG.jpg
+## [ 87 / 102 ]  Case2SM.jpg
+## [ 88 / 102 ]  D11.jpg
+## [ 89 / 102 ]  DM1.jpg
+## [ 90 / 102 ]  ET221-1016.jpg
+## [ 91 / 102 ]  ET221-1260.jpg
+## [ 92 / 102 ]  ET221-993.jpg
+## [ 93 / 102 ]  Lf50.3.jpg
+## [ 94 / 102 ]  LgGray.jpg
+## [ 95 / 102 ]  unk1.jpg
+## [ 96 / 102 ]  unk2.jpg
+## [ 97 / 102 ]  unk3.jpg
+## [ 98 / 102 ]  unk4.jpg
+## [ 99 / 102 ]  unk5.jpg
+## [ 100 / 102 ]  unk6.jpg
+## [ 101 / 102 ]  unk7.jpg
+## [ 102 / 102 ]  unk8.jpg</code></pre>
+<pre><code>## Done in 2.8 mins</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="elliptical-fourier-analysis.html#cb12-1"></a><span class="co"># add attributes</span></span>
+<span id="cb12-2"><a href="elliptical-fourier-analysis.html#cb12-2"></a>data.out &lt;-<span class="st"> </span><span class="kw">Out</span>(outlines, </span>
+<span id="cb12-3"><a href="elliptical-fourier-analysis.html#cb12-3"></a>         <span class="dt">fac =</span> att.data)</span>
+<span id="cb12-4"><a href="elliptical-fourier-analysis.html#cb12-4"></a></span>
+<span id="cb12-5"><a href="elliptical-fourier-analysis.html#cb12-5"></a><span class="co"># scale, align, rotate, and center specimens</span></span>
+<span id="cb12-6"><a href="elliptical-fourier-analysis.html#cb12-6"></a>norm.outlines &lt;-<span class="st"> </span>data.out <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb12-7"><a href="elliptical-fourier-analysis.html#cb12-7"></a><span class="st">  </span><span class="kw">coo_scale</span>() <span class="op">%&gt;%</span></span>
+<span id="cb12-8"><a href="elliptical-fourier-analysis.html#cb12-8"></a><span class="st">  </span><span class="kw">coo_align</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb12-9"><a href="elliptical-fourier-analysis.html#cb12-9"></a><span class="st">  </span><span class="kw">coo_rotate</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb12-10"><a href="elliptical-fourier-analysis.html#cb12-10"></a><span class="st">  </span><span class="kw">coo_center</span>()</span></code></pre></div>
+</div>
+<div id="pile-and-mosaics" class="section level2">
+<h2><span class="header-section-number">3.3</span> Pile and mosaics</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="elliptical-fourier-analysis.html#cb13-1"></a><span class="co"># outline pile</span></span>
+<span id="cb13-2"><a href="elliptical-fourier-analysis.html#cb13-2"></a><span class="kw">pile</span>(norm.outlines)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/stack.panel-1.png" width="100%" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="elliptical-fourier-analysis.html#cb14-1"></a><span class="co"># mosaic of individual specimens by region</span></span>
+<span id="cb14-2"><a href="elliptical-fourier-analysis.html#cb14-2"></a><span class="kw">mosaic</span>(norm.outlines, <span class="op">~</span>region2)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/stack.panel-2.png" width="100%" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="elliptical-fourier-analysis.html#cb15-1"></a><span class="co"># mosaic of individual specimens by mortuary context</span></span>
+<span id="cb15-2"><a href="elliptical-fourier-analysis.html#cb15-2"></a><span class="kw">mosaic</span>(norm.outlines, <span class="op">~</span>mortuary)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/stack.panel-3.png" width="100%" /></p>
+</div>
+<div id="calibrate-harmonic-efa" class="section level2">
+<h2><span class="header-section-number">3.4</span> Calibrate harmonic + EFA</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="elliptical-fourier-analysis.html#cb16-1"></a><span class="co"># calibrate how many harmonics needed</span></span>
+<span id="cb16-2"><a href="elliptical-fourier-analysis.html#cb16-2"></a><span class="kw">calibrate_harmonicpower_efourier</span>(norm.outlines, </span>
+<span id="cb16-3"><a href="elliptical-fourier-analysis.html#cb16-3"></a>                                 <span class="dt">nb.h =</span> <span class="dv">30</span>)</span></code></pre></div>
+<pre><code>## $gg</code></pre>
+<p><img src="gahaganmorph3_files/figure-html/cal.harm-1.png" width="100%" /></p>
+<pre><code>## 
+## $q
+##                   h1       h2       h3       h4       h5       h6       h7
+## 2300       13.078630 87.16280 91.17632 96.12657 97.77166 98.02857 98.92156
+## 2302       53.284577 80.62621 93.60393 94.61815 98.00554 98.43610 99.04290
+## 2303       42.055309 79.07165 91.47080 92.68288 97.42918 97.73598 99.11548
+## 2304       33.898506 80.53804 89.11815 93.29833 96.74120 96.95194 98.59317
+## 2305       39.743602 81.48318 91.16965 92.51289 96.72206 96.90896 98.76497
+## 2317       17.366431 78.15858 88.59819 92.76347 96.16538 96.48818 98.19228
+## 2318       28.380242 70.13355 86.90167 92.17285 96.63422 96.84273 98.45910
+## 2319       27.920051 86.95986 94.00071 96.81965 98.17020 98.34445 99.10627
+## 2320       35.695478 87.14104 93.91017 96.61283 98.05856 98.22105 99.21696
+## 2321       27.266738 74.82836 90.17019 93.16981 96.77415 96.83796 98.70266
+## 2322       33.007797 86.36923 94.72380 96.02605 98.25965 98.31178 99.18165
+## 2323       29.069613 87.14680 93.23299 97.26298 98.45971 98.64782 99.17818
+## 2324       23.474912 71.57361 89.06899 90.45381 96.26431 96.86247 98.84271
+## 2325       53.816043 85.61984 95.52396 95.60556 98.13584 98.46549 99.09545
+## 2361       21.895425 87.09759 92.56529 97.46145 98.42652 98.53710 99.18609
+## 2362       19.339132 81.45756 90.49862 95.07474 97.54674 97.60416 98.61991
+## 2363       34.168821 86.12830 94.91761 96.55653 98.29557 98.42552 99.11767
+## 2364       12.669276 82.18837 89.99114 95.44251 97.40355 97.79617 98.77760
+## 2365       23.416807 82.13032 92.34770 94.18877 97.30657 97.57027 98.98552
+## 2366       38.191829 88.24555 95.07294 96.25545 98.15319 98.47299 99.17931
+## 2419       33.215953 82.66314 90.85026 94.30721 97.36608 97.68107 98.72744
+## 2426       31.603612 84.61573 90.99705 93.75887 97.17904 97.33151 98.57328
+## 3Ba90       9.874817 85.06433 88.27871 96.13694 97.03587 98.29532 98.85118
+## 3Bb1       11.194623 76.70474 86.35955 91.76448 95.58669 96.13608 97.90421
+## 3Bb3       14.652146 75.19174 85.66750 90.27960 94.89233 95.52410 97.80763
+## 3Bb4       16.104962 75.30738 85.75893 92.34749 96.43467 97.19190 98.51995
+## 3Bb5       15.842640 78.88979 88.89634 92.93135 96.32855 96.86676 98.51415
+## 3Bb6        6.925635 82.09870 87.70991 94.97733 96.92962 97.96018 98.82635
+## 3Bb7        9.822084 76.94694 85.24592 92.02833 96.28274 97.31620 98.59933
+## 3Bb8       13.637809 80.29566 86.62321 93.66805 96.37124 97.40430 98.58636
+## 4078-11     3.914345 70.19978 82.83390 91.74827 95.14992 96.00358 97.61361
+## 4078-12     8.918636 73.83215 87.59126 93.51686 96.81456 97.26971 98.60216
+## 4078-13     8.415515 73.03655 84.43607 92.74912 95.84530 96.86579 98.09776
+## 4078-14    28.027042 84.59982 92.68440 95.55976 97.96150 97.99732 99.13741
+## 4078-14B    7.178974 72.37216 80.00816 89.53211 94.61156 95.38187 97.74897
+## 4078-22     7.556589 71.06561 83.20982 91.81085 95.96170 96.67832 98.34629
+## 4078-30    15.508752 74.38640 86.44582 93.50393 96.66607 96.88371 98.62434
+## 4078-32    30.086052 78.61021 92.43601 94.34639 97.46115 97.66615 98.92045
+## 4078-45     7.588826 78.05860 87.40826 94.35072 97.02204 97.64437 98.65508
+## 4078-72    11.223307 76.02090 87.64020 93.66845 96.71342 97.13272 98.59027
+## 4078-8      1.951104 80.09559 87.24476 94.25984 96.08314 97.72186 98.57106
+## 4078-9     31.113702 75.12737 87.21565 90.41608 95.97454 96.38303 98.45700
+## 424-169    19.248125 71.65193 86.97392 92.94181 96.80190 96.90821 98.58417
+## 424-175     9.933172 71.75934 85.84353 92.52192 96.23223 96.72794 98.31422
+## 424-218    24.595379 75.69685 90.23301 91.33138 96.48536 96.52467 98.38995
+## 424-221    19.363613 75.65602 87.19636 91.51596 96.37096 96.73630 98.52198
+## 424-230    11.462897 74.33491 88.22232 93.46792 97.00486 97.06742 98.66501
+## 424-39      6.123581 77.42148 84.45220 92.74525 96.17570 97.19855 98.55367
+## 424-41     27.891897 79.43834 90.53575 92.88459 96.90662 96.99504 98.59471
+## 424-50      8.246762 78.75661 86.24258 94.28394 96.78319 97.81977 98.77304
+## 424-53     14.463577 78.52333 87.19074 92.74483 96.21849 96.84106 98.48443
+## 463-1      16.148409 82.02725 87.46085 94.53609 96.63755 97.58325 98.57054
+## 463-16     17.860927 77.93330 89.29341 93.82346 97.08523 97.28612 98.53195
+## 463-23     14.968006 73.65029 89.85650 93.20742 96.58577 96.68979 98.31015
+## 489         9.281317 83.99839 88.47203 96.06021 97.57259 98.26007 99.03078
+## 490        15.631635 82.30561 90.07381 95.19359 97.33149 97.61189 98.60691
+## 532        16.556349 81.85278 86.31039 93.68061 96.38017 97.27615 98.59231
+## 533        14.277295 78.86669 87.29753 94.14715 97.14803 97.79221 98.77197
+## 541        21.120071 83.43704 89.17164 94.61154 97.13396 97.59645 98.72843
+## 542        24.341965 70.71435 86.50384 92.57720 96.72274 96.87867 98.07269
+## 543         6.092147 79.07168 85.99684 93.70597 96.30387 97.29101 98.46970
+## 544         7.988419 83.26906 88.82628 94.78531 96.79112 97.87756 98.80699
+## 545        39.155312 80.82868 93.19116 93.95306 97.64813 98.00633 98.82603
+## 546        20.612547 85.02161 89.78028 95.26547 97.37394 97.76109 98.91642
+## 547        31.991203 83.30422 92.88399 95.64260 97.82463 97.85150 98.98590
+## 548        13.980844 83.99860 89.87437 94.75474 97.25248 97.56047 98.78237
+## 549        20.007708 68.47293 86.81311 91.14618 95.98236 96.15455 98.06542
+## 550        11.878114 76.29601 85.36672 93.10842 96.18980 97.20883 98.51666
+## 551        27.258242 81.91341 91.05044 93.91599 96.75621 97.01515 98.70676
+## 569        16.010346 83.18665 91.29111 95.11872 97.49128 97.75050 98.90149
+## 593         6.027079 83.04276 87.55330 94.89277 96.84260 97.66376 98.69453
+## 605        14.514621 77.44110 86.77773 93.53078 96.75597 97.26622 98.58090
+## 606         1.946303 82.01111 87.31296 93.75143 96.43540 97.18778 98.46077
+## 607         5.383410 73.95969 84.64156 91.31443 95.56926 96.46179 98.33110
+## 608        13.566621 78.89163 88.90605 93.97365 96.97778 97.46024 98.71825
+## 609         4.966108 84.00572 88.16925 94.81995 96.92473 97.59617 98.62952
+## 610        13.562843 76.02334 88.43555 93.07082 96.93086 97.23066 98.59637
+## 611         8.317026 85.93917 89.96504 96.01645 97.52760 98.17266 99.02281
+## 612        14.661693 80.64108 88.23944 93.56298 96.46401 97.33825 98.63685
+## 613        19.678451 80.92426 91.19984 94.13333 97.27858 97.38342 98.87505
+## 614        24.422915 78.45893 90.79964 93.98809 97.18112 97.34481 98.68114
+## 622        21.665339 77.67918 85.62054 90.00049 94.77988 95.62677 98.06708
+## 666        20.150895 76.79775 85.60039 90.20781 94.99667 95.72563 98.01942
+## BlkThn      5.821742 79.40898 83.73427 93.50521 95.87567 97.49954 98.51710
+## bsp        15.120491 85.74762 90.15032 94.16742 96.77301 97.38189 98.79292
+## Case2LG     4.522650 81.82976 86.29675 93.82785 96.27439 97.51575 98.56712
+## Case2SM    13.784659 81.81030 87.72124 93.99039 96.58745 97.34283 98.57106
+## D11         8.060752 85.17479 88.64267 95.65615 97.37212 98.31405 98.97249
+## DM1        34.362784 72.24547 86.80415 91.03418 96.17070 96.57889 98.33880
+## ET221-1016  8.912223 69.88346 83.96225 92.84657 96.64771 97.24565 98.56770
+## ET221-1260  7.159235 76.40196 84.64596 93.36436 95.82002 97.19535 98.29205
+## ET221-993   8.136672 74.76758 86.45175 93.41362 96.24036 97.17626 98.44607
+## Lf50.3     16.633511 80.44367 88.22569 94.25881 96.76317 97.35122 98.65438
+## LgGray      6.470270 83.21981 86.87034 94.64196 96.38630 97.75990 98.53715
+## unk1       32.577308 79.76469 92.15270 93.97491 97.63762 97.72851 98.63973
+## unk2       33.419241 72.67455 88.67434 91.49947 96.41838 96.61732 98.67290
+## unk3       44.359198 83.47749 93.47548 93.83645 97.68708 97.84122 98.96864
+## unk4       26.677180 84.32992 94.38630 96.08717 97.96542 98.06010 99.21691
+## unk5       22.524373 84.41427 92.32618 96.43709 97.88044 98.01948 98.86236
+## unk6       35.472969 80.61887 90.28030 92.65018 96.80358 97.09948 98.82815
+## unk7       53.153948 89.24994 95.90262 96.13653 98.20901 98.55306 99.10355
+## unk8       34.633690 75.54396 89.36099 91.44964 96.68934 96.96207 98.56565
+##                  h8       h9      h10      h11      h12      h13      h14
+## 2300       98.96993 99.34031 99.43987 99.58882 99.64831 99.73232 99.77858
+## 2302       99.28904 99.34259 99.60623 99.72833 99.82300 99.83123 99.83945
+## 2303       99.21589 99.50823 99.59690 99.61303 99.72311 99.74119 99.81047
+## 2304       98.63705 99.24423 99.31385 99.40558 99.50455 99.51250 99.66634
+## 2305       98.95214 99.42543 99.46418 99.54062 99.61096 99.63679 99.77235
+## 2317       98.36879 99.25799 99.32741 99.51087 99.54332 99.60937 99.70243
+## 2318       98.58316 99.21503 99.40300 99.49180 99.60383 99.61415 99.76878
+## 2319       99.34532 99.47715 99.57602 99.59793 99.73625 99.77381 99.84691
+## 2320       99.35476 99.52650 99.60766 99.62937 99.70882 99.74793 99.78299
+## 2321       98.86037 99.49791 99.51555 99.65495 99.70116 99.71695 99.81066
+## 2322       99.30675 99.49056 99.63954 99.66225 99.74120 99.74848 99.85731
+## 2323       99.24251 99.64473 99.70482 99.75246 99.80256 99.81179 99.83921
+## 2324       98.93488 99.19049 99.33394 99.45530 99.63310 99.66789 99.77150
+## 2325       99.40052 99.42955 99.68432 99.71046 99.82931 99.86062 99.86518
+## 2361       99.25306 99.55396 99.64575 99.73888 99.79571 99.81013 99.83991
+## 2362       98.79361 99.27191 99.48333 99.61062 99.68857 99.70734 99.79689
+## 2363       99.33276 99.58555 99.65350 99.71377 99.81079 99.83548 99.85958
+## 2364       98.81296 99.10067 99.27596 99.43244 99.54532 99.61794 99.70761
+## 2365       99.18660 99.38224 99.53220 99.58040 99.70651 99.75234 99.75935
+## 2366       99.40879 99.48020 99.62104 99.65006 99.72185 99.75588 99.80774
+## 2419       98.78551 99.29346 99.41104 99.63273 99.70058 99.73387 99.79840
+## 2426       98.64033 99.20097 99.29697 99.43238 99.54797 99.57107 99.67250
+## 3Ba90      99.05586 99.38952 99.41777 99.64178 99.64647 99.78280 99.78771
+## 3Bb1       98.03588 99.04440 99.13266 99.57578 99.61820 99.77073 99.79521
+## 3Bb3       97.96961 99.02373 99.09883 99.53879 99.57653 99.70751 99.74386
+## 3Bb4       98.53895 99.11974 99.22710 99.48252 99.58839 99.65715 99.74557
+## 3Bb5       98.54560 99.08425 99.17706 99.39473 99.51714 99.59004 99.68715
+## 3Bb6       98.92856 99.35150 99.35432 99.56298 99.59166 99.71087 99.75965
+## 3Bb7       98.67280 99.11297 99.14179 99.36182 99.50564 99.62512 99.72215
+## 3Bb8       98.70566 99.23274 99.23544 99.49814 99.53084 99.67820 99.72195
+## 4078-11    97.82695 98.92554 98.97641 99.40520 99.47043 99.68946 99.71002
+## 4078-12    98.61263 99.14789 99.19968 99.54065 99.60418 99.72939 99.78834
+## 4078-13    98.15564 98.78852 98.86283 99.42646 99.50258 99.65249 99.71789
+## 4078-14    99.18708 99.43760 99.57691 99.63542 99.71489 99.71968 99.77584
+## 4078-14B   97.88456 98.97944 99.08550 99.53053 99.58966 99.69383 99.73515
+## 4078-22    98.37173 98.99289 99.06254 99.45446 99.51535 99.67553 99.73803
+## 4078-30    98.90128 99.34252 99.41146 99.52591 99.64745 99.68011 99.75165
+## 4078-32    99.06431 99.43289 99.58510 99.62848 99.77165 99.79484 99.90726
+## 4078-45    98.67061 99.26201 99.30213 99.53331 99.59974 99.71590 99.77368
+## 4078-72    98.68958 99.36377 99.44275 99.56684 99.66871 99.70840 99.78527
+## 4078-8     98.75347 99.20952 99.24943 99.49712 99.54336 99.66207 99.69673
+## 4078-9     98.51044 99.28705 99.33925 99.54111 99.64115 99.66562 99.76972
+## 424-169    98.69382 99.28891 99.44426 99.53552 99.65703 99.67370 99.77729
+## 424-175    98.38206 99.17769 99.19725 99.50513 99.54180 99.69264 99.73360
+## 424-218    98.59356 99.12650 99.36647 99.44601 99.63717 99.63956 99.74519
+## 424-221    98.60955 99.35744 99.47552 99.61430 99.71044 99.71840 99.80421
+## 424-230    98.71853 99.31331 99.41289 99.58988 99.69277 99.71288 99.80247
+## 424-39     98.63802 99.15439 99.16587 99.41596 99.50368 99.67956 99.74138
+## 424-41     98.66998 99.31331 99.38361 99.47437 99.60520 99.62597 99.76860
+## 424-50     98.79349 99.32528 99.33706 99.65548 99.67952 99.80668 99.84185
+## 424-53     98.58912 99.28472 99.35758 99.60001 99.65018 99.69352 99.76928
+## 463-1      98.69200 99.29741 99.33992 99.67178 99.68695 99.81303 99.82801
+## 463-16     98.60432 99.16899 99.33065 99.49496 99.63903 99.68707 99.78410
+## 463-23     98.41507 99.05823 99.31545 99.43314 99.58629 99.60479 99.75345
+## 489        99.07352 99.48816 99.52227 99.76520 99.77292 99.85356 99.88396
+## 490        98.81943 99.34269 99.47751 99.64188 99.71068 99.75089 99.80392
+## 532        98.82395 99.29266 99.39580 99.59635 99.67612 99.76679 99.81144
+## 533        98.79168 99.23039 99.26667 99.53777 99.65101 99.74651 99.81145
+## 541        98.80063 99.42941 99.48182 99.67298 99.70669 99.75194 99.79031
+## 542        98.35344 99.15495 99.37087 99.55002 99.64168 99.64546 99.72404
+## 543        98.54234 99.09397 99.15404 99.52485 99.60597 99.73971 99.79803
+## 544        98.90339 99.37980 99.39275 99.66378 99.67792 99.80865 99.82919
+## 545        99.13337 99.20670 99.50811 99.53751 99.68993 99.73139 99.76823
+## 546        98.93485 99.46720 99.47825 99.66592 99.70179 99.77196 99.81465
+## 547        99.22834 99.56377 99.64401 99.69320 99.78655 99.80061 99.88198
+## 548        98.93123 99.42587 99.52889 99.70066 99.75602 99.79983 99.84064
+## 549        98.66144 99.28139 99.40534 99.48414 99.60284 99.61094 99.73582
+## 550        98.57423 99.16591 99.22594 99.48048 99.53662 99.67058 99.71716
+## 551        98.80128 99.24026 99.28812 99.59387 99.68381 99.69587 99.75139
+## 569        98.91387 99.41160 99.45325 99.65129 99.72080 99.77047 99.83448
+## 593        98.80162 99.28299 99.30751 99.61227 99.63874 99.78702 99.80163
+## 605        98.62019 99.27079 99.36270 99.61378 99.68585 99.74626 99.80284
+## 606        98.63122 99.25470 99.30747 99.57085 99.62947 99.74562 99.80542
+## 607        98.46794 99.24223 99.29052 99.56715 99.60901 99.70751 99.77874
+## 608        98.74287 99.34387 99.42216 99.63067 99.69624 99.74200 99.80880
+## 609        98.71164 99.28673 99.31185 99.64475 99.71553 99.83595 99.85582
+## 610        98.65763 99.24791 99.38953 99.54897 99.67012 99.70947 99.78732
+## 611        99.07897 99.55937 99.59477 99.74604 99.76461 99.84021 99.87187
+## 612        98.74855 99.27387 99.29199 99.59484 99.65492 99.73262 99.78069
+## 613        98.96039 99.37340 99.46827 99.60043 99.70470 99.72366 99.81991
+## 614        98.92145 99.38625 99.53709 99.58121 99.69072 99.71478 99.80091
+## 622        98.39122 99.32828 99.38786 99.64134 99.66508 99.69014 99.74657
+## 666        98.12845 99.03405 99.07628 99.40765 99.46180 99.56682 99.66455
+## BlkThn     98.72590 99.20310 99.21199 99.51619 99.54419 99.69363 99.71091
+## bsp        98.92710 99.43099 99.46869 99.71286 99.74120 99.77356 99.81725
+## Case2LG    98.74394 99.28134 99.29058 99.50657 99.53119 99.64553 99.69832
+## Case2SM    98.66658 99.17784 99.22872 99.49872 99.56964 99.72429 99.76479
+## D11        99.03648 99.37188 99.38243 99.55505 99.62722 99.73570 99.80491
+## DM1        98.52465 99.26708 99.42129 99.51422 99.60271 99.60670 99.76787
+## ET221-1016 98.58824 99.10738 99.21935 99.52084 99.58984 99.67591 99.75493
+## ET221-1260 98.44107 99.06779 99.07210 99.44328 99.53087 99.71710 99.76224
+## ET221-993  98.48998 99.20765 99.23700 99.49995 99.58846 99.70755 99.76227
+## Lf50.3     98.67238 99.36951 99.38526 99.64224 99.67390 99.78614 99.82248
+## LgGray     98.87144 99.32810 99.34990 99.59052 99.59223 99.74411 99.75398
+## unk1       98.82571 99.08788 99.33659 99.42012 99.58861 99.68176 99.74798
+## unk2       98.79603 99.35457 99.41109 99.44793 99.68011 99.71129 99.83412
+## unk3       99.05145 99.28282 99.42592 99.49003 99.61287 99.62928 99.69287
+## unk4       99.41210 99.62103 99.68712 99.71685 99.83288 99.83719 99.86750
+## unk5       99.07628 99.55451 99.59584 99.68654 99.73578 99.76985 99.82217
+## unk6       98.89811 99.38197 99.44901 99.48264 99.56528 99.59814 99.71147
+## unk7       99.39378 99.41794 99.60386 99.64279 99.69171 99.75042 99.75470
+## unk8       98.71694 99.15798 99.30462 99.39194 99.57103 99.62161 99.75937
+##                 h15      h16      h17      h18      h19      h20      h21
+## 2300       99.79048 99.85037 99.85875 99.88158 99.89619 99.91091 99.93010
+## 2302       99.88263 99.90846 99.93555 99.95207 99.95863 99.96104 99.96632
+## 2303       99.82767 99.85510 99.90276 99.91083 99.93369 99.94422 99.95934
+## 2304       99.68193 99.75106 99.76741 99.81804 99.82825 99.89161 99.89704
+## 2305       99.79596 99.84728 99.86988 99.90222 99.90540 99.91655 99.92654
+## 2317       99.73754 99.78167 99.82560 99.84711 99.85282 99.86313 99.90103
+## 2318       99.78017 99.88238 99.89724 99.92178 99.93074 99.93249 99.95270
+## 2319       99.85848 99.87589 99.89523 99.90062 99.91849 99.92872 99.94073
+## 2320       99.82899 99.83735 99.86696 99.87650 99.90310 99.91004 99.92621
+## 2321       99.82906 99.88703 99.88766 99.90919 99.91235 99.93016 99.93916
+## 2322       99.87419 99.89061 99.90409 99.91686 99.92541 99.93537 99.94295
+## 2323       99.86644 99.89836 99.91013 99.91613 99.92148 99.93328 99.94203
+## 2324       99.80024 99.83905 99.85101 99.86282 99.90327 99.91384 99.93218
+## 2325       99.88787 99.89907 99.91524 99.93329 99.93442 99.96041 99.96297
+## 2361       99.84768 99.88764 99.91534 99.94998 99.95210 99.95655 99.96590
+## 2362       99.81490 99.86680 99.88274 99.89522 99.91627 99.91982 99.94503
+## 2363       99.89137 99.89682 99.92410 99.93070 99.95197 99.95352 99.96029
+## 2364       99.71262 99.85574 99.86206 99.89048 99.89634 99.91952 99.93035
+## 2365       99.80184 99.80519 99.84088 99.85131 99.87644 99.90002 99.90807
+## 2366       99.82874 99.86891 99.88623 99.89952 99.90720 99.92698 99.93371
+## 2419       99.80081 99.88100 99.88803 99.92063 99.93167 99.94275 99.95081
+## 2426       99.68081 99.78775 99.82981 99.88551 99.88648 99.89209 99.91737
+## 3Ba90      99.88135 99.88607 99.93539 99.94146 99.95333 99.95972 99.96425
+## 3Bb1       99.81811 99.84878 99.84986 99.89911 99.90583 99.94051 99.94798
+## 3Bb3       99.75778 99.81643 99.82009 99.87216 99.88456 99.93594 99.94261
+## 3Bb4       99.75774 99.83687 99.83999 99.89410 99.89995 99.92748 99.93998
+## 3Bb5       99.70693 99.79939 99.81301 99.86134 99.87308 99.92399 99.93365
+## 3Bb6       99.81102 99.86135 99.87172 99.90428 99.90463 99.92687 99.92921
+## 3Bb7       99.77336 99.83851 99.84272 99.87909 99.88409 99.91314 99.92348
+## 3Bb8       99.80388 99.84527 99.86470 99.89282 99.89395 99.91943 99.92202
+## 4078-11    99.76819 99.80393 99.81311 99.85862 99.86612 99.91117 99.92450
+## 4078-12    99.79653 99.85503 99.86432 99.90633 99.92511 99.95061 99.96229
+## 4078-13    99.73725 99.80222 99.81066 99.86559 99.87636 99.90939 99.93352
+## 4078-14    99.79963 99.82465 99.85460 99.86947 99.90992 99.91900 99.94539
+## 4078-14B   99.73970 99.80425 99.80828 99.86498 99.87346 99.91256 99.91835
+## 4078-22    99.77254 99.82832 99.83043 99.88519 99.89149 99.92176 99.92386
+## 4078-30    99.77493 99.83428 99.88418 99.92478 99.92879 99.93437 99.94880
+## 4078-32    99.91084 99.92038 99.92927 99.93512 99.95889 99.96571 99.96968
+## 4078-45    99.81329 99.86154 99.86280 99.91345 99.91990 99.94145 99.94620
+## 4078-72    99.78990 99.83494 99.85445 99.89532 99.91230 99.91939 99.94282
+## 4078-8     99.77072 99.82005 99.83082 99.85687 99.87016 99.90011 99.90499
+## 4078-9     99.78405 99.84463 99.85973 99.89206 99.90603 99.91807 99.94402
+## 424-169    99.78978 99.87280 99.87960 99.90449 99.91396 99.91555 99.94611
+## 424-175    99.75644 99.80516 99.83161 99.89645 99.90144 99.93191 99.93447
+## 424-218    99.78853 99.82841 99.86101 99.86568 99.90633 99.90898 99.95278
+## 424-221    99.80752 99.86566 99.87644 99.89968 99.92029 99.92592 99.94942
+## 424-230    99.81048 99.87262 99.88986 99.92451 99.93694 99.94496 99.96006
+## 424-39     99.79943 99.84257 99.85493 99.88842 99.88871 99.92389 99.92833
+## 424-41     99.78307 99.87676 99.88055 99.91318 99.92665 99.93604 99.95364
+## 424-50     99.86865 99.89664 99.90115 99.92811 99.93355 99.95325 99.95833
+## 424-53     99.78612 99.85374 99.86782 99.91758 99.92648 99.95119 99.95915
+## 463-1      99.86255 99.88479 99.90037 99.92473 99.92883 99.95111 99.95627
+## 463-16     99.78799 99.86029 99.87034 99.91451 99.92801 99.93437 99.95004
+## 463-23     99.77554 99.86664 99.87537 99.90308 99.90889 99.92333 99.93711
+## 489        99.89571 99.91342 99.91735 99.94417 99.94758 99.96293 99.97184
+## 490        99.84331 99.87944 99.89554 99.91182 99.93034 99.94391 99.95073
+## 532        99.84209 99.86986 99.90326 99.92726 99.94309 99.95016 99.97025
+## 533        99.82829 99.86601 99.86832 99.90885 99.91477 99.94207 99.95075
+## 541        99.79672 99.84468 99.85434 99.90380 99.91401 99.94157 99.94916
+## 542        99.75902 99.83283 99.87266 99.91162 99.92193 99.92315 99.94417
+## 543        99.82866 99.86147 99.87108 99.89862 99.90024 99.93167 99.93956
+## 544        99.88180 99.90022 99.91482 99.93131 99.93630 99.95254 99.95413
+## 545        99.82961 99.83128 99.87145 99.88147 99.91437 99.92802 99.93071
+## 546        99.82392 99.86956 99.87469 99.91828 99.92223 99.95419 99.96144
+## 547        99.90594 99.92761 99.94013 99.94451 99.95818 99.96284 99.97611
+## 548        99.86246 99.89627 99.92206 99.94755 99.96133 99.97409 99.97565
+## 549        99.78398 99.84810 99.86785 99.88147 99.91590 99.92055 99.94837
+## 550        99.74859 99.81379 99.82824 99.87600 99.87875 99.91996 99.92503
+## 551        99.76668 99.84041 99.86162 99.88799 99.89724 99.92512 99.93170
+## 569        99.84360 99.90412 99.90932 99.94733 99.95363 99.96034 99.96562
+## 593        99.86489 99.88376 99.90379 99.92387 99.92607 99.94561 99.94814
+## 605        99.81090 99.87447 99.88528 99.93524 99.94171 99.96272 99.96691
+## 606        99.83202 99.87837 99.88113 99.91584 99.91947 99.94459 99.94689
+## 607        99.80529 99.85092 99.87191 99.90292 99.93249 99.95637 99.95757
+## 608        99.81752 99.87465 99.87578 99.91657 99.92961 99.94574 99.95343
+## 609        99.88829 99.91164 99.91543 99.93546 99.94092 99.96070 99.96172
+## 610        99.79282 99.85729 99.87460 99.90498 99.92191 99.93561 99.94846
+## 611        99.89543 99.91285 99.92048 99.93414 99.94749 99.95862 99.97082
+## 612        99.80278 99.85451 99.86527 99.90781 99.91346 99.94281 99.95565
+## 613        99.83897 99.89089 99.90530 99.92673 99.94240 99.94866 99.96269
+## 614        99.82568 99.86842 99.88255 99.88625 99.91090 99.92866 99.95481
+## 622        99.76063 99.82353 99.84760 99.89562 99.91547 99.94350 99.95043
+## 666        99.68846 99.77957 99.79599 99.86976 99.88037 99.93418 99.94323
+## BlkThn     99.83145 99.84789 99.89447 99.90346 99.92495 99.92805 99.93130
+## bsp        99.83542 99.88208 99.89356 99.92746 99.94174 99.95457 99.95927
+## Case2LG    99.75654 99.81096 99.84185 99.88572 99.89074 99.92813 99.93011
+## Case2SM    99.80634 99.84319 99.84685 99.88967 99.89372 99.92057 99.93323
+## D11        99.82753 99.87234 99.88010 99.90370 99.90943 99.93973 99.94982
+## DM1        99.80867 99.89483 99.90170 99.92069 99.93131 99.93148 99.95335
+## ET221-1016 99.75750 99.81604 99.82199 99.86466 99.88311 99.91223 99.93098
+## ET221-1260 99.80401 99.83282 99.84666 99.89166 99.89840 99.92685 99.93197
+## ET221-993  99.76653 99.83236 99.83357 99.88371 99.88689 99.90743 99.92178
+## Lf50.3     99.84809 99.87911 99.88161 99.92004 99.92910 99.95500 99.95798
+## LgGray     99.83231 99.84680 99.88808 99.90508 99.92572 99.94318 99.94608
+## unk1       99.77645 99.82058 99.85141 99.86153 99.88185 99.90433 99.92000
+## unk2       99.85457 99.88446 99.89785 99.90717 99.92435 99.93027 99.95506
+## unk3       99.76884 99.80835 99.86522 99.88631 99.90611 99.91631 99.93227
+## unk4       99.89132 99.91170 99.92251 99.92720 99.93553 99.93991 99.94550
+## unk5       99.83213 99.87552 99.88748 99.90764 99.91386 99.92110 99.93587
+## unk6       99.73192 99.82911 99.84409 99.87817 99.88696 99.91042 99.93639
+## unk7       99.79664 99.83412 99.85710 99.87737 99.88701 99.91843 99.92095
+## unk8       99.79272 99.82657 99.84867 99.86649 99.89745 99.91363 99.94085
+##                 h22      h23      h24      h25      h26      h27      h28 h29
+## 2300       99.93797 99.94675 99.96008 99.96668 99.97830 99.99015 99.99945 100
+## 2302       99.97241 99.97821 99.98161 99.98294 99.98717 99.99233 99.99493 100
+## 2303       99.96321 99.97168 99.98210 99.98283 99.98362 99.98458 99.99486 100
+## 2304       99.92271 99.93120 99.94345 99.96901 99.98472 99.99359 99.99782 100
+## 2305       99.93000 99.94262 99.96821 99.97970 99.98445 99.99014 99.99541 100
+## 2317       99.92752 99.94299 99.95075 99.96540 99.97817 99.98075 99.99456 100
+## 2318       99.95559 99.97486 99.97574 99.98505 99.98732 99.98871 99.99727 100
+## 2319       99.96654 99.97063 99.98111 99.98644 99.98996 99.99369 99.99521 100
+## 2320       99.93336 99.95111 99.95927 99.96241 99.98214 99.99004 99.99450 100
+## 2321       99.95360 99.96250 99.97108 99.98032 99.99164 99.99418 99.99759 100
+## 2322       99.94989 99.95596 99.96892 99.97179 99.97553 99.98455 99.99430 100
+## 2323       99.96460 99.96933 99.97489 99.97602 99.98657 99.99073 99.99925 100
+## 2324       99.94518 99.95405 99.96928 99.97298 99.98135 99.98693 99.99581 100
+## 2325       99.98207 99.98410 99.98617 99.99151 99.99177 99.99890 99.99904 100
+## 2361       99.97308 99.97953 99.98206 99.98502 99.99379 99.99505 99.99972 100
+## 2362       99.94731 99.97322 99.97984 99.98446 99.98717 99.98890 99.99600 100
+## 2363       99.96520 99.97171 99.97558 99.98017 99.98533 99.99561 99.99833 100
+## 2364       99.94915 99.96118 99.96709 99.96975 99.97833 99.98526 99.99486 100
+## 2365       99.92308 99.93463 99.96949 99.97351 99.98446 99.98617 99.99094 100
+## 2366       99.94017 99.94958 99.96519 99.97154 99.97567 99.99401 99.99691 100
+## 2419       99.95380 99.96609 99.96646 99.98455 99.99049 99.99503 99.99637 100
+## 2426       99.93486 99.93792 99.96198 99.97967 99.98324 99.99127 99.99809 100
+## 3Ba90      99.97324 99.97520 99.98438 99.98711 99.99268 99.99369 99.99991 100
+## 3Bb1       99.96248 99.96942 99.97532 99.98259 99.98345 99.99206 99.99249 100
+## 3Bb3       99.95777 99.96313 99.96600 99.97437 99.97483 99.98527 99.98787 100
+## 3Bb4       99.94800 99.95953 99.96041 99.97348 99.97522 99.98917 99.99066 100
+## 3Bb5       99.93974 99.94683 99.95664 99.97596 99.98399 99.99249 99.99459 100
+## 3Bb6       99.95737 99.96488 99.98010 99.98759 99.99205 99.99554 99.99601 100
+## 3Bb7       99.94298 99.95777 99.97104 99.98164 99.98338 99.99084 99.99202 100
+## 3Bb8       99.94410 99.95052 99.97120 99.97526 99.98544 99.98957 99.99188 100
+## 4078-11    99.94841 99.95074 99.97301 99.97592 99.98248 99.99095 99.99517 100
+## 4078-12    99.96676 99.97486 99.97643 99.98543 99.98847 99.99603 99.99739 100
+## 4078-13    99.94157 99.95391 99.95868 99.98214 99.98261 99.99351 99.99444 100
+## 4078-14    99.95024 99.97085 99.97403 99.97963 99.98689 99.98952 99.99665 100
+## 4078-14B   99.93913 99.94423 99.94598 99.96043 99.96276 99.97626 99.98343 100
+## 4078-22    99.94490 99.95589 99.96069 99.97303 99.97752 99.98849 99.99195 100
+## 4078-30    99.95599 99.96050 99.96508 99.97439 99.98160 99.99145 99.99569 100
+## 4078-32    99.97230 99.97632 99.98490 99.98810 99.99420 99.99563 99.99862 100
+## 4078-45    99.96002 99.96694 99.96925 99.97864 99.97936 99.98778 99.99383 100
+## 4078-72    99.95060 99.96532 99.97157 99.99174 99.99330 99.99885 99.99980 100
+## 4078-8     99.93104 99.93755 99.96716 99.97477 99.98525 99.99345 99.99515 100
+## 4078-9     99.95112 99.97149 99.97722 99.98392 99.99030 99.99313 99.99833 100
+## 424-169    99.95188 99.97811 99.98121 99.98712 99.99276 99.99391 99.99961 100
+## 424-175    99.95932 99.96363 99.97024 99.97504 99.98360 99.99003 99.99176 100
+## 424-218    99.96326 99.98032 99.98444 99.98470 99.99330 99.99495 99.99757 100
+## 424-221    99.95260 99.97711 99.97979 99.99001 99.99324 99.99631 99.99966 100
+## 424-230    99.96227 99.97925 99.98195 99.99198 99.99352 99.99588 99.99881 100
+## 424-39     99.95889 99.96341 99.97258 99.97708 99.98487 99.99089 99.99158 100
+## 424-41     99.95754 99.97244 99.97421 99.98751 99.99031 99.99515 99.99844 100
+## 424-50     99.97287 99.97853 99.98539 99.98984 99.99007 99.99301 99.99410 100
+## 424-53     99.96269 99.97182 99.97521 99.98483 99.98752 99.99434 99.99612 100
+## 463-1      99.97374 99.98004 99.98566 99.99057 99.99369 99.99682 99.99837 100
+## 463-16     99.95121 99.96659 99.97259 99.98526 99.99050 99.99380 99.99826 100
+## 463-23     99.94562 99.95977 99.96414 99.97691 99.98725 99.99013 99.99630 100
+## 489        99.98271 99.98584 99.98851 99.99100 99.99249 99.99621 99.99784 100
+## 490        99.95791 99.96271 99.97746 99.98535 99.98925 99.99160 99.99513 100
+## 532        99.97849 99.98547 99.98711 99.98967 99.99376 99.99485 99.99733 100
+## 533        99.96674 99.97395 99.97606 99.98252 99.98353 99.99321 99.99520 100
+## 541        99.96078 99.96667 99.96764 99.97735 99.98063 99.99003 99.99524 100
+## 542        99.95008 99.96883 99.97531 99.98546 99.98898 99.98936 99.99646 100
+## 543        99.96210 99.97229 99.98141 99.98340 99.98623 99.98861 99.99571 100
+## 544        99.96863 99.96927 99.98329 99.98646 99.99331 99.99488 99.99660 100
+## 545        99.94571 99.95200 99.97000 99.97513 99.98316 99.98880 99.99166 100
+## 546        99.97419 99.97811 99.98138 99.98656 99.98764 99.99388 99.99448 100
+## 547        99.97849 99.98237 99.98603 99.98779 99.99058 99.99401 99.99744 100
+## 548        99.98030 99.98232 99.98701 99.98765 99.99161 99.99534 99.99879 100
+## 549        99.95334 99.97071 99.97468 99.97850 99.98702 99.98746 99.99711 100
+## 550        99.94790 99.95536 99.97063 99.97633 99.98126 99.99035 99.99132 100
+## 551        99.93522 99.94776 99.96342 99.97815 99.98090 99.98515 99.98884 100
+## 569        99.96990 99.97983 99.98106 99.98696 99.99057 99.99605 99.99800 100
+## 593        99.96498 99.96745 99.98204 99.98394 99.99102 99.99250 99.99762 100
+## 605        99.96975 99.97609 99.97807 99.98758 99.98886 99.99592 99.99768 100
+## 606        99.96177 99.96527 99.97555 99.98326 99.98471 99.99375 99.99425 100
+## 607        99.96372 99.97117 99.97483 99.98269 99.98449 99.99320 99.99531 100
+## 608        99.95623 99.96737 99.96831 99.97945 99.98371 99.99363 99.99619 100
+## 609        99.97536 99.97837 99.98622 99.99153 99.99449 99.99576 99.99714 100
+## 610        99.95000 99.96221 99.96855 99.98491 99.99223 99.99490 99.99976 100
+## 611        99.97628 99.98424 99.98655 99.99151 99.99330 99.99645 99.99892 100
+## 612        99.96546 99.97314 99.97551 99.98228 99.98481 99.99331 99.99376 100
+## 613        99.96705 99.97863 99.98250 99.98544 99.98876 99.99117 99.99760 100
+## 614        99.96697 99.97282 99.98009 99.98348 99.99120 99.99592 99.99966 100
+## 622        99.95840 99.96314 99.96732 99.97651 99.98086 99.99335 99.99580 100
+## 666        99.95213 99.96272 99.96695 99.97669 99.98066 99.99242 99.99604 100
+## BlkThn     99.94376 99.95260 99.96275 99.97183 99.98748 99.98964 99.99790 100
+## bsp        99.97051 99.97350 99.97528 99.98262 99.98490 99.99067 99.99687 100
+## Case2LG    99.95719 99.95885 99.97038 99.97604 99.98603 99.99132 99.99415 100
+## Case2SM    99.95156 99.95781 99.96751 99.97327 99.97487 99.98801 99.99021 100
+## D11        99.96580 99.97545 99.98142 99.98671 99.98737 99.99412 99.99456 100
+## DM1        99.95725 99.97610 99.98375 99.98705 99.99069 99.99397 99.99860 100
+## ET221-1016 99.93998 99.95006 99.95357 99.96592 99.97140 99.98650 99.98933 100
+## ET221-1260 99.97159 99.97386 99.98906 99.99094 99.99444 99.99651 99.99760 100
+## ET221-993  99.93070 99.94014 99.95460 99.96515 99.96724 99.98707 99.99137 100
+## Lf50.3     99.97523 99.97895 99.98061 99.98683 99.98782 99.99543 99.99597 100
+## LgGray     99.96228 99.96417 99.97745 99.97850 99.98793 99.99087 99.99827 100
+## unk1       99.92453 99.92733 99.95307 99.95981 99.97154 99.98188 99.99537 100
+## unk2       99.96072 99.96342 99.96966 99.97319 99.98052 99.98539 99.99533 100
+## unk3       99.94163 99.95342 99.96361 99.97134 99.97550 99.98626 99.99646 100
+## unk4       99.95912 99.96217 99.96809 99.97735 99.98668 99.99104 99.99455 100
+## unk5       99.93988 99.95063 99.96716 99.98167 99.98454 99.98677 99.98963 100
+## unk6       99.94238 99.96376 99.97232 99.98189 99.98487 99.99538 99.99663 100
+## unk7       99.93574 99.94203 99.95099 99.96413 99.96559 99.99195 99.99448 100
+## unk8       99.95195 99.96897 99.97180 99.97516 99.97765 99.98537 99.99276 100
+## 
+## $minh
+##   90%   95%   99% 99.9% 
+##     5     6    10    19</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="elliptical-fourier-analysis.html#cb19-1"></a><span class="co"># 11 harmonics needed to capture 99 percent of variation</span></span>
+<span id="cb19-2"><a href="elliptical-fourier-analysis.html#cb19-2"></a><span class="kw">calibrate_reconstructions_efourier</span>(norm.outlines, </span>
+<span id="cb19-3"><a href="elliptical-fourier-analysis.html#cb19-3"></a>                                   <span class="dt">range =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">11</span>)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/cal.harm-2.png" width="100%" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="elliptical-fourier-analysis.html#cb20-1"></a><span class="co"># generate efa outlines with 11 harmonics</span></span>
+<span id="cb20-2"><a href="elliptical-fourier-analysis.html#cb20-2"></a>efa.outlines &lt;-<span class="st"> </span><span class="kw">efourier</span>(norm.outlines, </span>
+<span id="cb20-3"><a href="elliptical-fourier-analysis.html#cb20-3"></a>                         <span class="dt">nb.h =</span> <span class="dv">11</span>, </span>
+<span id="cb20-4"><a href="elliptical-fourier-analysis.html#cb20-4"></a>                         <span class="dt">norm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb20-5"><a href="elliptical-fourier-analysis.html#cb20-5"></a></span>
+<span id="cb20-6"><a href="elliptical-fourier-analysis.html#cb20-6"></a><span class="co"># use efa.outlines for pca</span></span>
+<span id="cb20-7"><a href="elliptical-fourier-analysis.html#cb20-7"></a>pca.outlines &lt;-<span class="st"> </span><span class="kw">PCA</span>(efa.outlines)</span></code></pre></div>
+</div>
+<div id="pca" class="section level2">
+<h2><span class="header-section-number">3.5</span> PCA</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="elliptical-fourier-analysis.html#cb21-1"></a><span class="co"># pca </span></span>
+<span id="cb21-2"><a href="elliptical-fourier-analysis.html#cb21-2"></a><span class="kw">scree_plot</span>(pca.outlines)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/pca.plot-1.png" width="100%" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="elliptical-fourier-analysis.html#cb22-1"></a><span class="co"># plot pca by region</span></span>
+<span id="cb22-2"><a href="elliptical-fourier-analysis.html#cb22-2"></a><span class="kw">plot_PCA</span>(pca.outlines, </span>
+<span id="cb22-3"><a href="elliptical-fourier-analysis.html#cb22-3"></a>         <span class="dt">morphospace_position =</span> <span class="st">&quot;range&quot;</span>,</span>
+<span id="cb22-4"><a href="elliptical-fourier-analysis.html#cb22-4"></a>         <span class="op">~</span>region2, <span class="dt">zoom =</span> <span class="fl">1.25</span>)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/pca.plot-2.png" width="100%" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="elliptical-fourier-analysis.html#cb23-1"></a><span class="co"># plot pca by region</span></span>
+<span id="cb23-2"><a href="elliptical-fourier-analysis.html#cb23-2"></a><span class="kw">plot_PCA</span>(pca.outlines, </span>
+<span id="cb23-3"><a href="elliptical-fourier-analysis.html#cb23-3"></a>         <span class="dt">morphospace_position =</span> <span class="st">&quot;range&quot;</span>,</span>
+<span id="cb23-4"><a href="elliptical-fourier-analysis.html#cb23-4"></a>         <span class="op">~</span>mortuary, <span class="dt">zoom =</span> <span class="fl">1.25</span>)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/pca.plot-3.png" width="100%" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="elliptical-fourier-analysis.html#cb24-1"></a><span class="co"># contribution of each pc by region2</span></span>
+<span id="cb24-2"><a href="elliptical-fourier-analysis.html#cb24-2"></a><span class="kw">boxplot</span>(pca.outlines, <span class="op">~</span>region2, <span class="dt">nax =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/pca.plot-4.png" width="100%" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="elliptical-fourier-analysis.html#cb25-1"></a><span class="co"># contribution of each pc by mortuary context</span></span>
+<span id="cb25-2"><a href="elliptical-fourier-analysis.html#cb25-2"></a><span class="kw">boxplot</span>(pca.outlines, <span class="op">~</span>mortuary, <span class="dt">nax =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/pca.plot-5.png" width="100%" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="elliptical-fourier-analysis.html#cb26-1"></a><span class="co"># mean shape + 2sd for the first 10 pcs</span></span>
+<span id="cb26-2"><a href="elliptical-fourier-analysis.html#cb26-2"></a><span class="kw">PCcontrib</span>(pca.outlines, <span class="dt">nax =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span></code></pre></div>
+<p><img src="gahaganmorph3_files/figure-html/pca.plot-6.png" width="100%" /></p>
+</div>
+<div id="manova-manova_pw" class="section level2">
+<h2><span class="header-section-number">3.6</span> MANOVA + MANOVA_PW</h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="elliptical-fourier-analysis.html#cb27-1"></a><span class="co"># manova + manova_pw</span></span>
+<span id="cb27-2"><a href="elliptical-fourier-analysis.html#cb27-2"></a><span class="co"># are there shape differences between regions?</span></span>
+<span id="cb27-3"><a href="elliptical-fourier-analysis.html#cb27-3"></a><span class="kw">MANOVA</span>(pca.outlines, <span class="st">&#39;region2&#39;</span>)</span></code></pre></div>
+<pre><code>## PC axes 1 to 12 were retained</code></pre>
+<pre><code>##           Df Hotelling-Lawley approx F num Df den Df  Pr(&gt;F)  
+## fac        2          0.46871   1.6991     24    174 0.02809 *
+## Residuals 99                                                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="elliptical-fourier-analysis.html#cb30-1"></a><span class="co"># which differ?</span></span>
+<span id="cb30-2"><a href="elliptical-fourier-analysis.html#cb30-2"></a><span class="kw">MANOVA_PW</span>(pca.outlines, <span class="st">&#39;region2&#39;</span>)</span></code></pre></div>
+<pre><code>## PC axes 1 to 12 were retained</code></pre>
+<pre><code>## CTXSCA-north</code></pre>
+<pre><code>## CTXSCA-south</code></pre>
+<pre><code>## SCA-northSCA-south</code></pre>
+<pre><code>## $stars.tab
+##           CTX SCA-north SCA-south
+## CTX           **        -        
+## SCA-north               **       
+## 
+## $summary (see also $manovas)
+##                       Df Pillai approx F num Df den Df   Pr(&gt;F)
+## CTX - SCA-north        1 0.5742   3.3712     12     30 0.003391
+## CTX - SCA-south        1 0.1124   0.8018     12     76 0.647414
+## SCA-north - SCA-south  1 0.3537   2.6907     12     59 0.005885</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="elliptical-fourier-analysis.html#cb36-1"></a><span class="co"># is there a shape difference between mortuary context?</span></span>
+<span id="cb36-2"><a href="elliptical-fourier-analysis.html#cb36-2"></a><span class="kw">MANOVA</span>(pca.outlines, <span class="st">&#39;mortuary&#39;</span>)</span></code></pre></div>
+<pre><code>## PC axes 1 to 12 were retained</code></pre>
+<pre><code>##            Df Hotelling-Lawley approx F num Df den Df Pr(&gt;F)
+## fac         1          0.12962  0.96137     12     89 0.4914
+## Residuals 100</code></pre>
+</div>
+<div id="mean-shapes" class="section level2">
+<h2><span class="header-section-number">3.7</span> Mean shapes</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="elliptical-fourier-analysis.html#cb39-1"></a><span class="co"># mean shapes for regions</span></span>
+<span id="cb39-2"><a href="elliptical-fourier-analysis.html#cb39-2"></a>ms<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">MSHAPES</span>(efa.outlines, <span class="op">~</span>region2)</span>
+<span id="cb39-3"><a href="elliptical-fourier-analysis.html#cb39-3"></a><span class="kw">plot_MSHAPES</span>(ms<span class="fl">.1</span>, <span class="dt">size =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:ms1"></span>
+<img src="gahaganmorph3_files/figure-html/ms1-1.png" alt="Mean shapes for Gahagan bifaces by region." width="100%" />
+<p class="caption">
+Figure 3.1: Mean shapes for Gahagan bifaces by region.
+</p>
+</div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="elliptical-fourier-analysis.html#cb40-1"></a><span class="co"># mean shapes for regions</span></span>
+<span id="cb40-2"><a href="elliptical-fourier-analysis.html#cb40-2"></a>ms<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">MSHAPES</span>(efa.outlines, <span class="op">~</span>mortuary)</span>
+<span id="cb40-3"><a href="elliptical-fourier-analysis.html#cb40-3"></a><span class="kw">plot_MSHAPES</span>(ms<span class="fl">.1</span>, <span class="dt">size =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<div class="figure">
+<img src="gahaganmorph3_files/figure-html/ms1.h2-1.png" alt="Mean shapes for Gahagan bifaces by mortuary context." width="100%" />
+<p class="caption">
+(#fig:ms1.h2)Mean shapes for Gahagan bifaces by mortuary context.
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modeling-geometry.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="landmarking-protocol-3d2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gahaganmorph3.pdf", "gahaganmorph3.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

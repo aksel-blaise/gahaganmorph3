@@ -59,13 +59,13 @@ mosaic(norm.outlines, ~mortuary)
 calibrate_harmonicpower_efourier(norm.outlines, 
                                  nb.h = 30)
 
-# 11 harmonics needed to capture 99 percent of variation
+# 10 harmonics needed to capture 99 percent of variation
 calibrate_reconstructions_efourier(norm.outlines, 
-                                   range = 1:11)
+                                   range = 1:10)
 
-# generate efa outlines with 11 harmonics
+# generate efa outlines with 10 harmonics
 efa.outlines <- efourier(norm.outlines, 
-                         nb.h = 11, 
+                         nb.h = 10, 
                          norm = TRUE)
 
 # use efa.outlines for pca
@@ -95,7 +95,7 @@ boxplot(pca.outlines, ~region2, nax = 1:5)
 boxplot(pca.outlines, ~mortuary, nax = 1:5)
 
 # mean shape + 2sd for the first 10 pcs
-PCcontrib(pca.outlines, nax = 1:10)
+PCcontrib(pca.outlines, nax = 1:5)
 ```
 
 ## MANOVA + MANOVA_PW
@@ -120,7 +120,7 @@ ms.1 <- MSHAPES(efa.outlines, ~region2)
 plot_MSHAPES(ms.1, size = 0.75)
 ```
 
-```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by mortuary context."}
+```{r ms1.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by mortuary context."}
 # mean shapes for regions
 ms.1 <- MSHAPES(efa.outlines, ~mortuary)
 plot_MSHAPES(ms.1, size = 0.75)
