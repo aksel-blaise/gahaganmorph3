@@ -1,4 +1,4 @@
-# Symmetry and Asymmetry
+# Symmetry and Asymmetry - Plan
 
 Within studies of biface morphology, an analysis of bilateral/object symmetry can yield useful insights related to _design intent_, given the assumption that the knapper's goal was to achieve a symmetrical shape. Within that framework, deviation from bilateral symmetry (fluctuating asymmetry) can serve as a useful measure of _morphological standardization_ within an analysis of morphological disparity. Both measures have utility in comparisons of archaeological contexts and sites, to include wide-ranging spatial and temporal applications.
 
@@ -91,10 +91,10 @@ cntxt <- qdata$context
 pca <- gm.prcomp(res.bilat$symm.shape)
 summary(pca)
 
-# set plot parameters to plot by region
-pch.gps.cntxt <- c(15,17,18)[as.factor(cntxt)]
+# set plot parameters to plot by burial context
+pch.gps.cntxt <- c(3,4,15,17:19)[as.factor(cntxt)]
 col.gps.cntxt <- wes_palette("IsleofDogs1")[as.factor(cntxt)]
-col.hull.cntxt <- c("#798E87","#C27D38","#CCC591")
+col.hull.cntxt <- c("#9986A5","#8D8680","#D9D0D3","#CCBA72","#0F0D0E","#79402E")
 ```
 
 ## Define models
@@ -170,39 +170,7 @@ summary(symm.reg,
 
 ### Mean Symmetric Shapes
 
-Mean symmetric shapes were rendered and contrasted for each region, and illustrate those morphological differences that occur between each. These symmetric shapes may represent regional differences in _design intent_ related to the conceptual aesthetic of Gahagan bifaces, which differs significantly between all three regions (see above). Each region may also articulate with a period of discrete shape change in Gahagan biface morphology that began in the SCA-north, continued through the SCA-south, and terminated in central Texas (inference based upon the [chronological model](https://aksel-blaise.github.io/gahaganmorph3/temporal-dynamics.html#chronological-model-for-sca-north-sca-south-and-central-texas-contexts-yielding-gahagan-bifaces-with-baker-site-dates)).
-
-```{r m.symm.shapes, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="_**Figure 6. Comparison of mean symmetric shapes for Gahagan bifaces from the central Texas (CTX), southern Caddo area - South (SCA-South), and southern Caddo area - North (SCA-North) regions. The mean for each row is represented by gray spheres, which is compared with those shapes in each column using linear vectors.**_"}
-# subset landmark coordinates to produce mean shapes for groups
-## (design intent)
-new.coords <- coords.subset(A = res.bilat$symm.shape, 
-                            group = qdata$context)
-names(new.coords)
-
-# group shape means
-mean <- lapply(new.coords, mshape)
-
-# plot mean shapes
-plot(mean$CTX)
-plot(mean$`SCA-north`)
-plot(mean$`SCA-south`)
-
-# comparison plots
-plotRefToTarget(mean$`SCA-north`,
-                mean$`SCA-south`, 
-                method = "vector",
-                mag = 2)
-plotRefToTarget(mean$`SCA-north`,
-                mean$CTX, 
-                method = "vector",
-                mag = 2)
-plotRefToTarget(mean$`SCA-south`,
-                mean$CTX, 
-                method = "vector",
-                mag = 2)
-
-knitr::include_graphics('images/mshape.symmetric.jpg')
-```
+Mean symmetric shapes were rendered and contrasted for each region, and illustrate those morphological differences that occur between each. These symmetric shapes may represent regional differences in _design intent_ related to the conceptual aesthetic of Gahagan bifaces, which differs significantly between some of the burials (see above).
 
 ### Morphological disparity
 

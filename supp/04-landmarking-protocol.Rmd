@@ -22,7 +22,7 @@ The continued evolution of this landmarking protocol represents a concerted effo
 
 ### Learning from EFA
 
-Results of the elliptical Fourier analysis (EFA) indicate that differences in Gahagan biface shape occur primarily near the base for each of the regions. Unlike the regional analysis, results for the analysis of mortuary context were not significant; however, there exists a possibility that the bifaces recovered from mortuary contexts may differ in shape along the midline or in cross-section. This study also includes an analysis of object symmetry and fluctuating asymmetry, where plan, profile, and cross-sections will be assessed.
+Results of the elliptical Fourier analysis (EFA) indicate that Gahagan biface shapes differ by burial context, and that shape variation is not confined to a single part of the biface. Edge-based differences run from the tip to the base, and there are also a few instances where basal shape differs.
 
 ## Generating the peripheral (plan view) spline
 

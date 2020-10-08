@@ -50,28 +50,20 @@ gdf<-geomorph.data.frame(shape = Y.gpa$coords,
                          size = Y.gpa$Csize, 
                          region = qdata$region, 
                          region2 = qdata$region2, 
-                         mortuary = qdata$mortuary) 
+                         mortuary = qdata$mortuary,
+                         cntxt = qdata$context) 
 
 # add centroid size to qdata
 qdata$csz <- Y.gpa$Csize
 
 # boxplot - region 2 by centroid size
 csz <- qdata$csz
-rgn2 <- qdata$region2
-mort <- qdata$mortuary
+cntxt <- qdata$context
 
 # print qdata
 knitr::kable(qdata, 
              align = "ccccc", 
              caption = "Attributes included in qdata.")
-```
-
-```{r consensus.config, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Two-dimensional plot of consensus configuration illustrating morphological characteristics associated with axial twisting---middle and right---which were absent from the 2D analysis."}
-# plot consensus configuration in 2D to illustrate axial twisting
-par(mfrow=c(1,3))
-plot(Y.gpa$consensus[,c("Y", "X")], pch=20)
-plot(Y.gpa$consensus[,c("Z", "X")], pch=20)
-plot(Y.gpa$consensus[,c("Z", "Y")], pch=20)
 ```
 
 ```{r pca, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
@@ -80,39 +72,39 @@ pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
 ```
 
-## Hypothesis 1
+## Test Hypothesis
 
-### Boxplot (H1)
+### Boxplot
 
 ```{r box.h1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Boxplot of centroid size by Heartland (in/out)."}
-# boxplot of Gahagan biface centroid size by region
-csz.reg2 <- ggplot(qdata, aes(x = rgn2, y = csz, color = rgn2)) + 
+# boxplot of Gahagan biface centroid size by burial context
+csz.cntxt <- ggplot(qdata, aes(x = cntxt, y = csz, color = cntxt)) + 
   geom_boxplot() +
   geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
-  scale_colour_manual(values = wes_palette("Moonrise2")) +
+  scale_colour_manual(values = wes_palette("IsleofDogs1")) +
   theme(legend.position = "none") +
-  labs(x = 'Region', y = 'Centroid Size')
+  labs(x = 'Burial Context', y = 'Centroid Size')
 # render plot
-csz.reg2
+csz.cntxt
 ```
 
-### Principal Components Analysis (H1)
+### Principal Components Analysis
 
 Principal components analysis [@RN1746] was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479]. 
 
 ```{r pca.h1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Results of PCA with central Texas sample in gray squares, southern Caddo area (north) in orange triangles, and southern Caddo area (south) in tan circles."}
-# set plot parameters to plot by region2
-pch.gps.reg2 <- c(15,17,19)[as.factor(rgn2)]
-col.gps.reg2 <- wes_palette("Moonrise2")[as.factor(rgn2)]
-col.hull <- c("#798E87","#C27D38","#CCC591")
+# set plot parameters to plot by burial context
+pch.gps.cntxt <- c(3,4,15,17:19)[as.factor(cntxt)]
+col.gps.cntxt <- wes_palette("IsleofDogs1")[as.factor(cntxt)]
+col.hull.cntxt <- c("#9986A5","#8D8680","#D9D0D3","#CCBA72","#0F0D0E","#79402E")
 
 # plot pca by region 2
 pc.plot1 <- plot(pca, asp = 1,
-                  pch = pch.gps.reg2,
-                  col = col.gps.reg2)
+                  pch = pch.gps.cntxt,
+                  col = col.gps.cntxt)
                   shapeHulls(pc.plot1, 
-                             groups = rgn2,
-                             group.cols = col.hull)
+                             groups = cntxt,
+                             group.cols = col.hull.cntxt)
 ```
 
 ```{r pca.2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Reference shapes include the consensus configuration (gray) and the shape at the extreme of each PC in black. Reference shapes represent the extremes of each axis, and do not articulate with any specimen used in this analysis."}
@@ -120,7 +112,7 @@ pc.plot1 <- plot(pca, asp = 1,
 #knitr::include_graphics('images/pca-warp-ref.png')
 ```
 
-### Define models (H1)
+### Define models
 
 ```{r define-models}
 # allometry
@@ -129,61 +121,61 @@ fit.size <- procD.lm(shape ~ size,
                      print.progress = FALSE, 
                      iter = 9999)
 
-# allometry - common allometry, different means -> reg2
-fit.sz.reg <- procD.lm(shape ~ size + rgn2, 
+# allometry - common allometry, different means -> cntxt
+fit.sz.ccntxt <- procD.lm(shape ~ size + cntxt, 
                        data = gdf, 
                        print.progress = FALSE, 
                        iter = 9999)
 
-# allometry - unique allometries -> reg2
-fit.sz.reg2 <- procD.lm(shape ~ size * rgn2, 
+# allometry - unique allometries -> cntxt
+fit.sz.ucntxt <- procD.lm(shape ~ size * cntxt, 
                         data = gdf, 
                         print.progress = FALSE, 
                         iter = 9999)
 
 # size as a function of group
-fit.sizereg2 <- procD.lm(size ~ rgn2, 
+fit.sizecntxt <- procD.lm(size ~ cntxt, 
                          data = gdf, 
                          print.progress = FALSE, 
                          iter = 9999)
 
 # shape as a function of group
-fit.shapereg2 <- procD.lm(shape ~ rgn2, 
+fit.shapecntxt <- procD.lm(shape ~ cntxt, 
                           data = gdf, 
                           print.progress = FALSE, 
                           iter = 9999)
 ```
 
-### Allometry (H1)
+### Allometry
 
 ```{r allometry, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # allometry - does shape change with size?
 anova(fit.size)
 
-# reg2
-anova(fit.sz.reg) # common allometry (reg2)
-anova(fit.sz.reg2) # unique allometry (reg2)
+# cntxt
+anova(fit.sz.ccntxt) # common allometry (cntxt)
+anova(fit.sz.ucntxt) # unique allometry (cntxt)
 
 # allometry plots
 # regscore (Drake and Klingenberg 2008)
 plot(fit.size, type = "regression", reg.type = "RegScore", 
-     predictor = log(gdf$size), pch = pch.gps.reg2, 
-     col = col.gps.reg2)
+     predictor = log(gdf$size), pch = pch.gps.cntxt, 
+     col = col.gps.cntxt)
 
 # common allometric component (Mitteroecker 2004)
-plotAllometry(fit.sz.reg, size = gdf$size, logsz = TRUE, 
-              method = "CAC", pch = pch.gps.reg2, 
-              col = col.gps.reg2)
+plotAllometry(fit.sz.ccntxt, size = gdf$size, logsz = TRUE, 
+              method = "CAC", pch = pch.gps.cntxt, 
+              col = col.gps.cntxt)
 
 # size-shape pca (Mitteroecker 2004)
 plotAllometry(fit.size, size = gdf$size, logsz = TRUE, 
-              method = "size.shape", pch = pch.gps.reg2, 
-              col = col.gps.reg2)
+              method = "size.shape", pch = pch.gps.cntxt, 
+              col = col.gps.cntxt)
 
 # predline (Adams and Nistri 2010)
-plotAllometry(fit.sz.reg2, size = gdf$size, logsz = TRUE, 
-              method = "PredLine", pch = pch.gps.reg2, 
-              col = col.gps.reg2)
+plotAllometry(fit.sz.ucntxt, size = gdf$size, logsz = TRUE, 
+              method = "PredLine", pch = pch.gps.cntxt, 
+              col = col.gps.cntxt)
 ```
 
 ```{r allometry.plot, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Measures of Gahagan biface morphology as a function of size for bifaces from both regions, where small and large specimens from each region (black spheres) are contrasted with the consensus configuration (gray spheres)."}
@@ -192,71 +184,71 @@ plotAllometry(fit.sz.reg2, size = gdf$size, logsz = TRUE,
 #knitr::include_graphics('images/gbiface-allom-form.png')
 ```
 
-### Procrustes ANOVA (H1)
+### Procrustes ANOVA
 
 A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs [@RN1655;@RN11775], which has higher statistical power and a greater ability to identify patterns in the data should they be present [@RN1719]. To assess whether shape changes with size (allometry), and differs by group (region), Procrustes ANOVAs [@RN1749] were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions [@RN1756]. 
 
 ```{r region}
-# ANOVA: do gahagan biface shapes differ by region2?
-anova(fit.shapereg2)
+# ANOVA: do gahagan biface shapes differ by cntxt?
+anova(fit.shapecntxt)
 
 # pairwise comparison of LS means = which differ?
-sh.reg2 <- pairwise(fit.shapereg2, 
-                    groups = qdata$region2)
-summary(sh.reg2, 
+sh.cntxt <- pairwise(fit.shapecntxt, 
+                    groups = qdata$context)
+summary(sh.cntxt, 
         confidence = 0.95, 
         test.type = "dist")
 
 # pairwise distance between variances = standardization?
-summary(sh.reg2, 
+summary(sh.cntxt, 
         confidence = 0.95, 
         test.type = "var")
 
 
-# ANOVA: do gahagan biface sizes differ by region2?
-anova(fit.sizereg2)
+# ANOVA: do gahagan biface sizes differ by cntxt?
+anova(fit.sizecntxt)
 
 # pairwise comparison of LS means = which differ?
-sz.reg2 <- pairwise(fit.sizereg2, 
-                    groups = qdata$region2)
+sz.cntxt <- pairwise(fit.sizecntxt, 
+                    groups = qdata$context)
 
-summary(sz.reg2, 
+summary(sz.cntxt, 
         confidence = 0.95, 
         test.type = "dist")
 # pairwise distance between variances = standardization?
-summary(sz.reg2, 
+summary(sz.cntxt, 
         confidence = 0.95, 
         test.type = "var")
 ```
 
-### Morphological disparity (H1)
+### Morphological disparity
 
 Procrustes variance was used to discriminate between regions and compare the amount of shape variation (morphological disparity) [@RN5703], estimated as the Procrustes variance using residuals of linear model fit [@RN11530]. 
 
 ```{r m-disparity, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # morphological disparity: do either of the groups display greater 
 # shape variation among individuals relative to the other group?
-morphol.disparity(fit.shapereg2, 
-                  groups = qdata$region2,
+morphol.disparity(fit.shapecntxt, 
+                  groups = qdata$context,
                   data = gdf, 
                   print.progress = FALSE, 
                   iter = 9999)
 
 # morphological disparity: do either of the groups display greater 
 # size variation among individuals relative to the other group?
-morphol.disparity(fit.sizereg2, 
-                  groups = qdata$region2, 
+morphol.disparity(fit.sizecntxt, 
+                  groups = qdata$context, 
                   data = gdf, 
                   print.progress = FALSE, 
                   iter = 9999)
 ```
 
-### Mean shapes (H1)
+### Mean shapes
 
 ```{r m-shapes, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 #subset landmark coordinates to produce mean shapes for groups
 new.coords<-coords.subset(A = Y.gpa$coords, 
-                          group = qdata$region2)
+                          group = qdata$context)
 
 names(new.coords)
 
@@ -270,170 +262,4 @@ mean<-lapply(new.coords, mshape)
 ```{r m-shapes.2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces from the southern Caddo area (left) and central Texas region (center). In the comparison of the two (right), the southern Caddo area is represented by gray spheres, and the central Texas region by linear vectors."}
 
 # knitr::include_graphics('images/mshape-region.png')
-```
-
-## Hypothesis 2
-
-### Boxplot (H2)
-
-```{r box.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap = "Boxplot of centroid size by Heartland (in/out)."}
-# boxplot of Gahagan biface centroid size by mortuary context
-csz.mort <- ggplot(qdata, aes(x = mort, y = csz, color = mort)) + 
-  geom_boxplot() +
-  geom_dotplot(binaxis = 'y', stackdir = 'center', dotsize = 0.3) +
-  scale_colour_manual(values = wes_palette("Moonrise2")) +
-  theme(legend.position = "none") +
-  labs(x = 'Found in Mortuary?', y = 'Centroid Size')
-# render plot
-csz.mort
-```
-
-### Principal Components Analysis (H2)
-
-Principal components analysis [@RN1746] was used to visualise shape variation among the bifaces. The shape changes described by each principal axis are commonly visualized using thin-plate spline warping of a reference 3D mesh [@RN1731;@RN479]. 
-
-```{r pca.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Results of PCA with central Texas sample in gray squares, southern Caddo area (north) in orange triangles, and southern Caddo area (south) in tan circles."}
-# set plot parameters to plot by mortuary
-pch.gps.mort <- c(15,17)[as.factor(mort)]
-col.gps.mort <- wes_palette("Moonrise2")[as.factor(mort)]
-col.hull.mort <- c("#798E87","#C27D38")
-
-# plot pca by region 2
-pc.plot2 <- plot(pca, asp = 1,
-                  pch = pch.gps.mort,
-                  col = col.gps.mort)
-                  shapeHulls(pc.plot2, 
-                             groups = mort,
-                             group.cols = col.hull.mort)
-```
-
-```{r pca.2.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Reference shapes include the consensus configuration (gray) and the shape at the extreme of each PC in black. Reference shapes represent the extremes of each axis, and do not articulate with any specimen used in this analysis."}
-# plot PCA with warp grids
-#knitr::include_graphics('images/pca-warp-ref.png')
-```
-
-### Define models (H2)
-
-```{r define-models.h2}
-# allometry
-fit.size <- procD.lm(shape ~ size, 
-                     data = gdf, 
-                     print.progress = FALSE, 
-                     iter = 9999)
-
-# allometry - common allometry, different means -> mort
-fit.sz.mort <- procD.lm(shape ~ size + mort, 
-                        data = gdf, 
-                        print.progress = FALSE, 
-                        iter = 9999)
-
-# allometry - unique allometries -> mort
-fit.sz.mort2 <- procD.lm(shape ~ size * mort, 
-                         data = gdf, 
-                         print.progress = FALSE, 
-                         iter = 9999)
-
-# size as a function of group
-fit.sizemort <- procD.lm(size ~ mort, 
-                         data = gdf, 
-                         print.progress = FALSE, 
-                         iter = 9999)
-
-# shape as a function of group
-fit.shapemort <- procD.lm(shape ~ mort, 
-                          data = gdf, 
-                          print.progress = FALSE, 
-                          iter = 9999)
-```
-
-### Allometry (H2)
-
-```{r allometry.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# allometry - does shape change with size?
-anova(fit.size)
-
-# mort
-anova(fit.sz.mort) # common allometry (mort)
-anova(fit.sz.mort2) # unique allometry (mort)
-
-# allometry plots
-# regscore (Drake and Klingenberg 2008)
-plot(fit.size, type = "regression", reg.type = "RegScore", 
-     predictor = log(gdf$size), pch = pch.gps.mort, 
-     col = col.gps.mort)
-
-# common allometric component (Mitteroecker 2004)
-plotAllometry(fit.sz.mort, size = gdf$size, logsz = TRUE, 
-              method = "CAC", pch = pch.gps.mort, 
-              col = col.gps.mort)
-
-# size-shape pca (Mitteroecker 2004)
-plotAllometry(fit.size, size = gdf$size, logsz = TRUE, 
-              method = "size.shape", pch = pch.gps.mort, 
-              col = col.gps.mort)
-
-# predline (Adams and Nistri 2010)
-plotAllometry(fit.sz.mort2, size = gdf$size, logsz = TRUE, 
-              method = "PredLine", pch = pch.gps.mort, 
-              col = col.gps.mort)
-```
-
-```{r allometry.h2.plot, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Measures of Gahagan biface morphology as a function of size for bifaces from both regions, where small and large specimens from each region (black spheres) are contrasted with the consensus configuration (gray spheres)."}
-
-# plot form
-#knitr::include_graphics('images/gbiface-allom-form.png')
-```
-
-### Procrustes ANOVA (H2)
-
-A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for all Procrustes ANOVAs [@RN1655;@RN11775], which has higher statistical power and a greater ability to identify patterns in the data should they be present [@RN1719]. To assess whether shape changes with size (allometry), and differs by group (region), Procrustes ANOVAs [@RN1749] were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions [@RN1756]. 
-
-```{r region.h2}
-# ANOVA: do gahagan biface shapes differ by mortuary context?
-anova(fit.shapemort)
-
-# ANOVA: do gahagan biface sizes differ by mortuary context?
-anova(fit.sizereg2)
-```
-
-### Morphological disparity (H2)
-
-Procrustes variance was used to discriminate between regions and compare the amount of shape variation (morphological disparity) [@RN5703], estimated as the Procrustes variance using residuals of linear model fit [@RN11530]. 
-
-```{r m-disparity.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# morphological disparity: do either of the groups display greater 
-# shape variation among individuals relative to the other group?
-morphol.disparity(fit.shapemort, 
-                  groups = qdata$mortuary, 
-                  data = gdf, 
-                  print.progress = FALSE, 
-                  iter = 9999)
-
-# morphological disparity: do either of the groups display greater size variation among individuals relative to the other group?
-morphol.disparity(fit.sizemort, 
-                  groups = qdata$mortuary, 
-                  data = gdf, 
-                  print.progress = FALSE, 
-                  iter = 9999)
-```
-
-### Mean shapes (H2)
-
-```{r m-shapes.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-#subset landmark coordinates to produce mean shapes for groups
-new.coords2<-coords.subset(A = Y.gpa$coords, 
-                           group = qdata$mortuary)
-
-names(new.coords2)
-
-#group shape means
-mean2<-lapply(new.coords2, mshape)
-# plot(mean2$yes)
-# plot(mean2$no)
-# plotRefToTarget(mean2$yes,mean$no, method="vector",mag=2)
-```
-
-```{r m-shapes.h2.plot, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces from the southern Caddo area (left) and central Texas region (center). In the comparison of the two (right), the southern Caddo area is represented by gray spheres, and the central Texas region by linear vectors."}
-
-# knitr::include_graphics('images/mshape-mortuary.png')
 ```
