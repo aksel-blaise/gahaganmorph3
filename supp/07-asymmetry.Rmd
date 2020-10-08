@@ -1,6 +1,6 @@
 # Symmetry and Asymmetry
 
-Within studies of biface morphology, an analysis of bilateral/object symmetry can yield useful insights related to _design intent_, given the assumption that the knapper's goal was to achieve a symmetrical shape. Within that framework, deviation from bilateral symmetry (fluctuating asymmetry) can serve as a useful measure of _morphological standardization_ in an analysis of morphological disparity. Both measures have utility in comparisons of contexts and sites, to include wide-ranging spatial and temporal applications.
+Within studies of biface morphology, an analysis of bilateral/object symmetry can yield useful insights related to _design intent_, given the assumption that the knapper's goal was to achieve a symmetrical shape. Within that framework, deviation from bilateral symmetry (fluctuating asymmetry) can serve as a useful measure of _morphological standardization_ within an analysis of morphological disparity. Both measures have utility in comparisons of archaeological contexts and sites, to include wide-ranging spatial and temporal applications.
 
 ## Gahagan bifaces
 
@@ -82,61 +82,36 @@ Principal components analysis [@RN1746] was used to visualize shape variation am
 # geomorph data frame
 gdf <- geomorph.data.frame(shape = res.bilat$symm.shape,
                            ashape = res.bilat$FA.component,
-                           reg = qdata$region2,
-                           mort = qdata$mortuary) 
+                           cntxt = qdata$context) 
 
 # attributes
-reg <- qdata$region2
-mort <- qdata$mortuary
+cntxt <- qdata$context
 
 # principal components analysis (symmetric)
 pca <- gm.prcomp(res.bilat$symm.shape)
 summary(pca)
 
 # set plot parameters to plot by region
-pch.gps.reg <- c(15,17,18)[as.factor(reg)]
-col.gps.reg <- wes_palette("Moonrise2")[as.factor(reg)]
-col.hull.2 <- c("#798E87","#C27D38","#CCC591")
-
-# set plot parameters to plot by mortuary context
-pch.gps.mort <- c(15,17)[as.factor(mort)]
-col.gps.mort <- wes_palette("Moonrise2")[as.factor(mort)]
-col.hull.mort <- c("#798E87","#C27D38")
+pch.gps.cntxt <- c(15,17,18)[as.factor(cntxt)]
+col.gps.cntxt <- wes_palette("IsleofDogs1")[as.factor(cntxt)]
+col.hull.cntxt <- c("#798E87","#C27D38","#CCC591")
 ```
 
 ## Define models
 
-### Hypothesis 1
+### Hypothesis
 
 ```{r def.mod.1.asymm, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# symmetric shape as a function of region
+# symmetric shape as a function of burial context
 ## (differences in design intent?)
-reg.symm <- procD.lm(shape ~ reg, 
+reg.symm <- procD.lm(shape ~ cntxt, 
                      data = gdf, 
                      print.progress = FALSE, 
                      iter = 9999)
 
-# asymmetric shape as a function of region
+# asymmetric shape as a function of burial context
 ## (standardization?)
-reg.asymm <- procD.lm(ashape ~ reg, 
-                      data = gdf, 
-                      print.progress = FALSE, 
-                      iter = 9999)
-```
-
-### Hypothesis 2
-
-```{r def.mod.2.asymm, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# symmetric shape as a function of mortuary context
-## (differences in design intent?)
-mort.symm <- procD.lm(shape ~ mort, 
-                     data = gdf, 
-                     print.progress = FALSE, 
-                     iter = 9999)
-
-# asymmetric shape as a function of mortuary context
-## (standardization?)
-mort.asymm <- procD.lm(ashape ~ mort, 
+reg.asymm <- procD.lm(ashape ~ cntxt, 
                       data = gdf, 
                       print.progress = FALSE, 
                       iter = 9999)
@@ -151,24 +126,24 @@ mort.asymm <- procD.lm(ashape ~ mort,
 #plot(reg.asymm, type = "diagnostic", outliers = TRUE)
 ```
 
-## Hypothesis 1
+## Test Hypothesis
 
 Assessment of _design intent_ and _standardization_ by region.
 
 ### PCA (H1)
 
-```{r symm.pca, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="_**Figure 5. PCA (symmetric) for SCA-north (orange triangles), SCA-south (tan diamonds), and central Texas (gray squares).**_"}
-# plot pca (symmetric) by region
+```{r symm.pca, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
+# plot pca (symmetric) by burial context
 pc.plot <- plot(pca, 
                  asp = 1,
-                 pch = pch.gps.reg,
-                 col = col.gps.reg)
+                 pch = pch.gps.cntxt,
+                 col = col.gps.cntxt)
                     shapeHulls(pc.plot, 
-                               groups = reg,
-                               group.cols = col.hull.2)
+                               groups = cntxt,
+                               group.cols = col.hull.cntxt)
 ```
 
-### Procrustes ANOVA (H1)
+### Procrustes ANOVA
 
 _Are there differences in the symmetric shapes of Gahagan bifaces found in the southern Caddo area (north/south) and central Texas?_
 
@@ -181,7 +156,8 @@ anova(reg.symm)
 
 # pairwise comparison of LS means = which differ?
 symm.reg <- pairwise(reg.symm,
-                     groups = qdata$region2)
+                     groups = qdata$context)
+
 summary(symm.reg, 
         confidence = 0.95, 
         test.type = "dist")
@@ -192,7 +168,7 @@ summary(symm.reg,
         test.type = "var")
 ```
 
-### Mean Symmetric Shapes (H1)
+### Mean Symmetric Shapes
 
 Mean symmetric shapes were rendered and contrasted for each region, and illustrate those morphological differences that occur between each. These symmetric shapes may represent regional differences in _design intent_ related to the conceptual aesthetic of Gahagan bifaces, which differs significantly between all three regions (see above). Each region may also articulate with a period of discrete shape change in Gahagan biface morphology that began in the SCA-north, continued through the SCA-south, and terminated in central Texas (inference based upon the [chronological model](https://aksel-blaise.github.io/gahaganmorph3/temporal-dynamics.html#chronological-model-for-sca-north-sca-south-and-central-texas-contexts-yielding-gahagan-bifaces-with-baker-site-dates)).
 
@@ -200,7 +176,7 @@ Mean symmetric shapes were rendered and contrasted for each region, and illustra
 # subset landmark coordinates to produce mean shapes for groups
 ## (design intent)
 new.coords <- coords.subset(A = res.bilat$symm.shape, 
-                            group = qdata$region2)
+                            group = qdata$context)
 names(new.coords)
 
 # group shape means
@@ -228,7 +204,7 @@ plotRefToTarget(mean$`SCA-south`,
 knitr::include_graphics('images/mshape.symmetric.jpg')
 ```
 
-### Morphological disparity (H1)
+### Morphological disparity
 
 _Does fluctuating asymmetry (standardization) vary between regions?_
 
@@ -239,83 +215,7 @@ Morphological disparity is estimated as the Procrustes variance, for groups in t
 # shape variation among individuals relative to the other group?
 ## (standardization?)
 morphol.disparity(reg.asymm, 
-                  groups = qdata$region2, 
-                  data = gdf, 
-                  print.progress = FALSE, 
-                  iter = 9999)
-```
-
-## Hypothesis 2
-
-Assessment of _design intent_ and _standardization_ by mortuary context.
-
-### Principal Components Analysis (H2)
-
-```{r symm.pca.2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="_**Figure 5. PCA (symmetric) for SCA-north (orange triangles), SCA-south (tan diamonds), and central Texas (gray squares).**_"}
-# plot pca (symmetric) by region
-pc.plot2 <- plot(pca, 
-                 asp = 1,
-                 pch = pch.gps.mort,
-                 col = col.gps.mort)
-                    shapeHulls(pc.plot2, 
-                               groups = mort,
-                               group.cols = col.hull.mort)
-```
-
-### Procrustes ANOVA (H2)
-
-_Are there differences in the symmetric shapes of Gahagan bifaces found in/out of mortuary contexts?_
-
-A residual randomization permutation procedure (RRPP; n = 10,000 permutations) was used for the Procrustes ANOVA [@RN1655;@RN11775], which has higher statistical power and a greater ability to identify patterns in the data should they be present [@RN1719]. To assess whether symmetric shape differs by group (region), Procrustes ANOVAs [@RN1749] were also run that enlist effect-sizes (zscores) computed as standard deviates of the generated sampling distributions [@RN1756].
-
-```{r h2.symm, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# ANOVA: do symmetric gahagan biface point shapes differ by mortuary context?
-## (are there differences in design intent?)
-anova(mort.symm)
-```
-
-
-### Mean Asymmetric Shapes (H2)
-
-Mean asymmetric shapes were rendered and contrasted for Gahagan bifaces recovered in/out of mortuary contexts, and illustrate those morphological differences that occur between each. These symmetric shapes may represent differences in _design intent_ related to the conceptual aesthetic of Gahagan bifaces, which differs significantly between mortuary contexts (see above). 
-
-```{r m.symm.shapes.mort, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="_**Figure 6. Comparison of mean symmetric shapes for Gahagan bifaces recovered in/out of mortuary contexts. The mean for each row is represented by gray spheres, which is compared using linear vectors.**_"}
-# subset landmark coordinates to produce mean shapes for groups
-## (design intent)
-new.coords2 <- coords.subset(A = res.bilat$symm.shape,
-                             group = qdata$mortuary)
-
-names(new.coords2)
-
-# group shape means
-mean2 <- lapply(new.coords2, mshape)
-
-# plot mean shapes
-plot(mean2$yes)
-plot(mean2$no)
-
-
-# comparison plots
-plotRefToTarget(mean2$yes,
-                mean2$no,
-                method = "vector",
-                mag = 2)
-
-#knitr::include_graphics('images/mshape.symmetric.jpg')
-```
-
-### Morphological disparity (H2)
-
-_Does fluctuating asymmetry vary more when Gahagan bifaces are found in/out of mortuary contexts?_
-
-Morphological disparity is estimated as the Procrustes variance, for groups in this instance, using residuals of a linear model fit [@RN11530]. Procrustes variance is the same sum of the diagonal elements of the group covariance matrix divided by the number of observations in the group [@RN5703;@RN11530]. Absolute differences in Procrustes variances are test statistics that can be used to test differences in morphological disparity among groups [@RN11530]. These differences are statistically evaluated through permutation, where the vectors of residuals are randomized among groups [@RN11530].
-
-```{r m-disparity.mortuary, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
-# morphological disparity: do any of the groups display greater asymmetric 
-# shape variation among individuals relative to the other group?
-## (standardization?)
-morphol.disparity(mort.asymm, 
-                  groups = qdata$mortuary, 
+                  groups = qdata$context, 
                   data = gdf, 
                   print.progress = FALSE, 
                   iter = 9999)
