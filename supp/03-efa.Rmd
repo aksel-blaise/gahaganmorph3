@@ -17,8 +17,7 @@ jpg.list <- list.files("./jpg", full.names = TRUE)
 att.data <- read.csv("qdata.csv", header = TRUE, as.is = TRUE)
 
 # attributes to factors
-att.data$region2 <- as.factor(att.data$region2)
-att.data$mortuary <- as.factor(att.data$mortuary)
+att.data$context <- as.factor(att.data$context)
 ```
 
 ## Generate outlines
@@ -46,10 +45,8 @@ norm.outlines <- data.out %>%
 # outline pile
 pile(norm.outlines)
 
-# mosaic of individual specimens by region
-mosaic(norm.outlines, ~region2)
-# mosaic of individual specimens by mortuary context
-mosaic(norm.outlines, ~mortuary)
+# mosaic of individual specimens by context
+mosaic(norm.outlines, ~context)
 ```
 
 ## Calibrate harmonic + EFA
@@ -81,18 +78,10 @@ scree_plot(pca.outlines)
 # plot pca by region
 plot_PCA(pca.outlines, 
          morphospace_position = "range",
-         ~region2, zoom = 1.25)
-
-# plot pca by region
-plot_PCA(pca.outlines, 
-         morphospace_position = "range",
-         ~mortuary, zoom = 1.25)
+         ~context, zoom = 1.25)
 
 # contribution of each pc by region2
-boxplot(pca.outlines, ~region2, nax = 1:5)
-
-# contribution of each pc by mortuary context
-boxplot(pca.outlines, ~mortuary, nax = 1:5)
+boxplot(pca.outlines, ~context, nax = 1:5)
 
 # mean shape + 2sd for the first 10 pcs
 PCcontrib(pca.outlines, nax = 1:5)
@@ -103,25 +92,16 @@ PCcontrib(pca.outlines, nax = 1:5)
 ```{r manova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # manova + manova_pw
 # are there shape differences between regions?
-MANOVA(pca.outlines, 'region2')
+MANOVA(pca.outlines, 'context')
 
 # which differ?
-MANOVA_PW(pca.outlines, 'region2')
-
-# is there a shape difference between mortuary context?
-MANOVA(pca.outlines, 'mortuary')
+MANOVA_PW(pca.outlines, 'context')
 ```
 
 ## Mean shapes
 
-```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by region."}
+```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by burial context."}
 # mean shapes for regions
-ms.1 <- MSHAPES(efa.outlines, ~region2)
-plot_MSHAPES(ms.1, size = 0.75)
-```
-
-```{r ms1.h2, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by mortuary context."}
-# mean shapes for regions
-ms.1 <- MSHAPES(efa.outlines, ~mortuary)
+ms.1 <- MSHAPES(efa.outlines, ~context)
 plot_MSHAPES(ms.1, size = 0.75)
 ```

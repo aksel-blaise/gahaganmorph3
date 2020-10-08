@@ -1,6 +1,5 @@
 specimen,trinomial,sitename,context,region,region2,mortuary
 3Bb1,16CD12,Mounds Plantation,16CD12 - Burial Pit 2,SCA,SCA-north,yes
-3Ba90,16CD12,Mounds Plantation,16CD12 - Burial Pit 1,SCA,SCA-north,yes
 3Bb3,16CD12,Mounds Plantation,16CD12 - Burial Pit 2,SCA,SCA-north,yes
 3Bb4,16CD12,Mounds Plantation,16CD12 - Burial Pit 2,SCA,SCA-north,yes
 3Bb5,16CD12,Mounds Plantation,16CD12 - Burial Pit 2,SCA,SCA-north,yes
@@ -8,7 +7,6 @@ specimen,trinomial,sitename,context,region,region2,mortuary
 3Bb7,16CD12,Mounds Plantation,16CD12 - Burial Pit 2,SCA,SCA-north,yes
 3Bb8,16CD12,Mounds Plantation,16CD12 - Burial Pit 2,SCA,SCA-north,yes
 BlkThn,16CD12,Mounds Plantation,16CD12 - Burial Pit 2,SCA,SCA-north,yes
-LGGray,16CD12,Mounds Plantation,16CD12 - Burial Pit 8,SCA,SCA-north,yes
 Case2LG,16CD12,Mounds Plantation,16CD12 - Burial Pit 5,SCA,SCA-north,yes
 Case2SM,16CD12,Mounds Plantation,16CD12 - Burial Pit 5,SCA,SCA-north,yes
 666,16RR1,Gahagan Mound,16RR1 -Burial Pit 3,SCA,SCA-south,yes
@@ -65,39 +63,3 @@ Case2SM,16CD12,Mounds Plantation,16CD12 - Burial Pit 5,SCA,SCA-north,yes
 4078-14,41CE19,George C Davis,41CE19 - F134,SCA,SCA-south,yes
 4078-14B,41CE19,George C Davis,41CE19 - F134,SCA,SCA-south,yes
 4078-30,41CE19,George C Davis,41CE19 - F134,SCA,SCA-south,yes
-ET221-993,41CE19,George C Davis,41CE19 - 6L3,SCA,SCA-south,no
-ET221-1016,41CE19,George C Davis,41CE19 - F3,SCA,SCA-south,no
-ET221-1260A,41CE19,George C Davis,41CE19 - 21R14,SCA,SCA-south,no
-D11,LA,Pelican,,SCA,SCA-south,no
-DM1,LA,Doc Marks,,SCA,SCA-south,no
-2300,bvmnh,Doerge Collection,,CTX,CTX,no
-2302,bvmnh,Doerge Collection,,CTX,CTX,no
-2303,bvmnh,Doerge Collection,,CTX,CTX,no
-2304,bvmnh,Doerge Collection,,CTX,CTX,no
-2305,bvmnh,Doerge Collection,,CTX,CTX,no
-2317,bvmnh,Doerge Collection,,CTX,CTX,no
-2318,bvmnh,Doerge Collection,,CTX,CTX,no
-2319,bvmnh,Doerge Collection,,CTX,CTX,no
-2320,bvmnh,Doerge Collection,,CTX,CTX,no
-2322,bvmnh,Doerge Collection,,CTX,CTX,no
-2323,bvmnh,Doerge Collection,,CTX,CTX,no
-2324,bvmnh,Doerge Collection,,CTX,CTX,no
-2325,bvmnh,Doerge Collection,,CTX,CTX,no
-2361,bvmnh,Doerge Collection,,CTX,CTX,no
-2362,bvmnh,Doerge Collection,,CTX,CTX,no
-2363,bvmnh,Doerge Collection,,CTX,CTX,no
-2364,bvmnh,Doerge Collection,,CTX,CTX,no
-2365,bvmnh,Doerge Collection,,CTX,CTX,no
-2366,bvmnh,Doerge Collection,,CTX,CTX,no
-2419,bvmnh,Doerge Collection,,CTX,CTX,no
-2426,bvmnh,Doerge Collection,,CTX,CTX,no
-bsp,41BP882,Bastrop SP,,CTX,CTX,no
-unk1,bvmnh,bvmnh,,CTX,CTX,no
-unk2,bvmnh,bvmnh,,CTX,CTX,no
-unk3,bvmnh,bvmnh,,CTX,CTX,no
-unk4,bvmnh,bvmnh,,CTX,CTX,no
-unk5,bvmnh,bvmnh,,CTX,CTX,no
-unk6,bvmnh,bvmnh,,CTX,CTX,no
-unk7,bvmnh,bvmnh,,CTX,CTX,no
-unk8,bvmnh,bvmnh,,CTX,CTX,no
-Lf50-3,LF50,Spiro,,SCA,SCA-north,yes
