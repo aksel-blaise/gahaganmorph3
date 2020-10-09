@@ -7,11 +7,8 @@
 library(here)
 library(Momocs)
 
-# set working directory
-setwd(getwd())
-
 # read images
-jpg.list <- list.files("./jpg", full.names = TRUE)
+jpg.list <- list.files(here("supp/jpegs"), full.names = TRUE)
 
 # read attribute data
 att.data <- read.csv("qdata.csv", header = TRUE, as.is = TRUE)
