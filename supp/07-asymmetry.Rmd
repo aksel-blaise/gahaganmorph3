@@ -13,20 +13,17 @@ Per Klingenberg [-@RN8579, 1912 and Figure 2]:
 
 ```{r load.data.asymm, echo = TRUE, cache = TRUE}
 # load packages
-
-devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
+#devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
+library(here)
 library(geomorph)
 library(tidyverse)
 library(wesanderson)
-
-# setwd
-setwd(getwd())
 
 # read GM data
 source('readmulti.csv.R')
 
 # read .csv files
-setwd("./data")
+setwd("./data.3d1")
 filelist <- list.files(pattern = ".csv")
 coords <- readmulti.csv(filelist)
 setwd("../")
