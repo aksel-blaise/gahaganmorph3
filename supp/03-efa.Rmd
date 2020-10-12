@@ -34,6 +34,77 @@ norm.outlines <- data.out %>%
   coo_align() %>% 
   coo_rotate() %>% 
   coo_center()
+
+# outlines by context
+
+## mounds plantation burial pit 2
+mpbp2 <- filter(norm.outlines, 
+                context %in% c("16cd12-bp2"))
+
+mpbp2 <- mpbp2 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## mounds plantation burial pit 5
+mpbp5 <- filter(norm.outlines, 
+                context %in% c("16cd12-bp5"))
+
+mpbp5 <- mpbp5 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## gahagan mound burial pit 2
+gmbp2 <- filter(norm.outlines, 
+                context %in% c("16rr1-bp2"))
+
+gmbp2 <- gmbp2 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## gahagan mound burial pit 3
+gmbp3 <- filter(norm.outlines, 
+                context %in% c("16rr1-bp3"))
+
+gmbp3 <- gmbp3 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## george c davis feature 119
+gcd119 <- filter(norm.outlines, 
+                 context %in% c("41ce19-f119"))
+
+gcd119 <- gcd119 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## george c davis feature 134
+gcd134 <- filter(norm.outlines, 
+                 context %in% c("41ce19-f134"))
+
+gcd134 <- gcd134 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+# render figure
+par(mfrow=c(2, 3))
+stack(mpbp2, title = "Mounds Plantation, Burial Pit 2", xy.axis = TRUE, centroid = FALSE)
+stack(mpbp5, title = "Mounds Plantation, Burial Pit 5", xy.axis = TRUE, centroid = FALSE)
+stack(gmbp2, title = "Gahagan Mound, Burial Pit 2", xy.axis = TRUE, centroid = FALSE)
+stack(gmbp3, title = "Gahagan Mound, Burial Pit 3", xy.axis = TRUE, centroid = FALSE)
+stack(gcd119, title = "George C. Davis, Feature 119", xy.axis = TRUE, centroid = FALSE)
+stack(gcd134, title = "George C. Davis, Feature 134", xy.axis = TRUE, centroid = FALSE)
 ```
 
 ## Pile and mosaics
@@ -41,9 +112,6 @@ norm.outlines <- data.out %>%
 ```{r stack.panel, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # outline pile
 pile(norm.outlines)
-
-# mosaic of individual specimens by context
-mosaic(norm.outlines, ~context)
 ```
 
 ## Calibrate harmonic + EFA
