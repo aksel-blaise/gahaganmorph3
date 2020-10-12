@@ -105,9 +105,10 @@ stack(gmbp2, title = "Gahagan Mound, Burial Pit 2", xy.axis = TRUE, centroid = F
 stack(gmbp3, title = "Gahagan Mound, Burial Pit 3", xy.axis = TRUE, centroid = FALSE)
 stack(gcd119, title = "George C. Davis, Feature 119", xy.axis = TRUE, centroid = FALSE)
 stack(gcd134, title = "George C. Davis, Feature 134", xy.axis = TRUE, centroid = FALSE)
+### there is something wrong here - MPBP5 bifaces are straight--pulling incorrect samples? pile may fix this.
 ```
 
-## Pile and mosaics
+## Pile
 
 ```{r stack.panel, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # outline pile
@@ -145,7 +146,7 @@ plot_PCA(pca.outlines,
          morphospace_position = "range",
          ~context, zoom = 1.25)
 
-# contribution of each pc by region2
+# contribution of each pc by burial context
 boxplot(pca.outlines, ~context, nax = 1:5)
 
 # mean shape + 2sd for the first 10 pcs
@@ -156,7 +157,7 @@ PCcontrib(pca.outlines, nax = 1:5)
 
 ```{r manova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # manova + manova_pw
-# are there shape differences between regions?
+# are there shape differences between burial contexts?
 MANOVA(pca.outlines, 'context')
 
 # which differ?
@@ -165,8 +166,8 @@ MANOVA_PW(pca.outlines, 'context')
 
 ## Mean shapes
 
-```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by burial context."}
-# mean shapes for regions
+```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by burial contexts."}
+# mean shapes for burial contexts
 ms.1 <- MSHAPES(efa.outlines, ~context)
 plot_MSHAPES(ms.1, size = 0.75)
 ```
