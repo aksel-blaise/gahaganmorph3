@@ -39,7 +39,7 @@ norm.outlines <- data.out %>%
 
 ## mounds plantation burial pit 2
 mpbp2 <- filter(norm.outlines, 
-                context %in% c("16cd12-bp2"))
+                context %in% "16cd12-bp2")
 
 mpbp2 <- mpbp2 %>% 
   coo_scale() %>%
@@ -49,7 +49,7 @@ mpbp2 <- mpbp2 %>%
 
 ## mounds plantation burial pit 5
 mpbp5 <- filter(norm.outlines, 
-                context %in% c("16cd12-bp5"))
+                context %in% "16cd12-bp5")
 
 mpbp5 <- mpbp5 %>% 
   coo_scale() %>%
@@ -59,7 +59,7 @@ mpbp5 <- mpbp5 %>%
 
 ## gahagan mound burial pit 2
 gmbp2 <- filter(norm.outlines, 
-                context %in% c("16rr1-bp2"))
+                context %in% "16rr1-bp2")
 
 gmbp2 <- gmbp2 %>% 
   coo_scale() %>%
@@ -69,7 +69,7 @@ gmbp2 <- gmbp2 %>%
 
 ## gahagan mound burial pit 3
 gmbp3 <- filter(norm.outlines, 
-                context %in% c("16rr1-bp3"))
+                context %in% "16rr1-bp3")
 
 gmbp3 <- gmbp3 %>% 
   coo_scale() %>%
@@ -79,7 +79,7 @@ gmbp3 <- gmbp3 %>%
 
 ## george c davis feature 119
 gcd119 <- filter(norm.outlines, 
-                 context %in% c("41ce19-f119"))
+                 context %in% "41ce19-f119")
 
 gcd119 <- gcd119 %>% 
   coo_scale() %>%
@@ -89,7 +89,7 @@ gcd119 <- gcd119 %>%
 
 ## george c davis feature 134
 gcd134 <- filter(norm.outlines, 
-                 context %in% c("41ce19-f134"))
+                 context %in% "41ce19-f134")
 
 gcd134 <- gcd134 %>% 
   coo_scale() %>%
@@ -105,7 +105,8 @@ stack(gmbp2, title = "Gahagan Mound, Burial Pit 2", xy.axis = TRUE, centroid = F
 stack(gmbp3, title = "Gahagan Mound, Burial Pit 3", xy.axis = TRUE, centroid = FALSE)
 stack(gcd119, title = "George C. Davis, Feature 119", xy.axis = TRUE, centroid = FALSE)
 stack(gcd134, title = "George C. Davis, Feature 134", xy.axis = TRUE, centroid = FALSE)
-### there is something wrong here - MPBP5 bifaces are straight--pulling incorrect samples? pile may fix this.
+### there is something wrong here - MPBP5 biface edges are almost straight
+# pulling incorrect samples? pile may fix this.
 ```
 
 ## Pile
