@@ -7,11 +7,8 @@
 library(here)
 library(Momocs)
 
-# set working directory
-setwd(getwd())
-
 # read images
-jpg.list <- list.files("./jpg", full.names = TRUE)
+jpg.list <- list.files(here("supp/jpegs"), full.names = TRUE)
 
 # read attribute data
 att.data <- read.csv("qdata.csv", header = TRUE, as.is = TRUE)
@@ -37,16 +34,86 @@ norm.outlines <- data.out %>%
   coo_align() %>% 
   coo_rotate() %>% 
   coo_center()
+
+# outlines by context
+
+## mounds plantation burial pit 2
+mpbp2 <- filter(norm.outlines, 
+                context %in% "16cd12-bp2")
+
+mpbp2 <- mpbp2 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## mounds plantation burial pit 5
+mpbp5 <- filter(norm.outlines, 
+                context %in% "16cd12-bp5")
+
+mpbp5 <- mpbp5 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## gahagan mound burial pit 2
+gmbp2 <- filter(norm.outlines, 
+                context %in% "16rr1-bp2")
+
+gmbp2 <- gmbp2 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## gahagan mound burial pit 3
+gmbp3 <- filter(norm.outlines, 
+                context %in% "16rr1-bp3")
+
+gmbp3 <- gmbp3 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## george c davis feature 119
+gcd119 <- filter(norm.outlines, 
+                 context %in% "41ce19-f119")
+
+gcd119 <- gcd119 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+## george c davis feature 134
+gcd134 <- filter(norm.outlines, 
+                 context %in% "41ce19-f134")
+
+gcd134 <- gcd134 %>% 
+  coo_scale() %>%
+  coo_align() %>%
+  coo_rotate() %>% 
+  coo_center()
+
+# render figure
+par(mfrow=c(2, 3))
+stack(mpbp2, title = "Mounds Plantation, Burial Pit 2", xy.axis = TRUE, centroid = FALSE)
+stack(mpbp5, title = "Mounds Plantation, Burial Pit 5", xy.axis = TRUE, centroid = FALSE)
+stack(gmbp2, title = "Gahagan Mound, Burial Pit 2", xy.axis = TRUE, centroid = FALSE)
+stack(gmbp3, title = "Gahagan Mound, Burial Pit 3", xy.axis = TRUE, centroid = FALSE)
+stack(gcd119, title = "George C. Davis, Feature 119", xy.axis = TRUE, centroid = FALSE)
+stack(gcd134, title = "George C. Davis, Feature 134", xy.axis = TRUE, centroid = FALSE)
+### there is something wrong here - MPBP5 biface edges are almost straight
+# pulling incorrect samples? pile may fix this.
 ```
 
-## Pile and mosaics
+## Pile
 
 ```{r stack.panel, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # outline pile
 pile(norm.outlines)
-
-# mosaic of individual specimens by context
-mosaic(norm.outlines, ~context)
 ```
 
 ## Calibrate harmonic + EFA
@@ -80,7 +147,7 @@ plot_PCA(pca.outlines,
          morphospace_position = "range",
          ~context, zoom = 1.25)
 
-# contribution of each pc by region2
+# contribution of each pc by burial context
 boxplot(pca.outlines, ~context, nax = 1:5)
 
 # mean shape + 2sd for the first 10 pcs
@@ -91,7 +158,7 @@ PCcontrib(pca.outlines, nax = 1:5)
 
 ```{r manova, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE}
 # manova + manova_pw
-# are there shape differences between regions?
+# are there shape differences between burial contexts?
 MANOVA(pca.outlines, 'context')
 
 # which differ?
@@ -100,8 +167,8 @@ MANOVA_PW(pca.outlines, 'context')
 
 ## Mean shapes
 
-```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by burial context."}
-# mean shapes for regions
+```{r ms1, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Mean shapes for Gahagan bifaces by burial contexts."}
+# mean shapes for burial contexts
 ms.1 <- MSHAPES(efa.outlines, ~context)
 plot_MSHAPES(ms.1, size = 0.75)
 ```

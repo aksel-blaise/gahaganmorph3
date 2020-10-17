@@ -24,10 +24,9 @@ knitr::include_graphics('images/gahaganmorph.jpg')
 ```{r, load.lasec.package.2d1, echo=TRUE}
 # load package
 #devtools::install_github("akiopteryx/lambda")
+library(here)
 library(LaMBDA)
 
-# set working directory
-setwd(getwd())
 source('readmulti.csv.R')
 
 # read .csv files

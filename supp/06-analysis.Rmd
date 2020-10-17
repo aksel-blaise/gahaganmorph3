@@ -11,16 +11,15 @@ knitr::include_graphics('images/figure02.jpg')
 ```{r load geomorph, setwd, and load data, echo=TRUE}
 # load geomorph
 #devtools::install_github("geomorphR/geomorph", ref = "Stable", build_vignettes = TRUE)
+library(here)
 library(geomorph)
 library(tidyverse)
 library(wesanderson)
 
-# set working directory
-setwd(getwd())
 source('readmulti.csv.R')
 
 # read .csv files
-setwd("./data")
+setwd("./data.3d1")
 filelist <- list.files(pattern = ".csv")
 coords <- readmulti.csv(filelist)
 setwd("../")
@@ -41,7 +40,7 @@ Y.gpa<-gpagen(coords,
 # plot(Y.gpa)
 
 # 3D gpa plot
-knitr::include_graphics('images/gpa3d.png')
+#knitr::include_graphics('images/gpa3d.png')
 ```
 
 ```{r centsize.box, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Centroid size of Gahagan bifaces by Region 2."}
