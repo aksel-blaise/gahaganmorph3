@@ -98,13 +98,13 @@ gcd134 <- gcd134 %>%
   coo_center()
 
 # render figure
-par(mfrow=c(2, 3))
-stack(mpbp2, title = "Mounds Plantation, Burial Pit 2", xy.axis = TRUE, centroid = FALSE)
-stack(mpbp5, title = "Mounds Plantation, Burial Pit 5", xy.axis = TRUE, centroid = FALSE)
-stack(gmbp2, title = "Gahagan Mound, Burial Pit 2", xy.axis = TRUE, centroid = FALSE)
-stack(gmbp3, title = "Gahagan Mound, Burial Pit 3", xy.axis = TRUE, centroid = FALSE)
-stack(gcd119, title = "George C. Davis, Feature 119", xy.axis = TRUE, centroid = FALSE)
-stack(gcd134, title = "George C. Davis, Feature 134", xy.axis = TRUE, centroid = FALSE)
+#par(mfrow=c(2, 3))
+#stack(mpbp2, title = "Mounds Plantation, Burial Pit 2", xy.axis = TRUE, centroid = FALSE)
+#stack(mpbp5, title = "Mounds Plantation, Burial Pit 5", xy.axis = TRUE, centroid = FALSE)
+#stack(gmbp2, title = "Gahagan Mound, Burial Pit 2", xy.axis = TRUE, centroid = FALSE)
+#stack(gmbp3, title = "Gahagan Mound, Burial Pit 3", xy.axis = TRUE, centroid = FALSE)
+#stack(gcd119, title = "George C. Davis, Feature 119", xy.axis = TRUE, centroid = FALSE)
+#stack(gcd134, title = "George C. Davis, Feature 134", xy.axis = TRUE, centroid = FALSE)
 ### there is something wrong here - MPBP5 biface edges are almost straight
 # pulling incorrect samples? pile may fix this.
 ```
