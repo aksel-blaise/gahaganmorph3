@@ -1,5 +1,7 @@
 library(ggplot2)
 library(wesanderson)
+library(ggpubr)
+
 
 data <- read.csv("qdata.csv", header = TRUE, as.is = TRUE)
 
@@ -35,14 +37,22 @@ ggplot(data, aes(x = length, fill = context, colour = context)) +
 
 ## Barplot
 
-1 <- ggplot(data, aes(x = length)) +
+h1 <- ggplot(data, aes(x = length)) +
             geom_histogram(binwidth = 1, fill="#69b3a2", color="#e9ecef", alpha=0.9)
 
-2 <- ggplot(data, aes(x = length)) +
+h2 <- ggplot(data, aes(x = length)) +
             geom_histogram(binwidth = 2, fill="#69b3a2", color="#e9ecef", alpha=0.9)
 
-3 <- ggplot(data, aes(x = length)) +
+h3 <- ggplot(data, aes(x = length)) +
             geom_histogram(binwidth = 3, fill="#69b3a2", color="#e9ecef", alpha=0.9)
 
-3 <- ggplot(data, aes(x = length)) +
-            geom_histogram(binwidth = 3, fill="#69b3a2", color="#e9ecef", alpha=0.9)
+h4 <- ggplot(data, aes(x = length)) +
+            geom_histogram(binwidth = 4, fill="#69b3a2", color="#e9ecef", alpha=0.9)
+
+# render figure
+hist <- ggarrange(h1,h2,h3,h4,
+                      labels = c("a","b","c","d"),
+                      ncol = 2, nrow = 2)
+
+# plot figure
+hist
