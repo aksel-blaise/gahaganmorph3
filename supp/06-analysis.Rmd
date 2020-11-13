@@ -15,6 +15,7 @@ library(here)
 library(geomorph)
 library(tidyverse)
 library(wesanderson)
+library(ape)
 
 source('readmulti.csv.R')
 
@@ -69,6 +70,10 @@ knitr::kable(qdata,
 # principal components analysis
 pca<-gm.prcomp(Y.gpa$coords)
 summary(pca)
+
+# minimum spanning tree
+shape <- Y.gpa$coords
+mst(shape)
 ```
 
 ## Test Hypothesis
