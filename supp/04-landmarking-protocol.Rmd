@@ -16,13 +16,9 @@ The first 3D landmarking protocol ([LM3d1](https://github.com/aksel-blaise/gahag
 knitr::include_graphics('images/gahaganmorph2.png')
 ```
 
-The goal of this effort was to increase the precision and rigor of the study by including additional elements from the Z-dimension to capture those morphological characteristics associated with plan, profile, and cross-sections. This landmarking protocol is the culmination of the iterative design process that began during the previous 2D [@RN11783] and 3D ([LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md)) [@RN21001] geometric morphometric analyses. The cross-sections increase the coverage of sLMs across mesh topology, providing for greater precision in the analysis of whole-object morphology, and can be subset as a means of analyzing specific features of interest. For this study, the previously-noted morphological differences that occur in plan view [@RN11783;@RN21001] are further scrutinized in an effort to explore whether those differences in Gahagan biface plan view might be said to extend to the profiles of Gahagan bifaces. Due to the degree of axial twisting that occurs across the sample, it is not possible to gather the data needed to answer this query using 2D methods.
+The goal of this effort was to increase the precision and rigour of the study by including additional elements from the Z-dimension to capture morphological characteristics associated with plan, profile, and cross-sections. This landmarking protocol is the culmination of the iterative design process that began during the previous 2D [@RN11783] and 3D ([LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md)) [@RN21001] geometric morphometric analyses, and includes fewer steps than [LM3d3](https://aksel-blaise.github.io/dalton/landmarking-protocol-3d3.html). The cross-sections increase the coverage of sLMs across mesh topology, providing for greater precision in the analysis of whole-object morphology, and can be subset as a means of analyzing specific features of interest. For this study, the previously-noted morphological differences that occur in plan view [@RN11783;@RN21001] are further scrutinized in an effort to explore whether those differences in Gahagan biface plan view might be said to extend to the profiles of Gahagan bifaces. Due to the degree of axial twisting that occurs across the sample, it is not possible to gather the data needed to answer this query using 2D methods.
 
 The continued evolution of this landmarking protocol represents a concerted effort to better comprehend the vagaries of morphological similarities and differences among Gahagan bifaces. While true that some landmarking protocols can be---and often are---recycled as new specimens are added, this research program endeavors to achieve ever-greater accuracy and precision in each subsequent iteration.
-
-### Learning from EFA
-
-Results of the elliptical Fourier analysis (EFA) indicate that Gahagan biface shapes differ by burial context, and that shape variation is not confined to a single part of the biface. Edge-based differences run from the tip to the base, and there are also a few instances where basal shape differs.
 
 ## Generating the peripheral (plan view) spline
 
@@ -64,7 +60,7 @@ knitr::include_graphics('images/lm4.png')
 
 ## Reference geometry, Build 1
 
-Each of the preceding protocols were used in the previous analysis of Gahagan bifaces [@RN21001], and the following sections detail the logical evolution of that landmarking protocol. The resulting constellation of LM and sLM points can be subset to test a wide range of hypotheses associated with the plan and profile views of bifaces, and can be extended to include specific or multiple components of each cross-section. Each cross-section is also split between LM 01 and LM04, allowing for analyses of _bilateral asymmetry_ for both plan and profile views.
+Each of the preceding protocols were used in the previous analysis of Gahagan bifaces [@RN21001], and the following sections detail the evolution of that landmarking protocol. The resulting constellation of LM and sLM points can be subset to test a wide range of hypotheses associated with the plan and profile views of bifaces, and can be extended to include specific or multiple components of each cross-section. Each cross-section is also split between LM 01 and LM04, allowing for analyses of _bilateral asymmetry_ for both plan and profile views.
 
 ### Reference Vector 1, Point 2, and Plane 2
 
@@ -86,7 +82,7 @@ knitr::include_graphics('images/plane3-4.png')
 
 ## Cross-sections
 
-Twelve equidistant curves were inserted between the ref.pl.3 and ref.pl.4 using the `section` function, and those that bisected the point at the location of LM 01 and LM 04 were deleted. The resulting 10 curves were split at the points of highest curvature along the lateral edges, then along the mid-line at the point where they intersect with ref.pl.2.
+Twelve equidistant curves were inserted between the ref.pl.3 and ref.pl.4 using the `section` function, and those that bisected the biface at the location of LM 01 and LM 04 were deleted. The resulting 10 curves were split at the points of highest curvature along the lateral edges, then along the mid-line at the point where they intersect with ref.pl.2.
 
 ```{r cross.10, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Ten equidistant cross-sections were inserted between Plane 3 and Plane 4."}
 knitr::include_graphics('images/cross.10.png')
@@ -120,4 +116,4 @@ The resulting constellation of LMs and sLMs can be parsed and divided to answer 
 
 ## Acknowledgments
 
-I extend my gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of ([LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md), as well as this landmarking protocol. The current iteration of the landmarking protocol was developed using the `digit3DLand` package in R (code available in this repository); however, the capacity to populate a replicable suite of `reference geometry` across the sample in _Geomagic Design X_ provides a means of making this design process extensible.
+I extend my gratitude to Christian S. Hoggard and David K. Thulman for their thoughtful comments and constructive criticisms on an earlier draft of [LM3d1](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md), as well as this landmarking protocol. The current iteration of the landmarking protocol was developed using the `digit3DLand` package in R (code available in this repository); however, the capacity to populate a replicable suite of `reference geometry` across the sample in _Geomagic Design X_ provides a means of making this design process extensible.

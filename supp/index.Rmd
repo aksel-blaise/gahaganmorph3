@@ -1,5 +1,5 @@
 --- 
-title: "Toward an analysis of _design intent_ and _morphological standardization_ in Gahagan bifaces"
+title: "Morphological differences in midline and cross-section profiles for Gahagan bifaces from central Texas and the southern Caddo area"
 author: "Robert Z. Selden, Jr."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -14,16 +14,14 @@ description: "Gahagan biface shape change."
 
 This volume is written in _Markdown_, and all files needed to reproduce it are included in the [GitHub repository](https://github.com/aksel-blaise/gahaganmorph3), which is digitally curated on the Open Science Framework. The reproducible nature of this undertaking provides a means for others to critically assess and evaluate the various analytical components [@RN20915;@RN20916;@RN20917], which is a necessary requirement for the production of reliable knowledge.
 
-This analysis follows two recent morphological studies of the largest samples of Gahagan bifaces [@RN11783;@RN21001], and seeks to further characterize morhpological variation among geographic (regional) and cultural (mortuary) contexts. Results provide a preview of the dynamic temporal, spatial, and morphological relationships associated with Gahagan bifaces recovered from the southern Caddo area and central Texas. Following the analyses of shape, form, and allometry is a novel analysis of object symmetry used to posit _design intent_, and an analysis of fluctuating asymmetry used to bolster the argument for _morphological standardization_ among Gahagan bifaces.
+This analysis follows two recent morphological studies of the largest samples of Gahagan bifaces [@RN11783;@RN21001], and seeks to further characterize morhpological variation among geographic contexts. Results provide a preview of the dynamic temporal, spatial, and morphological relationships associated with Gahagan bifaces recovered from the southern Caddo area and central Texas.
 
 ```{r gahagan, out.width = "100%", dpi = 300, echo=TRUE, warning=FALSE, fig.cap="Gahagan bifaces from the southern Caddo area (SCA) and central Texas."}
 # embed image
 knitr::include_graphics('images/figure01.jpg')
 ```
 
-Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN21001], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have—explicitly or implicitly—a major impact on scientific progress [@RN21008].
-
-Components of the undertaking presented in this volume are novel, and this basic research endeavour is rooted in archaeological epistemology. Sharing data is not enough, and if investigators share only data absent their analysis code, that places a substantive burden on those who may seek to build upon or replicate our work in the future.
+Reproducibility projects in [psychology](https://osf.io/ezcuj/) and [cancer biology](https://www.cos.io/rpcb) are impacting current research practices across all domains. Examples of reproducible research are becoming more abundant in archaeology [@RN20804;@RN21009;@RN21001], and the next generation of archaeologists are learning those tools and methods needed to reproduce and/or replicate research results [@RN21007]. Reproducible and replicable research work flows are often employed at the highest levels of humanities-based inquiries to mitigate concern or doubt regarding proper execution, and is of particular import should the results have---explicitly or implicitly---a major impact on scientific progress [@RN21008].
 
 ## Acknowledgments
 

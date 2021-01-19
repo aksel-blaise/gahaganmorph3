@@ -1,6 +1,6 @@
 # Temporal Dynamics
 
-Further information regarding the radiocarbon dates discussed below can be found in the text of the previous article [@RN21001], and those references cited below.
+Further information regarding the radiocarbon dates discussed below can be found in the text of the previous article [@RN21001], and the references cited below.
 
 ```{r install, echo = TRUE}
 #devtools::install_github('ISAAKiel/oxcAAR')
@@ -119,7 +119,7 @@ plot(sum_sim)
 
 For reasons explained in the text, Tx-1206 and Tx-56 are included in the model as outliers. The script that appears below achieves the same results in R and in OxCal. Due to the fact that the Baker site dates do not articulate directly with the Gahagan biface, they are included in the first model, and omitted from the second. 
 
-```{r chronmod1, echo=TRUE}
+```{r chronmod1, echo=TRUE, eval=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
 # chronological model with Baker site dates
 gahaganmod <- 'Plot()
@@ -199,7 +199,7 @@ gahaganmod <- 'Plot()
 
 This second iteration of the chronological model does not include the dates from the Baker site. 
 
-```{r chronmod2, echo=TRUE}
+```{r chronmod2, echo=TRUE, eval=FALSE}
 # chronological model without Baker site dates
 gahaganmod2 <- 'Plot()
  {

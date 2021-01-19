@@ -11,44 +11,7 @@ LaSEC conducts the following procedure [@RN28913, 4-5]:
 5. Repeat steps 2–5 for specified number of iterations (`iter` argument).
 6. Create sampling curves by plotting the trajectory of “fit” (1–PSS) against the number of landmarks sampled from each iteration for both shape and centroid size as gray lines. Then, plot the median fit value for each number of landmarks sampled on the same plot as a thick, dark line. Finally, output these sampling curves: `LaSEC_SamplingCurve_Shape.pdf`, `LaSEC_SamplingCurve_Size.pdf`.
 
-What follows is a critical retrospective regarding the 2D and 3D landmark configurations used in the previous two geometric morphometric studies [@RN11783;@RN21001]. This chapter concludes with the assessment of the landmark configuration for Gahagan bifaces that was outlined in the previous chapter.
-
-## Initial 2D iteration
-
-In the initial 2D configuration [@RN11783, Figure 3], the silhouette of each biface was projected onto a `reference plane`. The locations of the three landmarks and 43 equidistant semilandmarks were defined using a suite of `reference geometry`. Although the analysis itself is of a 2D shape, that configuration was generated in 3D space, where each landmark and semilandmark articulates with an x, y, and z coordinate, so the analysis of this landmark configuration uses three dimensions.
-
-```{r fig.gahaganmorph.xr1, fig.cap="The landmarking protocol used in the 2D analysis of Gahagan bifaces, where all landmarks and semilandmarks were projected onto a plane."}
-knitr::include_graphics('images/gahaganmorph.jpg')
-```
-
-```{r, load.lasec.package.2d1, echo=TRUE}
-# load package
-#devtools::install_github("akiopteryx/lambda")
-library(here)
-library(LaMBDA)
-
-source('readmulti.csv.R')
-
-# read .csv files
-setwd("./data.2d1")
-filelist <- list.files(pattern = ".csv")
-lmdata <- readmulti.csv(filelist)
-lmdata <- two.d.array(lmdata)
-setwd("../")
-
-# analysis
-lasec(coord.data = lmdata, n.dim = 3, iter = 1000)
-```
-
-Results demonstrate that eight landmarks are necessary to achieve a median fit value of 0.90, 12 to achieve a median fit value of 0.95, and 27 to achieve a fit value of 0.99. For centroid size, only three landmarks are needed to achieve a median fit value of 0.99. 
-
-```{r fig.lasec.2d1, fig.cap="Sampling curves from performing `LaSEC` on the 2D dataset with respect to characterising shape variation. Each gray line indicates fit values from one iteration of subsampling. Thick, dark line denotes median fit value at each number of landmarks. `LaSEC` sampling curve for shape (left), and for centroid size (right). Results produced using the code above for this 3D dataset, using 1,000 iterations. Images converted to PNG following export."}
-knitr::include_graphics('images/2d1.lasec.png')
-```
-
-Results demonstrate saltation, illustrating that some landmarks are critical for capturing shape information [@RN28913]. Dynamic as Gahagan bifaces may be in shape, the variation in shape might have been captured with a landmarking protocol that employed fewer equidistant semilandmarks along the edges and base. 
-
-## First 3D iteration
+## Current 3D iteration (LM3d2)
 
 In the initial 3D configuration [@RN21001] was applied following alignment in `auto3dgm`, was originally designed using the R package `digit3DLand`, prior to migrating the protocol to _Geomagic Design X_. During the previous analysis, it was noted that some of the Gahagan bifaces evidenced axial twisting, which was more apparent in the sample from central Texas. In order to capitalise on this dynamic edge morphology, a new 3D [landmarking protocol](https://github.com/aksel-blaise/gahaganmorph2/blob/master/analysis/landmarking-protocol.md) was developed that enlisted four landmarks, and 50 semilandmarks. Like the 2D landmarking protocol that preceded it, this 3D landmarking protocol was based upon the placement of specific elements of reference geometry.
 
@@ -56,7 +19,7 @@ In the initial 3D configuration [@RN21001] was applied following alignment in `a
 knitr::include_graphics('images/gahaganmorph2.png')
 ```
 
-```{r, load.lasec.package.3d1, echo=TRUE}
+```{r, load.lasec.package.3d1, echo=TRUE, eval=FALSE}
 # read .csv files
 setwd("./data")
 filelist <- list.files(pattern = ".csv")
@@ -76,10 +39,6 @@ knitr::include_graphics('images/3d1.lasec.png')
 
 Results demonstrate saltation, illustrating that some landmarks are critical for capturing shape information [@RN28913]. Dynamic as the Gahagan bifaces may be in shape, the variation in shape might have been captured with a landmarking protocol that employed fewer equidistant semilandmarks along the edges and base. 
 
-## Current 3D iteration
-
-Based upon the results of running `LaSEC` on the 2D landmarks as well as LM3d1, the current iteration adopted a configuration with the same landmarks used in LM3d1, but with fewer semilandmarks along the same curves (lateral/basal edges) as a means of increasing the overall precision of the geometric morphometric analysis.
-
 ## Acknowledgments
 
-I extend my gratitude to David K. Thulman for bringing `LaSEC` to my attention, and to Akinobu Watanabe for guidance related to the evaluation of these landmarking protocols.
+I extend my gratitude to Akinobu Watanabe for guidance related to the evaluation of these landmarking protocols.
